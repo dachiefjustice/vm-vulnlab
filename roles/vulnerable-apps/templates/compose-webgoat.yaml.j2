@@ -1,0 +1,8 @@
+# Inferred from https://github.com/WebGoat/WebGoat#1-run-using-docker
+
+services:
+  webgoat:
+    image: "{{webgoat_image}}"
+    ports:
+        - "127.0.0.1:{{webgoat_host_webgoat_port}}:8080"
+        - "127.0.0.1:{{webgoat_host_webwolf_port}}:9090"

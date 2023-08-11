@@ -1,0 +1,83 @@
+---
+# OWASP Juice Shop: https://owasp.org/www-project-juice-shop/
+use_owasp_juiceshop:    false
+juiceshop_autostart:    false   # use_owasp_juiceshop must be true
+juiceshop_image:        bkimminich/juice-shop # on docker hub
+juiceshop_compose_file: "{{juiceshop_directory}}/compose.yaml"
+juiceshop_directory:    "{{ansible_user_dir}}/juiceshop"
+juiceshop_host_port:    '3000'  # string; make sure nothing else is listening on this port
+
+# VulnLab: https://github.com/Yavuzlar/VulnLab
+use_yavuzlar_vulnlab:   false
+vulnlab_autostart:      false   # use_yavuzlar_vulnlab must be true
+vulnlab_image:          yavuzlar/vulnlab # on docker hub
+vulnlab_directory:      "{{ansible_user_dir}}/vulnlab"
+vulnlab_host_port:      '3001'  # string; make sure nothing else is listening on this port
+
+# RailsGoat: https://github.com/OWASP/railsgoat
+use_owasp_railsgoat:    false
+railsgoat_autostart:    false   # use_owasp_railsgoat must be true
+railsgoat_repo:         https://github.com/OWASP/railsgoat.git
+railsgoat_directory:    "{{ansible_user_dir}}/railsgoat"
+railsgoat_compose_file: "{{railsgoat_directory}}/compose.yaml"
+railsgoat_host_port:    '3002'  # string; make sure nothing else is listening on this port
+
+# Damn Vulnerable Web Application (DVWA): https://github.com/digininja/DVWA
+use_dvwa:               false
+dvwa_autostart:         false   # use_dvwa must be true
+dvwa_repo:              https://github.com/digininja/DVWA.git
+dvwa_directory:         "{{ansible_user_dir}}/dvwa"
+dvwa_compose_file:      "{{dvwa_directory}}/compose.yaml"
+dvwa_host_port:         '3003'  # string; make sure nothing else is listening on this port
+
+# Damn Vulnerable GraphQL Application (DVGA): https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
+use_dvga:               false
+dvga_autostart:         false   # use_dvga must be true
+dvga_image:             dolevf/dvga # on docker hub
+dvga_directory:         "{{ansible_user_dir}}/dvga"
+dvga_compose_file:      "{{dvga_directory}}/compose.yaml"
+dvga_host_port:         '3004'  # string; make sure nothing else is listening on this port
+
+# NodeGoat (https://github.com/OWASP/NodeGoat)
+use_owasp_nodegoat:     false
+nodegoat_autostart:     false   # use_owasp_nodegoat must be true
+nodegoat_repo:          https://github.com/OWASP/NodeGoat.git
+nodegoat_directory:     "{{ansible_user_dir}}/nodegoat"
+nodegoat_compose_file:  "{{nodegoat_directory}}/compose.yaml"
+nodegoat_host_port:     '3005'  # string; make sure nothing else is listening on this port
+
+# WebGoat (https://github.com/WebGoat/WebGoat)
+use_webgoat:                false
+webgoat_autostart:          false   # use_webgoat must be true
+webgoat_image:              webgoat/webgoat # on docker hub
+webgoat_directory:          "{{ansible_user_dir}}/webgoat"
+webgoat_compose_file:       "{{webgoat_directory}}/compose.yaml"
+webgoat_host_webgoat_port:  '3006' # string; make sure nothing else is listening on this port
+webgoat_host_webwolf_port:  '3007' # string; make sure nothing else is listening on this port
+
+# Mutillidae (https://github.com/webpwnized/mutillidae)
+use_mutillidae:                   false
+mutillidae_autostart:             false # use_mutillidae must be true
+mutillidae_repo:                  https://github.com/webpwnized/mutillidae-docker.git
+mutillidae_directory:             "{{ansible_user_dir}}/mutillidae"
+mutillidae_compose_file:          "{{mutillidae_directory}}/compose.yaml"
+mutillidae_host_port_dbadmin:     '9081'
+mutillidae_host_port_http:        '9080'
+mutillidae_host_port_https:       '9443'
+mutillidae_host_port_ldap:        '9389'
+mutillidae_host_port_ldap_admin:  '9082'
+
+# crAPI (https://github.com/OWASP/crAPI)
+use_crAPI:                false
+crAPI_autostart:          false   # use_crAPI must be true
+crAPI_repo:               https://github.com/OWASP/crAPI.git
+crAPI_directory:          "{{ansible_user_dir}}/crAPI"
+crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
+
+# SSRF vulnerable Lab (https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
+use_ssrf_lab:           false
+ssrf_lab_autostart:     false   # use_ssrf_lab_autostart must be true
+ssrf_lab_repo:          https://github.com/incredibleindishell/SSRF_Vulnerable_Lab.git
+ssrf_lab_directory:     "{{ansible_user_dir}}/ssrf-lab"
+ssrf_lab_compose_file:  "{{ssrf_lab_directory}}/compose.yaml"
+ssrf_lab_host_port:     '3008'

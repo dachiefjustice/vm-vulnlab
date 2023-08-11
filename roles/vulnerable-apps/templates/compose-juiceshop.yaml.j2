@@ -1,0 +1,7 @@
+# Inferred from https://github.com/juice-shop/juice-shop#docker-container
+
+services:
+  juiceshop:
+    image: "{{juiceshop_image}}"
+    ports:
+      - "127.0.0.1:{{juiceshop_host_port}}:3000"

@@ -1,0 +1,257 @@
+---
+
+##### Juice Shop #####
+- name: "Create directory for OWASP Juice Shop ({{ juiceshop_directory }})"
+  file:
+    path: "{{ juiceshop_directory }}"
+    state: directory
+  when: use_owasp_juiceshop
+
+- name: Template out OWASP Juice Shop docker-compose file
+  template:
+    src: templates/compose-juiceshop.yaml.j2
+    dest: "{{ juiceshop_compose_file }}"
+  when: use_owasp_juiceshop
+
+- name: Start OWASP Juice Shop
+  command:
+    cmd: "docker-compose -f {{juiceshop_compose_file}} up --detach"
+  when:
+    - use_owasp_juiceshop
+    - juiceshop_autostart
+
+##### VulnLab #####
+- name: "Create directory for Yavuzlar Vulnlab ({{ vulnlab_directory }})"
+  file:
+    path: "{{ vulnlab_directory }}"
+    state: directory
+  when: use_yavuzlar_vulnlab
+
+- name: Template out Yavuzlar Vulnlab docker-compose file
+  template:
+    src: templates/compose-vulnlab.yaml.j2
+    dest: "{{ vulnlab_directory }}/compose.yaml"
+  when: use_yavuzlar_vulnlab
+
+- name: Start Yavuzlar Vulnlab
+  command:
+    chdir: "{{ vulnlab_directory }}"
+    cmd: docker-compose up --detach
+  when:
+    - use_yavuzlar_vulnlab
+    - vulnlab_autostart
+
+##### RailsGoat #####
+- name: "Clone RailsGoat repo to {{railsgoat_directory}}"
+  git:
+    repo: "{{ railsgoat_repo }}"
+    dest: "{{ railsgoat_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_owasp_railsgoat
+
+- name: Remove docker-compose file from cloned RailsGoat repo (to use a custom one)
+  file:
+    path: "{{railsgoat_directory}}/docker-compose.yml"
+    state: absent
+  when: use_owasp_railsgoat
+
+- name: Template out RailsGoat docker-compose file
+  template:
+    src: templates/compose-railsgoat.yaml.j2
+    dest: "{{ railsgoat_compose_file }}"
+  when: use_owasp_railsgoat
+
+- name: Build RailsGoat container
+  command:
+    cmd: "docker-compose -f {{railsgoat_compose_file}} build"
+  when: use_owasp_railsgoat
+
+- name: Start RailsGoat
+  command:
+    cmd: "docker-compose -f {{railsgoat_compose_file}} up --detach"
+  when:
+    - use_owasp_railsgoat
+    - railsgoat_autostart
+
+##### DVWA #####
+- name: "Clone DVWA repo to {{dvwa_directory}}"
+  git:
+    repo: "{{ dvwa_repo }}"
+    dest: "{{ dvwa_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_dvwa
+
+- name: Remove docker-compose file from cloned DVWA repo (to use a custom one)
+  file:
+    path: "{{dvwa_directory}}/compose.yml"
+    state: absent
+  when: use_dvwa
+
+- name: Template out DVWA docker-compose file
+  template:
+    src: templates/compose-dvwa.yaml.j2
+    dest: "{{ dvwa_compose_file }}"
+  when: use_dvwa
+
+- name: Build DVWA container
+  command:
+    cmd: "docker-compose -f {{dvwa_compose_file}} build"
+  when: use_dvwa
+
+- name: Start DVWA
+  command:
+    cmd: "docker-compose -f {{dvwa_compose_file}} up --detach"
+  when:
+    - use_dvwa
+    - dvwa_autostart
+
+##### DVGA #####
+- name: "Create directory for DVGA ({{ dvga_directory }})"
+  file:
+    path: "{{ dvga_directory }}"
+    state: directory
+  when: use_dvga
+
+- name: Template out DVGA docker-compose file
+  template:
+    src: templates/compose-dvga.yaml.j2
+    dest: "{{ dvga_compose_file }}"
+  when: use_dvga
+
+- name: Start DVGA
+  command:
+    cmd: "docker-compose -f {{dvga_compose_file}} up --detach"
+  when:
+    - use_dvga
+    - dvga_autostart
+
+##### NodeGoat #####
+- name: "Clone NodeGoat repo to {{nodegoat_directory}}"
+  git:
+    repo: "{{ nodegoat_repo }}"
+    dest: "{{ nodegoat_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_owasp_nodegoat
+
+- name: Remove docker-compose file from cloned NodeGoat repo (to use a custom one)
+  file:
+    path: "{{nodegoat_directory}}/docker-compose.yml"
+    state: absent
+  when: use_owasp_nodegoat
+
+- name: Template out NodeGoat docker-compose file
+  template:
+    src: templates/compose-nodegoat.yaml.j2
+    dest: "{{ nodegoat_compose_file }}"
+  when: use_owasp_nodegoat
+
+- name: Build NodeGoat container
+  command:
+    cmd: "docker-compose -f {{nodegoat_compose_file}} build"
+  when: use_owasp_nodegoat
+
+- name: Start NodeGoat
+  command:
+    cmd: "docker-compose -f {{nodegoat_compose_file}} up --detach"
+  when:
+    - use_owasp_nodegoat
+    - nodegoat_autostart
+
+##### WebGoat #####
+- name: "Create directory for WebGoat ({{ webgoat_directory }})"
+  file:
+    path: "{{ webgoat_directory }}"
+    state: directory
+  when: use_webgoat
+
+- name: Template out WebGoat docker-compose file
+  template:
+    src: templates/compose-webgoat.yaml.j2
+    dest: "{{ webgoat_compose_file }}"
+  when: use_webgoat
+
+- name: Start WebGoat
+  command:
+    cmd: "docker-compose -f {{webgoat_compose_file}} up --detach"
+  when:
+    - use_webgoat
+    - webgoat_autostart
+
+##### Mutillidae #####
+- name: "Clone Mutillidae repo to {{mutillidae_directory}}"
+  git:
+    repo: "{{ mutillidae_repo }}"
+    dest: "{{ mutillidae_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_mutillidae
+
+- name: Remove docker-compose file from cloned Mutillidae repo (to use a custom one)
+  file:
+    path: "{{mutillidae_directory}}/docker-compose.yml"
+    state: absent
+  when: use_mutillidae
+
+- name: Template out Mutillidae docker-compose file
+  template:
+    src: templates/compose-mutillidae.yaml.j2
+    dest: "{{ mutillidae_compose_file }}"
+  when: use_mutillidae
+
+- name: Build Mutillidae containers
+  command:
+    cmd: "docker-compose -f {{mutillidae_compose_file}} build"
+  when: use_mutillidae
+
+- name: Start Mutillidae
+  command:
+    cmd: "docker-compose -f {{mutillidae_compose_file}} up --detach"
+  when:
+    - use_mutillidae
+    - mutillidae_autostart
+
+##### crAPI #####
+- name: "Clone crAPI repo to {{crAPI_directory}}"
+  git:
+    repo: "{{ crAPI_repo }}"
+    dest: "{{ crAPI_directory }}"
+    force: true # running crAPI modifies files within the project directory
+  when: use_crAPI
+
+- name: Pull crAPI Docker images
+  command:
+    cmd: "docker-compose -f {{crAPI_compose_file}} pull"
+  when: use_crAPI
+
+- name: Start crAPI
+  command:
+    cmd: "docker-compose -f {{crAPI_compose_file}} --compatibility up --detach"
+  when:
+    - use_crAPI
+    - crAPI_autostart
+
+##### SSRF Lab #####
+- name: "Clone SSRF lab repo to {{ssrf_lab_directory}}"
+  git:
+    repo: "{{ ssrf_lab_repo }}"
+    dest: "{{ ssrf_lab_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_ssrf_lab
+
+- name: Template out SSRF lab docker-compose file
+  template:
+    src: templates/compose-ssrf-lab.yaml.j2
+    dest: "{{ ssrf_lab_compose_file }}"
+  when: use_ssrf_lab
+
+- name: Build the SSRF lab container
+  command:
+    chdir: "{{ssrf_lab_directory}}"
+    cmd: "docker-compose -f {{ssrf_lab_compose_file}} build"
+  when: use_ssrf_lab
+
+- name: Start the SSRF lab container
+  command:
+    cmd: "docker-compose -f {{ssrf_lab_compose_file}} up --detach"
+  when:
+    - use_ssrf_lab
+    - ssrf_lab_autostart

@@ -1,0 +1,17 @@
+# This playbook sets up containerized vulnerable applications
+
+- name: Add vulnerable apps
+  hosts: all
+  roles:
+    - vulnerable-apps
+  vars:
+    - use_owasp_juiceshop:  true
+    - use_yavuzlar_vulnlab: true
+    - use_owasp_railsgoat:  true
+    - use_dvwa:             true
+    - use_dvga:             true
+    - use_owasp_nodegoat:   true
+    - use_mutillidae:       true
+    - use_webgoat:          true
+    - use_crAPI:            true
+    - use_ssrf_lab:         true

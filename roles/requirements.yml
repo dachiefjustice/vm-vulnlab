@@ -1,0 +1,9 @@
+---
+# Explicitly include vulnerable-apps role dependencies
+- name: geerlingguy.docker
+- name: geerlingguy.git
+
+- src: https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps.git
+  scm: git
+  version: main
+  name: vulnerable-apps
