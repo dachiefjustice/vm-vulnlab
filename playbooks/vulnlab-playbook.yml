@@ -15,3 +15,4 @@
     # - use_webgoat:          true
     # - use_crAPI:            true
     # - use_ssrf_lab:         true
+    - use_cicdgoat:         true
