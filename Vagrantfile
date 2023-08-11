@@ -1,4 +1,8 @@
 Vagrant.configure("2") do |config|
+  ##### PLUGINS #####
+  # Prompts for first-time install
+  config.vagrant.plugins = "vagrant-reload"
+
   ##### BASE BOX #####
   config.vm.box = "kalilinux/rolling"
 
@@ -21,7 +25,7 @@ Vagrant.configure("2") do |config|
   end
 
   # Reboot to add vagrant to docker group
-  config.vm.provision 'shell', reboot: true
+  config.vm.provision :reload
   
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbooks/vulnlab-playbook.yml"
