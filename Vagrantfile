@@ -20,12 +20,8 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "playbooks/vulnlab-prereqs-playbook.yml"
   end
 
-  # config.vm.provision 'shell', reboot: true
-
-  # config.vm.provision :shell do |shell|
-  #   shell.inline = 'echo Reset to add vagrant to docker group'
-  #   shell.reset = true
-  # end
+  # Reboot to add vagrant to docker group
+  config.vm.provision 'shell', reboot: true
   
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbooks/vulnlab-playbook.yml"
