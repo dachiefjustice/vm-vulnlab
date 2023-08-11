@@ -1,19 +1,24 @@
 ---
 
 ##### Juice Shop #####
-- name: "Create directory for OWASP Juice Shop ({{ juiceshop_directory }})"
+- name: "Create directory for Juice Shop ({{ juiceshop_directory }})"
   file:
     path: "{{ juiceshop_directory }}"
     state: directory
   when: use_owasp_juiceshop
 
-- name: Template out OWASP Juice Shop docker-compose file
+- name: Template out Juice Shop docker-compose file
   template:
     src: templates/compose-juiceshop.yaml.j2
     dest: "{{ juiceshop_compose_file }}"
   when: use_owasp_juiceshop
 
-- name: Start OWASP Juice Shop
+- name: Build and pull Juice Shop
+  command:
+    cmd: "docker-compose -f {{juiceshop_compose_file}} build --pull"
+  when: use_owasp_juiceshop
+
+- name: Start Juice Shop
   command:
     cmd: "docker-compose -f {{juiceshop_compose_file}} up --detach"
   when:
@@ -30,7 +35,12 @@
 - name: Template out Yavuzlar Vulnlab docker-compose file
   template:
     src: templates/compose-vulnlab.yaml.j2
-    dest: "{{ vulnlab_directory }}/compose.yaml"
+    dest: "{{ vulnlab_compose_file }}"
+  when: use_yavuzlar_vulnlab
+
+- name: Build and pull Yavuzlar Vulnlab
+  command:
+    cmd: "docker-compose -f {{vulnlab_compose_file}} build --pull"
   when: use_yavuzlar_vulnlab
 
 - name: Start Yavuzlar Vulnlab
@@ -61,9 +71,9 @@
     dest: "{{ railsgoat_compose_file }}"
   when: use_owasp_railsgoat
 
-- name: Build RailsGoat container
+- name: Build and pull RailsGoat
   command:
-    cmd: "docker-compose -f {{railsgoat_compose_file}} build"
+    cmd: "docker-compose -f {{railsgoat_compose_file}} build --pull"
   when: use_owasp_railsgoat
 
 - name: Start RailsGoat
@@ -93,9 +103,9 @@
     dest: "{{ dvwa_compose_file }}"
   when: use_dvwa
 
-- name: Build DVWA container
+- name: Build and pull DVWA
   command:
-    cmd: "docker-compose -f {{dvwa_compose_file}} build"
+    cmd: "docker-compose -f {{dvwa_compose_file}} build --pull"
   when: use_dvwa
 
 - name: Start DVWA
@@ -116,6 +126,11 @@
   template:
     src: templates/compose-dvga.yaml.j2
     dest: "{{ dvga_compose_file }}"
+  when: use_dvga
+
+- name: Build and pull DVGA
+  command:
+    cmd: "docker-compose -f {{dvga_compose_file}} build --pull"
   when: use_dvga
 
 - name: Start DVGA
@@ -145,9 +160,9 @@
     dest: "{{ nodegoat_compose_file }}"
   when: use_owasp_nodegoat
 
-- name: Build NodeGoat container
+- name: Build and pull NodeGoat
   command:
-    cmd: "docker-compose -f {{nodegoat_compose_file}} build"
+    cmd: "docker-compose -f {{nodegoat_compose_file}} build --pull"
   when: use_owasp_nodegoat
 
 - name: Start NodeGoat
@@ -168,6 +183,11 @@
   template:
     src: templates/compose-webgoat.yaml.j2
     dest: "{{ webgoat_compose_file }}"
+  when: use_webgoat
+
+- name: Build and pull WebGoat
+  command:
+    cmd: "docker-compose -f {{webgoat_compose_file}} build --pull"
   when: use_webgoat
 
 - name: Start WebGoat
@@ -197,9 +217,9 @@
     dest: "{{ mutillidae_compose_file }}"
   when: use_mutillidae
 
-- name: Build Mutillidae containers
+- name: Build and Mutillidae
   command:
-    cmd: "docker-compose -f {{mutillidae_compose_file}} build"
+    cmd: "docker-compose -f {{mutillidae_compose_file}} build --pull"
   when: use_mutillidae
 
 - name: Start Mutillidae
@@ -217,9 +237,9 @@
     force: true # running crAPI modifies files within the project directory
   when: use_crAPI
 
-- name: Pull crAPI Docker images
+- name: Build and pull crAPI
   command:
-    cmd: "docker-compose -f {{crAPI_compose_file}} pull"
+    cmd: "docker-compose -f {{crAPI_compose_file}} build --pull"
   when: use_crAPI
 
 - name: Start crAPI
@@ -243,10 +263,10 @@
     dest: "{{ ssrf_lab_compose_file }}"
   when: use_ssrf_lab
 
-- name: Build the SSRF lab container
+- name: Build and pull SSRF lab
   command:
     chdir: "{{ssrf_lab_directory}}"
-    cmd: "docker-compose -f {{ssrf_lab_compose_file}} build"
+    cmd: "docker-compose -f {{ssrf_lab_compose_file}} build --pull"
   when: use_ssrf_lab
 
 - name: Start the SSRF lab container
@@ -255,3 +275,29 @@
   when:
     - use_ssrf_lab
     - ssrf_lab_autostart
+
+##### CI/CD Goat #####
+- name: "Create directory for CI/CD Goat ({{ cicdgoat_directory }})"
+  file:
+    path: "{{ cicdgoat_directory }}"
+    state: directory
+  when: use_cicdgoat
+
+- name: Download CI/CD Goat docker compose file from GitHub
+  get_url:
+    url: "{{cicdgoat_compose_url}}"
+    dest: "{{cicdgoat_compose_file}}"
+  when: use_cicdgoat
+
+- name: Build and pull CI/CD Goat
+  command:
+    cmd: "docker-compose -f {{cicdgoat_compose_file}} build --pull"
+  when: use_cicdgoat
+
+- name: Start CI/CD Goat
+  command:
+    cmd: "docker-compose -f {{cicdgoat_compose_file}} up --detach"
+  when:
+    - use_cicdgoat
+    - cicdgoat_autostart
+  
