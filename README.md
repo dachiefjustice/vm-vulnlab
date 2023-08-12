@@ -12,7 +12,7 @@ This VM contains lots of vulnerable software! You're responsible for your own se
 - Uses a private Virtualbox network without port forwarding
 - Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
 
-For another layer of protection, disconnect from your network after deploying the vulnerable applications, before running them.
+For another layer of protection, disconnect from your network after deploying the vulnerable applications before running them.
 
 # Usage
 To get started [install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation), [install Virtualbox](https://www.virtualbox.org/wiki/Downloads), and [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Then:
