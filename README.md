@@ -34,7 +34,9 @@ vagrant up --provision
 ## Choosing Vulnerable Applications and Ports
 **Vulnerable applications are NOT automatically launched** for security reasons.
 
-To start using a vulnerable application, uncomment its `use_app_name` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml), save the file, and then run `vagrant up --provision`.
+To start using a vulnerable applicationL
+1. Uncomment its `use_app_name` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file.
+2. Run `vagrant up --provision` to apply the changes.
 
 ### Example: Enable OWASP Juice Shop
 For example, to start using OWASP Juice Shop, edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
