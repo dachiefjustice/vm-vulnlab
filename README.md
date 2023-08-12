@@ -25,7 +25,7 @@ cd vm-vulnlab
 vagrant up
 ```
 
-## vagrant-reload plugin installation
+## Plugin installation: vagrant-reload
 The first time you run `vagrant up`, you may be prompted to install the `vagrant-reload` plugin. This is required for automated VM setup. You can accept the plugin installation, and then continue VM setup after installing:
 ```sh
 vagrant up --provision
