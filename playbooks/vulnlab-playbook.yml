@@ -4,15 +4,4 @@
   hosts: all
   roles:
     - vulnerable-apps
-  vars:
-    - use_owasp_juiceshop:  true
-    - use_dvwa:             true
-    - use_mutillidae:       true
-    # - use_yavuzlar_vulnlab: true
-    # - use_owasp_railsgoat:  true
-    # - use_dvga:             true
-    # - use_owasp_nodegoat:   true
-    # - use_webgoat:          true
-    # - use_crAPI:            true
-    # - use_ssrf_lab:         true
-    - use_cicdgoat:         true
+  vars_files: vars/vulnerable-app-config.yaml

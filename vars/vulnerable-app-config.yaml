@@ -1,0 +1,62 @@
+---
+##### Juice Shop #####
+## More info: https://owasp.org/www-project-juice-shop/
+use_owasp_juiceshop:        true
+# juiceshop_host_port:        '3000'
+
+##### Yazuzlar Vulnerable Lab #####
+## More info: https://github.com/Yavuzlar/VulnLab
+# use_yavuzlar_vulnlab:   true
+# vulnlab_host_port:      '3001'  
+
+##### RailsGoat #####
+## More info: https://github.com/OWASP/railsgoat
+# use_owasp_railsgoat:    true
+# railsgoat_host_port:    '3002'
+
+##### DVWA #####
+## More info: https://github.com/digininja/DVWA
+# use_dvwa:               true
+# dvwa_host_port:         '3003'
+
+##### DVGA #####
+## More info: https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
+# use_dvga:               true
+# dvga_host_port:         '3004'
+
+##### NodeGoat #####
+## More info: https://github.com/OWASP/NodeGoat
+# use_owasp_nodegoat:      true
+# nodegoat_host_port:     '3005'
+
+##### SSRF Lab #####
+## More info: https://github.com/incredibleindishell/SSRF_Vulnerable_Lab
+# use_ssrf_lab:           true
+# ssrf_lab_host_port:     '3006'
+
+##### WebGoat #####
+## More info: https://github.com/WebGoat/WebGoat
+# use_webgoat:                true
+# webgoat_host_webgoat_port:  '4080'
+# webgoat_host_webwolf_port:  '4090'
+
+##### Mutillidae #####
+## More info: https://github.com/webpwnized/mutillidae
+# use_mutillidae:                   true
+# mutillidae_host_port_dbadmin:     '5081'
+# mutillidae_host_port_http:        '5080'
+# mutillidae_host_port_https:       '5443'
+# mutillidae_host_port_ldap:        '5389'
+# mutillidae_host_port_ldap_admin:  '5082'
+
+##### crAPI #####
+## More info: https://github.com/OWASP/crAPI
+## NOTE:  crAPI ports are not customizeable due to nature of the app.
+##        Refer to the crAPI README for details about ports.
+# use_crAPI:            true
+
+##### CI/CD Goat #####
+## NOTE:  crAPI ports are not customizeable due to nature of the app.
+##        Refer to the crAPI README for details about ports.
+## More info: https://github.com/cider-security-research/cicd-goat
+# use_cicdgoat:           true
