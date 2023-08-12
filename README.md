@@ -34,7 +34,7 @@ vagrant up --provision
 ## Choosing Vulnerable Applications and Ports
 **Vulnerable applications are NOT automatically launched** for security reasons.
 
-To start using a vulnerable applicationL
+To start using a vulnerable application:
 1. Uncomment its `use_app_name` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file.
 2. Run `vagrant up --provision` to apply the changes.
 
