@@ -53,12 +53,12 @@ Optionally, you can change the ports for each application. If you run multiple a
 
 ## Vulnerable Application Ports
 To learn which ports a given vulnerable application uses, check [roles/vulnerable-apps/defaults/main.yml](roles/vulnerable-apps/defaults/main.yml). 
-
-Some applications have multiple ports for different services.
-
-These applications have non-editable ports, due to their complexity and/or facing issues when I tried changing their ports:
-- [crAPI](https://github.com/OWASP/crAPI)
-- [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
+ Some nuances:
+ - Most applications use a single port
+ - Some applications have multiple ports for different services
+- These applications have non-editable ports, due to their complexity and/or facing issues when I tried changing their ports:
+    - [crAPI](https://github.com/OWASP/crAPI)
+    - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 
 # Tech Stack
 - Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
