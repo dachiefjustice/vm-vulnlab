@@ -1,0 +1,27 @@
+# Adapted from https://github.com/snoopysecurity/dvws-node/blob/master/docker-compose.yml
+
+version: '3'
+services:
+    dvws-mongo:
+        image: mongo:4.0.4
+    dvws-mysql:
+        image: mysql:8
+        environment:
+            MYSQL_ROOT_PASSWORD: mysecretpassword
+            MYSQL_DATABASE: dvws_sqldb
+    web:
+        image: snoopysecurity/dvws-node:latest
+        build: .
+        ports:
+        - "127.0.0.1:{{dvws_host_port_http}}:80"
+        - "127.0.0.1:{{dvws_host_port_graphql}}:4000"          
+        - "127.0.0.1:{{dvws_host_port_xmlrpc}}:9090"        
+        command: sh -c "/wait && node startup_script.js && npm start"
+        environment:
+            WAIT_HOSTS: dvws-mysql:3306, dvws-mongo:27017
+            WAIT_HOSTS_TIMEOUT: 160
+            SQL_LOCAL_CONN_URL: dvws-mysql
+            MONGO_LOCAL_CONN_URL: mongodb://dvws-mongo:27017/node-dvws
+        depends_on:
+            - dvws-mongo
+            - dvws-mysql

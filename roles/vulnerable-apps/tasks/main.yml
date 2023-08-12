@@ -364,3 +364,36 @@
   when:
     - use_VAmPI
     - VAmPI_autostart
+
+##### DVWS-Node #####
+- name: "Clone DVWS repo to {{dvws_directory}}"
+  git:
+    repo: "{{ dvws_repo }}"
+    dest: "{{ dvws_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_dvws
+
+- name: Remove docker-compose file from cloned DVWS repo (to use a custom one)
+  file:
+    path: "{{dvws_directory}}/docker-compose.yml"
+    state: absent
+  when: use_dvws
+
+- name: Template out DVWS lab docker-compose file
+  template:
+    src: templates/compose-dvws-node.yaml.j2
+    dest: "{{ dvws_compose_file }}"
+  when: use_dvws
+
+- name: Build DVWS
+  command:
+    chdir: "{{dvws_directory}}"
+    cmd: docker-compose -f {{dvws_compose_file}} build
+  when: use_dvws
+
+- name: Start DVWS
+  command:
+    cmd: "docker-compose -f {{dvws_compose_file}} up --detach"
+  when:
+    - use_dvws
+    - dvws_autostart
