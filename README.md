@@ -1,7 +1,7 @@
 # Summary
-I've met many people who lack the time or skillset to set up a lab environment to practice security, because of cost or complexity. These barriers shouldn't exist!
+I've met many people who lack the time or skillset to set up a lab environment to practice security, because of cost or complexity. These barriers shouldn't exist! This project aims to demolish those barriers by implementing an easy-to-use, free lab environment for students, developers and security professionals.
 
-This project aims to demolish those barriers by implementing an easy-to-use, free lab environment for students, developers and security professionals. Use it to:
+Use this project to:
 - Better understand vulnerabilities by finding and exploiting them
 - Practice penetration testing in a safe environment
 - Create security trainings/workshops
