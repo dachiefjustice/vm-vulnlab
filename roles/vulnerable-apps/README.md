@@ -26,7 +26,7 @@ Apply this role in a playbook to a [Vagrant-managed Kali VM](https://www.kali.or
 
 **⚠️Important⚠️**: this sets up intentionally vulnerable applications! Don't get yourself or your organization popped! You're responsible for isolating these applications.
 
-A handy way to do this: use a private Virtualbox network for the Kali VM, and don't port-forward. This way, everything is contained in the Kali VM. Here's an example:
+A handy way to do this: use a private Virtualbox network for the Kali VM, and don't port-forward. This way, everything is contained in the Kali VM. You can use [this example](https://gitlab.com/johnroberts/vm-vulnlab), or create your own based on this example:
 ```
 Vagrant.configure("2") do |config|
   ##### BASE BOX #####
