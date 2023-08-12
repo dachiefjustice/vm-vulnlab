@@ -35,12 +35,12 @@ vagrant up --provision
 **Vulnerable applications are NOT automatically launched** for security reasons.
 
 To start using a vulnerable application:
-1. Uncomment its `use_app_name` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file.
+1. Uncomment its `use_app_name` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. You can also change the port(s) it uses in this file (by editing `appname_host_port*`).
 2. Run `vagrant up --provision` to apply the changes.
 
 ### Example: Enable OWASP Juice Shop
 For example:
-1. To start using OWASP Juice Shop, edit [vulnerable-app-config.yaml](vulnerable-app-config.yaml) to look like:
+1. To start using OWASP Juice Shop, edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
 ```yaml
 ##### Juice Shop #####
 # More info: https://owasp.org/www-project-juice-shop/
@@ -51,17 +51,17 @@ use_owasp_juiceshop:        true
 ```
 2. Then after editing, run `vagrant up --provision`.
 
-Optionally, you can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). If you run multiple applications at once, make sure they don't use conflicting port numbers.
+### Port Details
+- Most vulnerable applications use a single port
+- Some vulnerable applications use multiple ports for different services
+- If you run multiple vulnerable applications at once, make sure they don't use conflicting port numbers. The default ports are non-conflicting (except for the application listed below that use non-editable ports). For these applications, refer to their to their documentation to learn about what ports they use:
+    - [crAPI](https://github.com/OWASP/crAPI)
+    - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
+
+Optionally, you can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). 
 
 ## Vulnerable Application Ports & Guides
 To learn which ports a given vulnerable application uses and find guides/detailed information about them, check [roles/vulnerable-apps/defaults/main.yml](roles/vulnerable-apps/defaults/main.yml).
-
-Some details:
-- Most vulnerable applications use a single port
-- Some vulnerable applications use multiple ports for different services
-- Specific applications use non-editable ports, due to their complexity and/or facing issues when I tried changing their ports. For these applications, refer to their to their documentation to learn about their ports and usage:
-    - [crAPI](https://github.com/OWASP/crAPI)
-    - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 
 # Tech Stack
 - Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
