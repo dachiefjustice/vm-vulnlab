@@ -11,7 +11,8 @@ vulnlab_host_port:      '3001'
 railsgoat_host_port:    '3002'
 dvwa_host_port:         '3003'
 dvga_host_port:         '3004'
-ssrf_lab_host_port:     '3005'
+nodegoat_host_port:     '3005'
+ssrf_lab_host_port:     '3006'
 
 # Multi-port apps each get 1000 ports
 ## WebGoat: 4000 port range
@@ -33,7 +34,6 @@ juiceshop_autostart:    false   # use_owasp_juiceshop must be true
 juiceshop_image:        bkimminich/juice-shop # on docker hub
 juiceshop_compose_file: "{{juiceshop_directory}}/compose.yaml"
 juiceshop_directory:    "{{ansible_user_dir}}/juiceshop"
-nodegoat_host_port:     '3005'  # string; make sure nothing else is listening on this port
 
 # VulnLab: https://github.com/Yavuzlar/VulnLab
 use_yavuzlar_vulnlab:   false
@@ -70,6 +70,13 @@ nodegoat_repo:          https://github.com/OWASP/NodeGoat.git
 nodegoat_directory:     "{{ansible_user_dir}}/nodegoat"
 nodegoat_compose_file:  "{{nodegoat_directory}}/compose.yaml"
 
+# SSRF vulnerable Lab (https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
+use_ssrf_lab:           false
+ssrf_lab_autostart:     false   # use_ssrf_lab must be true
+ssrf_lab_repo:          https://github.com/incredibleindishell/SSRF_Vulnerable_Lab.git
+ssrf_lab_directory:     "{{ansible_user_dir}}/ssrf-lab"
+ssrf_lab_compose_file:  "{{ssrf_lab_directory}}/compose.yaml"
+
 # WebGoat (https://github.com/WebGoat/WebGoat)
 use_webgoat:                false
 webgoat_autostart:          false   # use_webgoat must be true
@@ -90,13 +97,6 @@ crAPI_autostart:          false   # use_crAPI must be true
 crAPI_repo:               https://github.com/OWASP/crAPI.git
 crAPI_directory:          "{{ansible_user_dir}}/crAPI"
 crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
-
-# SSRF vulnerable Lab (https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
-use_ssrf_lab:           false
-ssrf_lab_autostart:     false   # use_ssrf_lab must be true
-ssrf_lab_repo:          https://github.com/incredibleindishell/SSRF_Vulnerable_Lab.git
-ssrf_lab_directory:     "{{ansible_user_dir}}/ssrf-lab"
-ssrf_lab_compose_file:  "{{ssrf_lab_directory}}/compose.yaml"
 
 # CI/CD Goat (https://github.com/cider-security-research/cicd-goat)
 # Using the default ports/containers, no customization.

@@ -14,8 +14,11 @@
   when: use_owasp_juiceshop
 
 - name: Build and pull Juice Shop
-  command:
-    cmd: "docker-compose -f {{juiceshop_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{juiceshop_compose_file}} build &&
+      docker-compose -f {{juiceshop_compose_file}} pull
+    chdir: "{{ juiceshop_directory }}"
   when: use_owasp_juiceshop
 
 - name: Start Juice Shop
@@ -39,8 +42,11 @@
   when: use_yavuzlar_vulnlab
 
 - name: Build and pull Yavuzlar Vulnlab
-  command:
-    cmd: "docker-compose -f {{vulnlab_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{vulnlab_compose_file}} build &&
+      docker-compose -f {{vulnlab_compose_file}} pull
+    chdir: "{{ vulnlab_directory }}"
   when: use_yavuzlar_vulnlab
 
 - name: Start Yavuzlar Vulnlab
@@ -72,8 +78,11 @@
   when: use_owasp_railsgoat
 
 - name: Build and pull RailsGoat
-  command:
-    cmd: "docker-compose -f {{railsgoat_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{railsgoat_compose_file}} build &&
+      docker-compose -f {{railsgoat_compose_file}} pull
+    chdir: "{{ railsgoat_directory }}"
   when: use_owasp_railsgoat
 
 - name: Start RailsGoat
@@ -104,8 +113,11 @@
   when: use_dvwa
 
 - name: Build and pull DVWA
-  command:
-    cmd: "docker-compose -f {{dvwa_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{dvwa_compose_file}} build &&
+      docker-compose -f {{dvwa_compose_file}} pull
+    chdir: "{{ dvwa_directory }}"
   when: use_dvwa
 
 - name: Start DVWA
@@ -129,8 +141,11 @@
   when: use_dvga
 
 - name: Build and pull DVGA
-  command:
-    cmd: "docker-compose -f {{dvga_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{dvga_compose_file}} build &&
+      docker-compose -f {{dvga_compose_file}} pull
+    chdir: "{{ dvga_directory }}"
   when: use_dvga
 
 - name: Start DVGA
@@ -161,8 +176,10 @@
   when: use_owasp_nodegoat
 
 - name: Build and pull NodeGoat
-  command:
-    cmd: "docker-compose -f {{nodegoat_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{nodegoat_compose_file}} build &&
+      docker-compose -f {{nodegoat_compose_file}} pull
   when: use_owasp_nodegoat
 
 - name: Start NodeGoat
@@ -186,8 +203,11 @@
   when: use_webgoat
 
 - name: Build and pull WebGoat
-  command:
-    cmd: "docker-compose -f {{webgoat_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{webgoat_compose_file}} build &&
+      docker-compose -f {{webgoat_compose_file}} pull
+    chdir: "{{ webgoat_directory }}"
   when: use_webgoat
 
 - name: Start WebGoat
@@ -217,9 +237,12 @@
     dest: "{{ mutillidae_compose_file }}"
   when: use_mutillidae
 
-- name: Build and Mutillidae
-  command:
-    cmd: "docker-compose -f {{mutillidae_compose_file}} build --pull"
+- name: Build and pull Mutillidae
+  shell:
+    cmd: |
+      docker-compose -f {{mutillidae_compose_file}} build &&
+      docker-compose -f {{mutillidae_compose_file}} pull
+    chdir: "{{mutillidae_directory}}"
   when: use_mutillidae
 
 - name: Start Mutillidae
@@ -238,8 +261,11 @@
   when: use_crAPI
 
 - name: Build and pull crAPI
-  command:
-    cmd: "docker-compose -f {{crAPI_compose_file}} build --pull"
+  shell:
+    cmd: |
+      docker-compose -f {{crAPI_compose_file}} build &&
+      docker-compose -f {{crAPI_compose_file}} pull
+    chdir: "{{ crAPI_directory }}"
   when: use_crAPI
 
 - name: Start crAPI
@@ -264,9 +290,11 @@
   when: use_ssrf_lab
 
 - name: Build and pull SSRF lab
-  command:
+  shell:
     chdir: "{{ssrf_lab_directory}}"
-    cmd: "docker-compose -f {{ssrf_lab_compose_file}} build --pull"
+    cmd: |
+      docker-compose -f {{ssrf_lab_compose_file}} build &&
+      docker-compose -f {{ssrf_lab_compose_file}} pull
   when: use_ssrf_lab
 
 - name: Start the SSRF lab container
@@ -290,8 +318,9 @@
   when: use_cicdgoat
 
 - name: Build and pull CI/CD Goat
-  command:
-    cmd: "docker-compose -f {{cicdgoat_compose_file}} build --pull"
+  shell: |
+    docker-compose -f {{cicdgoat_compose_file}} build &&
+    docker-compose -f {{cicdgoat_compose_file}} pull
   when: use_cicdgoat
 
 - name: Start CI/CD Goat

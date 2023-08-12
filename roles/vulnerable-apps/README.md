@@ -16,6 +16,7 @@ Click through for information and instructions about each vulnerable application
 - [Damn Vulnerable Web Application (DVWA)](https://github.com/digininja/DVWA)
 - [Damn Vulnerable GraphQL Application (DVGA)](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application)
 - [SSRF Vulnerable Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
+- [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 
 These apps were chosen based on GitHub stars, and ease of wrapping with `docker-compose`. 
 Inspired by the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/) and my own experience.
@@ -45,3 +46,6 @@ Where possible, vulnerable applications have been configured to listen on `127.0
 
 # Supported Platforms
 This role is built and tested to work with the [Vagrant box `kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling) (virtualbox provider).
+
+# Credits
+Thank you to the creators and contributers of all these vulnerable applications! I hope that me packaging these applications for practitioners to skill-up with is useful.
