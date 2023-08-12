@@ -6,7 +6,7 @@ This project aims to demolish those barriers by implementing an easy-to-use, fre
 - Practice penetration testing in a safe environment
 - Create security trainings/workshops
 
-This lab automatically creates a VM based on Kali Linux (a full security toolset is available out-of-the-box). The lab VM builds automatically from a `vagrant up` command. It contains 10+ intentionally vulnerable applications/APIs. For details about included apps, see [my vulnerable-apps Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
+This lab automatically creates a VM based on Kali Linux (so a full security toolset is available out-of-the-box). The lab VM builds automatically from a `vagrant up` command. It contains 10+ intentionally vulnerable applications/APIs. For details about included apps, see [my vulnerable-apps Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
 # Usage
 ## ⚠️Important Warning⚠️
