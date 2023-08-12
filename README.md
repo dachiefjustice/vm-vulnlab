@@ -1,21 +1,19 @@
 # Summary
-I've met many people who lack the time or skillset to set up a lab environment to practice security, because of cost or complexity. These barriers shouldn't exist! This project aims to demolish those barriers by implementing an easy-to-use, free lab environment for students, developers and security professionals.
-
-Use this project to:
-- Better understand vulnerabilities by finding and exploiting them
-- Practice penetration testing in a safe environment
+I've met many people who struggle to set up a web security lab environment due to cost, time, or skills -- let's demolish those barriers! This project implements an **easy-to-use, free web security learning environment** for **students**, **developers** and **security professionals** to:
+- Better understand web vulnerabilities by finding and exploiting them
+- Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-This lab automatically creates a VM based on Kali Linux (so a full security toolset is available out-of-the-box). The lab VM builds automatically from a [`vagrant up`](https://www.vagrantup.com/)) command. It contains 10+ intentionally vulnerable applications/APIs. For details about included apps, see [my vulnerable-apps Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
+This project automatically creates a Kali Linux lab VM containing 10+ intentionally vulnerable web applications/APIs. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), and [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project). For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
 # Usage
-## ⚠️Important Warning⚠️
+## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! Don't get yourself or your organization pwned with it, you're responsible for your own security! This project takes the following security precautions:
-- Avoids automatically starting vulnerable software
-- The VM uses a private Virtualbox network without port forwarding
+- Avoids automatically starting intentionally vulnerable software
+- Uses a private Virtualbox network without port forwarding
 - Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
 
-It's also recommended to disconnect from your network after deploying the vulnerable applications, before running them.
+For another layer of protection, disconnect from your network after deploying the vulnerable applications, before running them.
 
 ## ⚙️Setup⚙️
 To get started [install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation), [install Virtualbox](https://www.virtualbox.org/wiki/Downloads), and [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Then:
@@ -25,22 +23,27 @@ cd vm-vulnlab
 vagrant up
 ```
 
-## Plugin installation: vagrant-reload
-The first time you run `vagrant up`, you may be prompted to install the `vagrant-reload` plugin. This is required for automated VM setup. You can accept the plugin installation, and then continue VM setup after installing:
+You should run this on a computer with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
+
+### Plugin Installation: vagrant-reload
+The first time you run `vagrant up` you may be prompted to install the `vagrant-reload` plugin. This is required for automated VM setup. You can accept the plugin installation, and then continue VM setup after installing:
 ```sh
 vagrant up --provision
 ```
 
-## Choosing Vulnerable Applications and Ports
-**Vulnerable applications are NOT automatically launched** for security reasons.
+## Enabling Vulnerable Applications
+**Vulnerable applications are NOT automatically launched** for security reasons. To launch a vulnerable application:
+1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. You can also change the port(s) it uses in this file by uncommenting and editing `appname_host_port*`.
+2. **Deploy the application**: run `vagrant up --provision` to deploy the changes. This will create a directory for the application in the VM under `/home/vagrant/app-name`, and prepare the application to be launched.
+3. **Launch the application**:
+```sh
+vagrant ssh
+cd app-name
+docker-compose up -d # runs the application in the background
+```
 
-To start using a vulnerable application:
-1. Uncomment its `use_app_name` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. You can also change the port(s) it uses in this file (by editing `appname_host_port*`).
-2. Run `vagrant up --provision` to apply the changes.
-
-### Example: Enable OWASP Juice Shop
-For example:
-1. To start using OWASP Juice Shop, edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
+### Example: Launch OWASP Juice Shop
+1. **Enable Juice Shop**: edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
 ```yaml
 ##### Juice Shop #####
 # More info: https://owasp.org/www-project-juice-shop/
@@ -49,25 +52,28 @@ use_owasp_juiceshop:        true
 
 # <other apps>
 ```
-2. Then after editing, run `vagrant up --provision`.
-
-### Port Details
-- Most vulnerable applications use a single port
-- Some vulnerable applications use multiple ports for different services
-- If you run multiple vulnerable applications at once, make sure they don't use conflicting port numbers. The default ports are non-conflicting (except for the application listed below that use non-editable ports). For these applications, refer to their to their documentation to learn about what ports they use:
-    - [crAPI](https://github.com/OWASP/crAPI)
-    - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
-
-Optionally, you can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). 
-
-## Vulnerable Application Ports & Guides
-To learn which ports a given vulnerable application uses and find guides/detailed information about them, check [roles/vulnerable-apps/defaults/main.yml](roles/vulnerable-apps/defaults/main.yml).
-
-# Tech Stack
+2. **Deploy Juice Shop**: run `vagrant up --provision`
+3. **Launch Juice Shop**: 
+```sh
+vagrant ssh
+cd juice-shop
+docker-compose up -d # runs the application in the background
+```
+# Lab Environment Details
+## Tech Stack
 - Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
 - Ansible (for automated provisioning)
 - Docker and Docker Compose (for running the vulnerable applications)
 - The programming languages, frameworks, and other components of the vulnerable applications
+
+## Ports
+You can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml).
+
+Most vulnerable applications use a single port, some vulnerable applications use multiple ports/services.
+
+The default ports are non-conflicting (except for the applications listed below, which use the ports defined in their repos/documentation):
+- [crAPI](https://github.com/OWASP/crAPI)
+- [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 
 # Credits & Inspiration
 - All the authors and contributors for these vulnerable applications! 
