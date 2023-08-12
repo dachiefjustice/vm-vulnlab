@@ -4,4 +4,4 @@
   hosts: all
   roles:
     - vulnerable-apps
-  vars_files: vars/vulnerable-app-config.yaml
+  vars_files: vulnerable-app-config.yaml

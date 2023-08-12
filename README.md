@@ -40,7 +40,7 @@ To start using a vulnerable application:
 
 ### Example: Enable OWASP Juice Shop
 For example:
-1. To start using OWASP Juice Shop, edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
+1. To start using OWASP Juice Shop, edit [vulnerable-app-config.yaml](vulnerable-app-config.yaml) to look like:
 ```yaml
 ##### Juice Shop #####
 # More info: https://owasp.org/www-project-juice-shop/
@@ -70,6 +70,6 @@ Some details:
 - The programming languages, frameworks, and other components of the vulnerable applications
 
 # Credits & Inspiration
-- The [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/)
 - All the authors and contributors for these vulnerable applications! 
+- The [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/)
 - [Parsia](https://parsiya.net/about/) for inspiring me to up my automation game by turning me onto [Manual Work is a Bug](https://queue.acm.org/detail.cfm?id=3197520&doi=10.1145%2F3194653.3197520)

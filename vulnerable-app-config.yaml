@@ -52,11 +52,18 @@ use_owasp_juiceshop:        true
 ##### crAPI #####
 ## More info: https://github.com/OWASP/crAPI
 ## NOTE:  crAPI ports are not customizeable due to nature of the app.
-##        Refer to the crAPI README for details about ports.
+##        Refer to the crAPI README for port details.
 # use_crAPI:            true
 
 ##### CI/CD Goat #####
-## NOTE:  crAPI ports are not customizeable due to nature of the app.
-##        Refer to the CI/CD Goat README for details about ports.
 ## More info: https://github.com/cider-security-research/cicd-goat
+## NOTE:  crAPI ports are not customizeable due to nature of the app.
+##        Refer to the CI/CD Goat README for port details.
 # use_cicdgoat:           true
+
+
+##### VAmPI #####
+## More info: https://github.com/erev0s/VAmPI
+use_VAmPI:              true
+# VAmPI_host_port_secure: '6001'
+# VAmPI_host_port_vuln:   '6002'
