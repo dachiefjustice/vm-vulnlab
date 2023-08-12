@@ -64,6 +64,13 @@ use_owasp_juiceshop:        true
 
 ##### VAmPI #####
 ## More info: https://github.com/erev0s/VAmPI
-use_VAmPI:              true
+# use_VAmPI:              true
 # VAmPI_host_port_secure: '6001'
 # VAmPI_host_port_vuln:   '6002'
+
+##### DVWS-Node #####
+## More info: https://github.com/snoopysecurity/dvws-node
+use_dvws:               true
+# dvws_host_port_http:      '7080'
+# dvws_host_port_graphql:   '7081'
+# dvws_host_port_xmlrpc:    '7090'
