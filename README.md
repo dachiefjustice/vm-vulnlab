@@ -53,12 +53,13 @@ Then after editing, run `vagrant up --provision`.
 
 Optionally, you can change the ports for each application. If you run multiple applications at once, make sure they don't use conflicting port numbers.
 
-## Vulnerable Application Ports
-To learn which ports a given vulnerable application uses, check [roles/vulnerable-apps/defaults/main.yml](roles/vulnerable-apps/defaults/main.yml). 
- Some nuances:
- - Most applications use a single port
- - Some applications have multiple ports for different services
-- These applications have non-editable ports, due to their complexity and/or facing issues when I tried changing their ports:
+## Vulnerable Application Ports & Guides
+To learn which ports a given vulnerable application uses and find guides/detailed information about them, check [roles/vulnerable-apps/defaults/main.yml](roles/vulnerable-apps/defaults/main.yml).
+
+Some details:
+- Most vulnerable applications use a single port
+- Some vulnerable applications have multiple ports for different services
+- Specific applications have non-editable ports, due to their complexity and/or facing issues when I tried changing their ports:
     - [crAPI](https://github.com/OWASP/crAPI)
     - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 
