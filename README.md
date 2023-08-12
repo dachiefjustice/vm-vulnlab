@@ -1,5 +1,5 @@
 # Summary
-I've met many people who struggle to set up a web security lab environment due to cost, time, or skills -- let's demolish those barriers! This project implements an **easy-to-use, free web security learning environment** for **students**, **developers** and **security professionals** to:
+I've met many people who struggle to set up a web security lab environment due to cost, time, or skills -- let's demolish those barriers! This project implements an **easy-to-use, free web security lab environment** for **students**, **developers** and **security professionals** to:
 - Better understand web vulnerabilities by finding and exploiting them
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
