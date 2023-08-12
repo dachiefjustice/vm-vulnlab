@@ -27,6 +27,10 @@ mutillidae_host_port_ldap:        '5389'
 mutillidae_host_port_ldap_admin:  '5082'
 #########################
 
+## VAmPI: 6000 port range
+VAmPI_host_port_secure: '6001'
+VAmPI_host_port_vuln:   '6002'
+
 ##### App Configs #####
 # OWASP Juice Shop: https://owasp.org/www-project-juice-shop/
 use_owasp_juiceshop:    false
@@ -105,3 +109,10 @@ cicdgoat_autostart:     false # use_cicdgoat must be true
 cicdgoat_compose_url:   https://raw.githubusercontent.com/cider-security-research/cicd-goat/main/docker-compose.yaml
 cicdgoat_directory:     "{{ansible_user_dir}}/cicd-goat"
 cicdgoat_compose_file:  "{{cicdgoat_directory}}/compose.yaml"
+
+# VAmPI (https://github.com/erev0s/VAmPI.git)
+use_VAmPI:              false
+VAmPI_repo:             https://github.com/erev0s/VAmPI.git
+VAmPI_autostart:        false # use_VAmPI must be true
+VAmPI_directory:        "{{ansible_user_dir}}/VAmPI"
+VAmPI_compose_file:     "{{VAmPI_directory}}/compose.yaml"

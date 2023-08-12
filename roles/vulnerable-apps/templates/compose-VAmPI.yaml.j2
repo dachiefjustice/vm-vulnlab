@@ -1,0 +1,19 @@
+# Adapted from https://github.com/erev0s/VAmPI/blob/master/docker-compose.yaml
+
+version: "3"
+services:
+ vampi-secure:
+  build: ./
+  container_name: vampi-secure
+  ports:
+   - "127.0.0.1:{{VAmPI_host_port_secure}}:5000"
+  environment:
+   - vulnerable=0
+
+ vampi-vulnerable:
+  build: ./
+  container_name: vampi-vulnerable
+  ports:
+   - "127.0.0.1:{{VAmPI_host_port_vuln}}:5000"
+  environment:
+   - vulnerable=1

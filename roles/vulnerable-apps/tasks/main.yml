@@ -329,4 +329,38 @@
   when:
     - use_cicdgoat
     - cicdgoat_autostart
-  
+
+##### VAmPI #####
+- name: "Clone VAmPI repo to {{VAmPI_directory}}"
+  git:
+    repo: "{{ VAmPI_repo }}"
+    dest: "{{ VAmPI_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_VAmPI
+
+- name: Remove docker-compose file from cloned VAmPI repo (to use a custom one)
+  file:
+    path: "{{VAmPI_directory}}/docker-compose.yaml"
+    state: absent
+  when: use_VAmPI
+
+- name: Template out VAmPI lab docker-compose file
+  template:
+    src: templates/compose-VAmPI.yaml.j2
+    dest: "{{ VAmPI_compose_file }}"
+  when: use_VAmPI
+
+- name: Build and pull VAmPI
+  shell:
+    chdir: "{{VAmPI_directory}}"
+    cmd: |
+      docker-compose -f {{VAmPI_compose_file}} build &&
+      docker-compose -f {{VAmPI_compose_file}} pull
+  when: use_VAmPI
+
+- name: Start VAmPI
+  command:
+    cmd: "docker-compose -f {{VAmPI_compose_file}} up --detach"
+  when:
+    - use_VAmPI
+    - VAmPI_autostart

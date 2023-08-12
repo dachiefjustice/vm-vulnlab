@@ -17,6 +17,7 @@ Click through for information and instructions about each vulnerable application
 - [Damn Vulnerable GraphQL Application (DVGA)](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application)
 - [SSRF Vulnerable Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
 - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
+- [VAmPI](https://github.com/erev0s/VAmPI/tree/master)
 
 These apps were chosen based on GitHub stars, and ease of wrapping with `docker-compose`. 
 Inspired by the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/) and my own experience.
