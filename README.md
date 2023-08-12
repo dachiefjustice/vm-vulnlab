@@ -51,7 +51,7 @@ use_owasp_juiceshop:        true
 ```
 2. Then after editing, run `vagrant up --provision`.
 
-Optionally, you can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml]. If you run multiple applications at once, make sure they don't use conflicting port numbers.
+Optionally, you can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). If you run multiple applications at once, make sure they don't use conflicting port numbers.
 
 ## Vulnerable Application Ports & Guides
 To learn which ports a given vulnerable application uses and find guides/detailed information about them, check [roles/vulnerable-apps/defaults/main.yml](roles/vulnerable-apps/defaults/main.yml).
