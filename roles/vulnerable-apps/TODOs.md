@@ -1,6 +1,4 @@
 # In Progress
-[ ] Improve docs: call out and demonstrate changing ports
-[ ] Improve docs: call out crAPI and cicd-goat as non-port-customizeable due to complexity
 [ ] Add https://github.com/erev0s/VAmPI
 [ ] Add https://github.com/snoopysecurity/dvws-node
 [ ] Add https://github.com/cider-security-research/cicd-goat
@@ -12,3 +10,5 @@
 [x] Add docker-compose pull
 [x] Package with a `kalilinux/rolling` VM (done: https://gitlab.com/johnroberts/vm-vulnlab)
 [x] Improve docs: credit authors
+[x] Improve docs: call out and demonstrate changing ports
+[x] Improve docs: call out crAPI and cicd-goat as non-port-customizeable due to complexity
