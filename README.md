@@ -58,8 +58,8 @@ To learn which ports a given vulnerable application uses and find guides/detaile
 
 Some details:
 - Most vulnerable applications use a single port
-- Some vulnerable applications have multiple ports for different services
-- Specific applications have non-editable ports, due to their complexity and/or facing issues when I tried changing their ports:
+- Some vulnerable applications use multiple ports for different services
+- Specific applications use non-editable ports, due to their complexity and/or facing issues when I tried changing their ports:
     - [crAPI](https://github.com/OWASP/crAPI)
     - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 
