@@ -8,7 +8,7 @@ This project automatically creates a Kali Linux lab VM containing 10+ intentiona
 
 # Usage
 ## ⚠️Security Warning⚠️
-This VM contains lots of vulnerable software! Don't get yourself or your organization pwned with it, you're responsible for your own security! This project takes the following security precautions:
+This VM contains lots of vulnerable software! You're responsible for your own security!, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
 - Avoids automatically starting intentionally vulnerable software
 - Uses a private Virtualbox network without port forwarding
 - Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
