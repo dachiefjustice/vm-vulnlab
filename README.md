@@ -6,7 +6,6 @@ I've met many people who struggle to set up a web security lab environment due t
 
 This project automatically creates a Kali Linux lab VM containing 10+ intentionally vulnerable web applications/APIs. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), and [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project). For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
-# Usage
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security!, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
 - Avoids automatically starting intentionally vulnerable software
@@ -15,7 +14,7 @@ This VM contains lots of vulnerable software! You're responsible for your own se
 
 For another layer of protection, disconnect from your network after deploying the vulnerable applications, before running them.
 
-## ⚙️Setup⚙️
+# Usage
 To get started [install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation), [install Virtualbox](https://www.virtualbox.org/wiki/Downloads), and [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Then:
 ```sh
 git clone https://gitlab.com/johnroberts/vm-vulnlab.git
