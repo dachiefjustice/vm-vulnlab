@@ -57,6 +57,6 @@ use_owasp_juiceshop:        true
 
 ##### CI/CD Goat #####
 ## NOTE:  crAPI ports are not customizeable due to nature of the app.
-##        Refer to the crAPI README for details about ports.
+##        Refer to the CI/CD Goat README for details about ports.
 ## More info: https://github.com/cider-security-research/cicd-goat
 # use_cicdgoat:           true
