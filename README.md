@@ -39,7 +39,8 @@ To start using a vulnerable application:
 2. Run `vagrant up --provision` to apply the changes.
 
 ### Example: Enable OWASP Juice Shop
-For example, to start using OWASP Juice Shop, edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
+For example:
+1. To start using OWASP Juice Shop, edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
 ```yaml
 ##### Juice Shop #####
 # More info: https://owasp.org/www-project-juice-shop/
@@ -48,8 +49,7 @@ use_owasp_juiceshop:        true
 
 # <other apps>
 ```
-
-Then after editing, run `vagrant up --provision`.
+2. Then after editing, run `vagrant up --provision`.
 
 Optionally, you can change the ports for each application. If you run multiple applications at once, make sure they don't use conflicting port numbers.
 
