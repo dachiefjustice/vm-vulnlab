@@ -43,7 +43,7 @@ vagrant up
 ```
 
 ### Plugin Installation: vagrant-reload
-The first time you run `vagrant up` you may be prompted to install the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This is required for automated VM setup, so accept the plugin installation prompt and then continue afterwards:
+Automated VM setup uses the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This isn't bundled with Vagrant, so the first time you run `vagrant up` you may be prompted to install it; accept the installation prompt and then continue with:
 ```shell
 vagrant up --provision
 ```
