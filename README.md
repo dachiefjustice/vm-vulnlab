@@ -21,11 +21,9 @@ For another layer of protection, disconnect from the network while running them 
 ## Requirements
 ### Software
 You'll need these free tools that provide the cross-platform base for this repository:
-- [Install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation)
-- [Install Virtualbox](https://www.virtualbox.org/wiki/Downloads)
-- [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
-
-These tools run on reasonably modern versions of Linux, Windows, or MacOS. Detailed install instructions are linked above.
+- [Install Vagrant instructions](https://developer.hashicorp.com/vagrant/docs/installation)
+- [Install Virtualbox instructions](https://www.virtualbox.org/wiki/Downloads)
+- [Install Git instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 
 ### Hardware
 Make sure you've got at least 6GB of RAM (8GB or more is better).
