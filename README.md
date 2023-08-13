@@ -79,12 +79,6 @@ docker-compose up -d # runs the application in the background
 4. Launch Firefox or Burp Suite in the VM, point it towards http://localhost:3000, and start hacking!
 
 # Lab Environment Details
-## Tech Stack
-- Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
-- Ansible (for automated provisioning)
-- Docker and Docker Compose (for running the vulnerable applications)
-- The programming languages, frameworks, and other components of the vulnerable applications
-
 ## Ports
 You can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml).
 
@@ -93,6 +87,12 @@ Most vulnerable applications use a single port, some vulnerable applications use
 The default ports are non-conflicting (except for the applications listed below, which use the ports defined in their repos/documentation):
 - [crAPI](https://github.com/OWASP/crAPI)
 - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
+
+## Tech Stack
+- Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
+- Ansible (for automated provisioning)
+- Docker and Docker Compose (for running the vulnerable applications)
+- The programming languages, frameworks, and other components of the vulnerable applications
 
 # Credits & Inspiration
 Special thanks to all the authors and contributors for these vulnerable applications, and to the authors of the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
