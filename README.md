@@ -10,9 +10,7 @@ This repository sets you up with a fresh Kali Linux lab VM created automatically
 
 Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more. For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
-I've met many people who struggle to learn web security due to the cost, time, or complexity of setting up a lab environment -- let's demolish those barriers!
-
-You can run this VM on a Linux/Windows/Mac computer with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
+I've met many people who struggle to learn web security due to the cost, time, or complexity of setting up a lab environment -- let's demolish those barriers! You can run this VM on a Linux/Windows/Mac computer with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
 
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
@@ -38,8 +36,8 @@ vagrant up --provision
 
 ## Enabling Vulnerable Applications
 **Vulnerable applications are NOT automatically launched** for security reasons. To launch a vulnerable application:
-1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. Open the application's documentation (linked from this same file). Take note of the port it uses so you can use it once it's deployed. The ports listed in this file override the ports mentioned in the project's documentation.
-2. **Deploy the application**: run `vagrant up --provision` to deploy the changes. This will create a directory for the application in the VM under `/home/vagrant/app-name`, and prepare the application to be launched.
+1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. This file also tells you what ports the application uses, and links to the application's documentation. Open the application's docs, and make a note of the port it uses so you can use it once it's deployed. The ports listed here override the ports mentioned in the project's documentation.
+2. **Deploy the application**: run `vagrant up --provision` to deploy the now-enabled application. This will create a directory for the application in the VM under `/home/vagrant/app-name` and prepare the application to be launched.
 3. **Launch the application**:
 ```sh
 vagrant ssh
