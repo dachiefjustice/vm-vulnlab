@@ -1,12 +1,12 @@
 # Web Vulnlab VM
-This project provides an **easy-to-use, cross-platform, free and open-source web security training environment** for **students**, **developers** and **security professionals** to:
-- Better understand web vulnerabilities by finding and exploiting them
+This project provides an **easy-to-use, cross-platform, free and open-source web security training environment** to:
+- Better understand web vulnerabilities by finding and exploiting them in vulnerable applications
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-Clone this repo and run `vagrant up` to get a fresh, customized [Kali Linux lab VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/) provisioned from infrastructure-as-code. The VM has everything you need to sharpen your web security skills:
-- 10+ intentionally vulnerable web applications/APIs
-- The tools to analyze and exploit them
+Clone this repo and run `vagrant up` to get a [Kali Linux lab VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/) provisioned from infrastructure-as-code. The VM has everything you need to sharpen your web security skills:
+- 10+ intentionally **vulnerable web applications/APIs**
+- **Security tools** to analyze and exploit them
 
 The vulnerable applications cover a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more (see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps) for details).
 
