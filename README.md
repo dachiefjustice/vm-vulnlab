@@ -12,6 +12,8 @@ Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice
 
 I've met many people who struggle to learn web security due to the cost, time, or complexity of setting up a lab environment -- let's demolish those barriers!
 
+You can run this VM on a Linux/Windows/Mac computer with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
+
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
 - Avoids auto-starting intentionally vulnerable software
@@ -27,8 +29,6 @@ git clone https://gitlab.com/johnroberts/vm-vulnlab.git
 cd vm-vulnlab
 vagrant up
 ```
-
-You should run this on a computer with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
 
 ### Plugin Installation: vagrant-reload
 The first time you run `vagrant up` you may be prompted to install the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This is required for automated VM setup, so accept the plugin installation prompt and then continue afterwards:
