@@ -33,7 +33,6 @@ Make sure you've got at least 6GB of RAM (8GB or more is better).
 By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable, e.g. for 4GB of RAM:
 ```ruby
 config.vm.provider "virtualbox" do |v|
-    v.gui = true
     v.memory = 4096
 ```
 
@@ -47,7 +46,7 @@ vagrant up
 
 ### Plugin Installation: vagrant-reload
 The first time you run `vagrant up` you may be prompted to install the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This is required for automated VM setup, so accept the plugin installation prompt and then continue afterwards:
-```sh
+```shell
 vagrant up --provision
 ```
 
@@ -56,7 +55,7 @@ vagrant up --provision
 1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. This file also tells you what ports the application uses, and links to the application's documentation. Open the application's docs, and make a note of the port it uses so you can use it once it's deployed. The ports listed here override the ports mentioned in the project's documentation.
 2. **Deploy the application**: run `vagrant up --provision` to deploy the now-enabled application. This will create a directory for the application in the VM under `/home/vagrant/app-name` and prepare the application to be launched.
 3. **Launch the application**:
-```sh
+```shell
 vagrant ssh
 cd app-name
 docker-compose up -d # runs the application in the background
@@ -75,7 +74,7 @@ use_owasp_juiceshop:        true
 ```
 2. **Deploy Juice Shop**: run `vagrant up --provision`
 3. **Launch Juice Shop**: 
-```sh
+```shell
 vagrant ssh
 cd juice-shop
 docker-compose up -d # runs the application in the background
