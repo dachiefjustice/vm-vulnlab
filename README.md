@@ -4,7 +4,7 @@ This project implements an **easy-to-use, cross-platform, free and open-source w
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-This repository sets you up with a fresh Kali Linux lab VM created automatically from infrastructure-as-code (Vagrant, Virtualbox, and Docker-Compose). The lab environment has everything you need to sharpen your web security skills, containing:
+This repository sets you up with a fresh Kali Linux lab VM created automatically from infrastructure-as-code. The lab environment has everything you need to sharpen your web security skills, containing:
 - 10+ intentionally vulnerable web applications covering a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels
 - The tools to analyze and exploit them
 
@@ -14,8 +14,8 @@ I've met many people who struggle to learn web security due to the cost, time, o
 
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
-- Avoids automatically starting intentionally vulnerable software
-- Uses a private Virtualbox network without port forwarding
+- Avoids auto-starting intentionally vulnerable software
+- Uses a private Virtualbox network without port forwarding (so the VM acts as a network security boundary)
 - Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
 
 For another layer of protection, disconnect from the network while running them (an internet connection is needed to set up the applications).
@@ -38,7 +38,7 @@ vagrant up --provision
 
 ## Enabling Vulnerable Applications
 **Vulnerable applications are NOT automatically launched** for security reasons. To launch a vulnerable application:
-1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. Make a mental note of the port it uses, or change the app's port(s) by uncommenting and editing the relevant `appname_host_port*` line(s).
+1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. Open the application's documentation (linked from this same file). Take note of the port it uses so you can use it once it's deployed. The ports listed in this file override the ports mentioned in the project's documentation.
 2. **Deploy the application**: run `vagrant up --provision` to deploy the changes. This will create a directory for the application in the VM under `/home/vagrant/app-name`, and prepare the application to be launched.
 3. **Launch the application**:
 ```sh
@@ -46,7 +46,7 @@ vagrant ssh
 cd app-name
 docker-compose up -d # runs the application in the background
 ```
-4. Launch Firefox/Burp Suite/whatever tool within the Kali VM and point it at `http://localhost:<app port>` (get the app port from step 2).
+4. Launch Firefox/Burp Suite/whatever tool within the Kali VM and point it at `http://localhost:app_port` (using the port from step 2).
 
 ### Example: Launch OWASP Juice Shop
 1. **Enable Juice Shop**: edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
