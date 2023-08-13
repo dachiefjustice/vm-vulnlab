@@ -10,7 +10,7 @@ This repository sets you up with a fresh, customized [Kali Linux lab VM](https:/
 
 The vulnerable applications cover a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more. For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
-I've met many people who struggle to learn web security due to the cost, time, or complexity of setting up a lab environment -- let's demolish those barriers! You can run this VM on a Linux/Windows/Mac computer with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
+You can run this VM on a Linux, Windows, or Mac machine with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
 
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
