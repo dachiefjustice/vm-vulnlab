@@ -35,14 +35,13 @@ config.vm.provider "virtualbox" do |v|
 ```
 
 # Usage
-Get a machine meeting the prerequisites above, then:
+On a meeting the prerequisites above:
 ```sh
 git clone https://gitlab.com/johnroberts/vm-vulnlab.git
 cd vm-vulnlab
 vagrant up
 ```
 
-### Plugin Installation: vagrant-reload
 Automated VM setup uses the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This isn't bundled with Vagrant, so the first time you run `vagrant up` you may be prompted to install it; accept the installation prompt and then continue with:
 ```shell
 vagrant up --provision
