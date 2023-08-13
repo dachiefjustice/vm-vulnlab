@@ -10,7 +10,24 @@ This repository sets you up with a fresh, customized [Kali Linux lab VM](https:/
 
 The vulnerable applications cover a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more. For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
-You can run this VM on a Linux, Windows, or Mac machine with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
+## Requirements
+### Software
+You'll need to:
+- [ ] Install [Vagrant](https://developer.hashicorp.com/vagrant/docs/installation)
+- [ ] Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+- [ ] Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
+
+These tools provide the base for running the VM in a cross-platform way. They're free, and available for Linux/MacOS/Windows. The links above provide install instructions.
+
+### RAM
+You can run this VM on a Linux, Windows, or Mac machine with least 6GB of RAM. 8GB+ is better.
+
+By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable, e.g. for 4GB of RAM:
+```ruby
+config.vm.provider "virtualbox" do |v|
+    v.gui = true
+    v.memory = 4096
+```
 
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
@@ -21,7 +38,7 @@ This VM contains lots of vulnerable software! You're responsible for your own se
 For another layer of protection, disconnect from the network while running them (an internet connection is needed to set up the applications).
 
 # Usage
-To get started [install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation), [install Virtualbox](https://www.virtualbox.org/wiki/Downloads), and [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if you don't have them. These tools are available for Linux, MacOS, and Windows. Then:
+Get a machine meeting the prerequisites above, then:
 ```sh
 git clone https://gitlab.com/johnroberts/vm-vulnlab.git
 cd vm-vulnlab
