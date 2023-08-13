@@ -1,14 +1,16 @@
 # Summary
-I've met many people who struggle to set up a web security lab environment due to cost, time, or skills -- let's demolish those barriers! This project implements an **easy-to-use, free web security lab environment** for **students**, **developers** and **security professionals** to:
+This project implements an **easy-to-use, cross-platform, free and open-source web security training environment** for **students**, **developers** and **security professionals** to:
 - Better understand web vulnerabilities by finding and exploiting them
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-This project automatically creates a Kali Linux lab VM containing:
-- 10+ intentionally vulnerable web applications (from easy to advanced difficulty)
+This repository sets you up with a fresh Kali Linux lab VM created automatically from infrastructure-as-code (Vagrant, Virtualbox, and Docker-Compose). The lab environment has everything you need to sharpen your web security skills, containing:
+- 10+ intentionally vulnerable web applications covering a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels
 - The tools to analyze and exploit them
 
-Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), and [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project). For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
+Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more. For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
+
+I've met many people who struggle to learn web security due to the cost, time, or complexity of setting up a lab environment -- let's demolish those barriers!
 
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
@@ -16,10 +18,10 @@ This VM contains lots of vulnerable software! You're responsible for your own se
 - Uses a private Virtualbox network without port forwarding
 - Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
 
-For another layer of protection, disconnect from your network after deploying the vulnerable applications before running them.
+For another layer of protection, disconnect from the network while running them (an internet connection is needed to set up the applications).
 
 # Usage
-To get started [install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation), [install Virtualbox](https://www.virtualbox.org/wiki/Downloads), and [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Then:
+To get started [install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation), [install Virtualbox](https://www.virtualbox.org/wiki/Downloads), and [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if you don't have them. These tools are available for Linux, MacOS, and Windows. Then:
 ```sh
 git clone https://gitlab.com/johnroberts/vm-vulnlab.git
 cd vm-vulnlab
