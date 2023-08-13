@@ -5,14 +5,14 @@ This project provides an **easy-to-use, cross-platform, free and open-source web
 - Create security trainings/workshops
 
 Clone this repo and run `vagrant up` to get a [Kali Linux lab VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/) provisioned from infrastructure-as-code. The VM has everything you need to sharpen your web security skills:
-- 10+ intentionally **vulnerable web applications/APIs**
+- 10+ **vulnerable web applications/APIs** ready to launch
 - **Security tools** to analyze and exploit them
 
 The vulnerable applications cover a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more (see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps) for details).
 
-## ⚠️Security Warning⚠️
+## 🛑⚠️Security Warning⚠️🛑
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
-- Avoids auto-starting intentionally vulnerable software
+- Vulnerable software must be manually launched in the default configuration
 - Uses a private Virtualbox network without port forwarding (so the VM acts as a network security boundary)
 - Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
 
@@ -94,6 +94,19 @@ The default ports are non-conflicting (except for the applications listed below,
 - Ansible (for automated provisioning)
 - Docker and Docker Compose (for running the vulnerable applications)
 - The programming languages, frameworks, and other components of the vulnerable applications
+
+## Enabling Vulnerable Application Auto-Start
+**🛑⚠️Warning: this is dangerous⚠️🛑** if you don't know what you're doing! Before proceeding make sure that you:
+- **100% understand the security implications**
+- **Have implemented adequate compensating controls** (see the Security Warning section)
+- **Have permission from your IT team** if you're running this on a network or machine you don't own
+
+With that warning out of the way, you can enable application auto-start by adding the following line to [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml):
+```yaml
+autostart_enabled_apps:     true
+```
+
+Then run a `vagrant up --provision`. Afterwards, the currently-enabled vulnerable apps (defined in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml)) will be automatically started each time you provision the VM.
 
 # Credits & Inspiration
 Special thanks to all the authors and contributors for these vulnerable applications, and to the authors of the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
