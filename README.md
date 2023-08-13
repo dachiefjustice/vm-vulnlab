@@ -4,7 +4,11 @@ I've met many people who struggle to set up a web security lab environment due t
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-This project automatically creates a Kali Linux lab VM containing 10+ intentionally vulnerable web applications/APIs. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), and [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project). For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
+This project automatically creates a Kali Linux lab VM containing:
+- 10+ intentionally vulnerable web applications (from easy to advanced difficulty)
+- The tools to analyze and exploit them
+
+Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), and [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project). For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
 ## ⚠️Security Warning⚠️
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
@@ -25,14 +29,14 @@ vagrant up
 You should run this on a computer with least 6GB of RAM (8GB+ is better). By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable.
 
 ### Plugin Installation: vagrant-reload
-The first time you run `vagrant up` you may be prompted to install the `vagrant-reload` plugin. This is required for automated VM setup. You can accept the plugin installation, and then continue VM setup after installing:
+The first time you run `vagrant up` you may be prompted to install the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This is required for automated VM setup, so accept the plugin installation prompt and then continue afterwards:
 ```sh
 vagrant up --provision
 ```
 
 ## Enabling Vulnerable Applications
 **Vulnerable applications are NOT automatically launched** for security reasons. To launch a vulnerable application:
-1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. You can also change the port(s) it uses in this file by uncommenting and editing `appname_host_port*`.
+1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. Make a mental note of the port it uses, or change the app's port(s) by uncommenting and editing the relevant `appname_host_port*` line(s).
 2. **Deploy the application**: run `vagrant up --provision` to deploy the changes. This will create a directory for the application in the VM under `/home/vagrant/app-name`, and prepare the application to be launched.
 3. **Launch the application**:
 ```sh
@@ -40,6 +44,7 @@ vagrant ssh
 cd app-name
 docker-compose up -d # runs the application in the background
 ```
+4. Launch Firefox/Burp Suite/whatever tool within the Kali VM and point it at `http://localhost:<app port>` (get the app port from step 2).
 
 ### Example: Launch OWASP Juice Shop
 1. **Enable Juice Shop**: edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
@@ -58,6 +63,8 @@ vagrant ssh
 cd juice-shop
 docker-compose up -d # runs the application in the background
 ```
+4. Launch Firefox or Burp Suite in the VM, point it towards http://localhost:3000, and start hacking!
+
 # Lab Environment Details
 ## Tech Stack
 - Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
