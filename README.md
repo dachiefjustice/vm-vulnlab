@@ -50,8 +50,14 @@ Automated VM setup uses the [`vagrant-reload` plugin](https://github.com/aidanns
 vagrant up --provision
 ```
 
-## Launching Vulnerable Applications
-**Vulnerable applications are NOT automatically launched** for security reasons. To launch a vulnerable application:
+## Vulnerable Application Variables
+Read through [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). This file:
+- Enables/disables each vulnerable application
+- Provides links to each vulnerable application's documentation
+- Lets you override which ports each vulnerable application uses
+
+## Using Vulnerable Applications
+**Vulnerable applications are NOT automatically launched** for security reasons. To use a vulnerable application:
 1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. This file also tells you what ports the application uses, and links to the application's documentation. Make a note of its port(s), and open the application's docs to learn about using it. The ports listed here override the ports mentioned in the project's documentation.
 2. **Deploy the application**: run `vagrant up --provision` to deploy the now-enabled application. This will create a directory for the application in the VM under `/home/vagrant/app-name` and prepare the application to be launched.
 3. **Launch the application**:
@@ -62,7 +68,7 @@ docker-compose up -d # runs the application in the background
 ```
 4. Launch Firefox/Burp Suite/whatever tool within the Kali VM and point it at `http://localhost:app_port` (using the port from step 2).
 
-### Example: Launch OWASP Juice Shop
+### Example: Use OWASP Juice Shop
 1. **Enable Juice Shop**: edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
 ```yaml
 ##### Juice Shop #####
