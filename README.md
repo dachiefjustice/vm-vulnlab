@@ -1,4 +1,4 @@
-# Vulnlab VM Summary
+# Vulnlab Web VM
 This project provides an **easy-to-use, cross-platform, free and open-source web security training environment** for **students**, **developers** and **security professionals** to:
 - Better understand web vulnerabilities by finding and exploiting them
 - Practice web penetration testing safely and easily
