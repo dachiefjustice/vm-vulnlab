@@ -18,6 +18,8 @@ This VM contains lots of vulnerable software! You're responsible for your own se
 
 For another layer of protection, disconnect from the network while running them (an internet connection is needed to set up the applications).
 
+If you're running this on a machine/network you don't control, get permission from whoever manages it!
+
 ## Requirements
 ### Software
 You'll need these free tools that provide the cross-platform base for this repository:
