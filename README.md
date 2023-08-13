@@ -35,6 +35,7 @@ config.vm.provider "virtualbox" do |v|
 ```
 
 # Usage
+## VM Setup
 On a machine meeting the prerequisites above:
 ```sh
 git clone https://gitlab.com/johnroberts/vm-vulnlab.git
