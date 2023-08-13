@@ -17,8 +17,10 @@ You'll need to install these free tools that provide the cross-platform base for
 - [ ] [Install Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 - [ ] [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 
-### RAM
-You can run this VM on a Linux, Windows, or Mac machine with least 6GB of RAM. 8GB+ is better.
+These tools run on reasonably-modern versions of Linux, Windows, or MacOS.
+
+### Hardware
+Make sure you've got at least 6GB of RAM (8GB or more is better).
 
 By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable, e.g. for 4GB of RAM:
 ```ruby
