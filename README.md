@@ -4,7 +4,7 @@ This project provides an **easy-to-use, cross-platform, free and open-source web
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-This repository sets you up with a fresh, customized [Kali Linux lab VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/) provisioned from infrastructure-as-code. The VM has everything you need to sharpen your web security skills:
+Clone this repo and run `vagrant up` to get a fresh, customized [Kali Linux lab VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/) provisioned from infrastructure-as-code. The VM has everything you need to sharpen your web security skills:
 - 10+ intentionally vulnerable web applications/APIs
 - The tools to analyze and exploit them
 
