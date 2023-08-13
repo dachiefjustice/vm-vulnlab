@@ -10,6 +10,14 @@ This repository sets you up with a fresh, customized [Kali Linux lab VM](https:/
 
 The vulnerable applications cover a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more. For details about included vulnerable apps see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps).
 
+## ⚠️Security Warning⚠️
+This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
+- Avoids auto-starting intentionally vulnerable software
+- Uses a private Virtualbox network without port forwarding (so the VM acts as a network security boundary)
+- Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
+
+For another layer of protection, disconnect from the network while running them (an internet connection is needed to set up the applications).
+
 ## Requirements
 ### Software
 You'll need to install these free tools that provide the cross-platform base for this repository:
@@ -17,7 +25,7 @@ You'll need to install these free tools that provide the cross-platform base for
 - [ ] [Install Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 - [ ] [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 
-These tools run on reasonably-modern versions of Linux, Windows, or MacOS.
+These tools run on reasonably modern versions of Linux, Windows, or MacOS. Detailed install instructions are linked above.
 
 ### Hardware
 Make sure you've got at least 6GB of RAM (8GB or more is better).
@@ -28,14 +36,6 @@ config.vm.provider "virtualbox" do |v|
     v.gui = true
     v.memory = 4096
 ```
-
-## ⚠️Security Warning⚠️
-This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
-- Avoids auto-starting intentionally vulnerable software
-- Uses a private Virtualbox network without port forwarding (so the VM acts as a network security boundary)
-- Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
-
-For another layer of protection, disconnect from the network while running them (an internet connection is needed to set up the applications).
 
 # Usage
 Get a machine meeting the prerequisites above, then:
