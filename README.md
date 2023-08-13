@@ -12,12 +12,10 @@ The vulnerable applications cover a range of programming languages, vulnerabilit
 
 ## Requirements
 ### Software
-You'll need to:
-- [ ] Install [Vagrant](https://developer.hashicorp.com/vagrant/docs/installation)
-- [ ] Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
-- [ ] Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
-
-These tools provide the base for running the VM in a cross-platform way. They're free, and available for Linux/MacOS/Windows. The links above provide install instructions.
+You'll need to install these free tools that provide the cross-platform base for this repository:
+- [ ] [Install Vagrant](https://developer.hashicorp.com/vagrant/docs/installation)
+- [ ] [Install Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+- [ ] [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 
 ### RAM
 You can run this VM on a Linux, Windows, or Mac machine with least 6GB of RAM. 8GB+ is better.
