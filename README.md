@@ -1,24 +1,20 @@
 # Web Vulnlab VM
-This project provides an **easy-to-use, cross-platform, free and open-source web security training environment** to:
-- Better understand web vulnerabilities by finding and exploiting them in vulnerable applications
+This repo packages **10+ intentionally vulnerable web apps/APIs** with a [Kali Linux Vagrant VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/). It's an **easy-to-use, cross-platform, free and open-source web security training environment** to:
+- Better understand web vulnerabilities by analyzing and exploiting them
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
-
-Clone this repo and run `vagrant up` to get a [Kali Linux lab VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/) provisioned from infrastructure-as-code. The VM has everything you need to sharpen your web security skills:
-- 10+ **vulnerable web applications/APIs** ready to launch
-- **Security tools** to analyze and exploit them
 
 The vulnerable applications cover a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more (see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps) for details).
 
 ## 🛑⚠️Security Warning⚠️🛑
-This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned with this VM! This project takes the following security precautions:
-- Vulnerable software must be manually launched in the default configuration
-- Uses a private Virtualbox network without port forwarding (so the VM acts as a network security boundary)
-- Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0`
+This VM contains lots of vulnerable software, don't get yourself or your organization pwned! You're responsible for your own security. If you're running this on a machine/network you don't control, get permission from your IT team!
 
-For another layer of protection, disconnect from the network while running them (an internet connection is needed to set up the applications).
+This project takes the following security precautions:
+- By default, vulnerable apps must be manually launched
+- Uses a private Virtualbox network without port forwarding as a security layer
+- Vulnerable applications (except CI/CD Goat) listen on `127.0.0.1` rather than `0.0.0.0`
 
-If you're running this on a machine/network you don't control, get permission from whoever manages it!
+For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed to set up them up initially).
 
 ## Requirements
 ### Software
@@ -50,15 +46,14 @@ Automated VM setup uses the [`vagrant-reload` plugin](https://github.com/aidanns
 vagrant up --provision
 ```
 
-## Vulnerable Application Variables
-Read through [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). This file:
-- Enables/disables each vulnerable application
-- Provides links to each vulnerable application's documentation
-- Lets you override which ports each vulnerable application uses
+## Vulnerable Application Config
+Each time you run `vagrant provision` or `vagrant up --provision` the VM will apply the settings from [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml).  Use this file to:
+- Enable/disable each vulnerable application and view/change its ports
+- Get links to each vulnerable application's documentation
 
 ## Using Vulnerable Applications
 **Vulnerable applications are NOT automatically launched** for security reasons. To use a vulnerable application:
-1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. This file also tells you what ports the application uses, and links to the application's documentation. Make a note of its port(s), and open the application's docs to learn about using it. The ports listed here override the ports mentioned in the project's documentation.
+1. **Enable the application**: uncomment the relevant `use_app_name: true` line in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) and save the file. Make a note of its port(s), and open the application's docs to learn about using it. The ports listed here override the ports mentioned in the project's documentation.
 2. **Deploy the application**: run `vagrant up --provision` to deploy the now-enabled application. This will create a directory for the application in the VM under `/home/vagrant/app-name` and prepare the application to be launched.
 3. **Launch the application**:
 ```shell
@@ -66,7 +61,7 @@ vagrant ssh
 cd app-name
 docker-compose up -d # runs the application in the background
 ```
-4. Launch Firefox/Burp Suite/whatever tool within the Kali VM and point it at `http://localhost:app_port` (using the port from step 2).
+4. In the Kali VM, launch Firefox/Burp Suite/whatever tool and point it at `http://localhost:app_port` (using the port from step 2).
 
 ### Example: Use OWASP Juice Shop
 1. **Enable Juice Shop**: edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
@@ -107,7 +102,6 @@ The default ports are non-conflicting (except for the applications listed below,
 **🛑⚠️Warning: this is dangerous⚠️🛑** if you don't know what you're doing! Before proceeding make sure that you:
 - **100% understand the security implications**
 - **Have implemented adequate compensating controls** (see the Security Warning section)
-- **Have permission from your IT team** if you're running this on a network or machine you don't own
 
 With that warning out of the way, you can enable application auto-start by adding the following line to [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml):
 ```yaml
