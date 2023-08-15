@@ -101,14 +101,14 @@ The default ports are non-conflicting (except for the applications listed below,
 ## Enabling Vulnerable Application Auto-Start
 **🛑⚠️Warning: this is dangerous⚠️🛑** if you don't know what you're doing! Before proceeding make sure that you:
 - **100% understand the security implications**
-- **Have implemented adequate compensating controls** (see the Security Warning section)
+- **Have implemented adequate compensating controls** (see the Security Warning above)
 
-With that warning out of the way, you can enable application auto-start by adding the following line to [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml):
+With that warning out of the way, you can enable vulnerable application auto-start by adding the following line to [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml):
 ```yaml
 autostart_enabled_apps:     true
 ```
 
-Then run a `vagrant up --provision`. Afterwards, the currently-enabled vulnerable apps (defined in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml)) will be automatically started each time you provision the VM.
+Then run a `vagrant up --provision`. Afterwards, the currently-enabled vulnerable apps (defined in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml)) will be automatically started.
 
 # Credits & Inspiration
 Special thanks to all the authors and contributors for these vulnerable applications, and to the authors of the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
