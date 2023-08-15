@@ -311,11 +311,21 @@
     state: directory
   when: use_cicdgoat
 
-- name: Download CI/CD Goat docker compose file from GitHub
+- name: Download CI/CD Goat docker-compose file from GitHub
   get_url:
     url: "{{cicdgoat_compose_url}}"
     dest: "{{cicdgoat_compose_file}}"
-  when: use_cicdgoat
+  when:
+    - use_cicdgoat
+    - not cicdgoat_use_custom_compose_file
+
+- name: Template out CI/CD Goat docker-compose file
+  template:
+    src: templates/compose-cicd-goat.yaml.j2
+    dest: "{{cicdgoat_compose_file}}"
+  when:
+    - use_cicdgoat
+    - cicdgoat_use_custom_compose_file
 
 - name: Build and pull CI/CD Goat
   shell: |

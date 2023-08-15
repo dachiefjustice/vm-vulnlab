@@ -10,7 +10,9 @@ Check out [my VulnLab Kali Vagrant VM](https://gitlab.com/johnroberts/vm-vulnlab
 This role sets up vulnerable applications! Don't get yourself or your organization pwned by exposing these services to a hostile network! You're responsible for your own security!
 
 **Built-in Protections**
-- The role itself sets up most vulnerable applications to listen on `127.0.0.1` rather than `0.0.0.0`. Exceptions are applications that are using upstream Docker-Compose files.
+The role itself sets up most vulnerable applications to listen on `127.0.0.1` rather than `0.0.0.0`. Exceptions are applications that are using upstream Docker-Compose files, at the time of this writing:
+- CI/CD Goat (which binds to all network interfaces in its Docker Compose file)
+- crAPI (which binds to `127.0.0.1` in its Docker Compose file, but could change)
 
 **Suggested Additional Protections**
 - Use this with a private virtualized network for the Kali VM, and don't port-forward. This way everything is contained in the Kali VM.
