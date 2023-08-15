@@ -11,8 +11,8 @@ This role sets up vulnerable applications! Don't get yourself or your organizati
 
 **Built-in Protections**
 The role itself sets up most vulnerable applications to listen on `127.0.0.1` rather than `0.0.0.0`. Exceptions are applications that are using upstream Docker-Compose files, at the time of this writing:
-- CI/CD Goat (which binds to all network interfaces in its Docker Compose file)
-- crAPI (which binds to `127.0.0.1` in its Docker Compose file, but could change)
+- CI/CD Goat: binds to all network interfaces in its upstream Compose file, and uses Docker-in-Docker for additional port mappings. With the complexity of its Compose file and Docker-in-Docker architecture, better to rely on upstream.
+- crAPI: binds to `127.0.0.1` in its upstream Compose file as of this writing (which could change, though I don't expect it to). Attempting to adapt the upstream compose file resulted in repeated failed starts, so using the upstream is preferable.
 
 **Suggested Additional Protections**
 - Use this with a private virtualized network for the Kali VM, and don't port-forward. This way everything is contained in the Kali VM.

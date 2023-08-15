@@ -39,16 +39,6 @@ VAmPI_host_port_vuln:   '6002'
 dvws_host_port_http:      '7080'
 dvws_host_port_graphql:   '7081'
 dvws_host_port_xmlrpc:    '7090'
-
-## CI/CD Goat: 9000 port range
-cicdgoat_host_port_jenkins_http:      '9080'
-cicdgoat_host_port_jenkins_tcp_agent: '9500'
-cicdgoat_host_port_gitea:             '9300'
-cicdgoat_host_port_ctfd:              '9800'
-cicdgoat_host_port_prod_http:         '9008'
-cicdgoat_host_port_prod_ssh:          '9022'
-cicdgoat_host_port_gitlab_http:       '9400'
-cicdgoat_host_port_gitlab_registry:   '9550'
 #########################
 
 ##### App Configs #####
@@ -113,10 +103,9 @@ crAPI_directory:          "{{ansible_user_dir}}/crAPI"
 crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
 
 # CI/CD Goat (https://github.com/cider-security-research/cicd-goat)
-# Using the default ports/containers, no customization.
+# Using the default ports/containers from upstream, no customization.
 use_cicdgoat:                         false
 cicdgoat_compose_url:                 https://raw.githubusercontent.com/cider-security-research/cicd-goat/main/docker-compose.yaml
-cicdgoat_use_custom_compose_file:     true # templates/compose-cicd-goat.yaml.j2
 cicdgoat_directory:                   "{{ansible_user_dir}}/cicd-goat"
 cicdgoat_compose_file:                "{{cicdgoat_directory}}/compose.yaml"
 
