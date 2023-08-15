@@ -2,6 +2,7 @@
 [ ] Add https://github.com/OWASP/SecurityShepherd/
 [ ] Write blog post
 [ ] Add maintenance section
+[ ] Review docs
 
 # Completed
 [x] Modify port structure (each app gets a specific thousand ports)
@@ -13,4 +14,3 @@
 [x] Add https://github.com/erev0s/VAmPI
 [x] Add https://github.com/cider-security-research/cicd-goat
 [x] Add https://github.com/snoopysecurity/dvws-node
-[x] Review docs

@@ -26,7 +26,7 @@
     cmd: "docker-compose -f {{juiceshop_compose_file}} up --detach"
   when:
     - use_owasp_juiceshop
-    - juiceshop_autostart
+    - autostart_enabled_apps
 
 ##### VulnLab #####
 - name: "Create directory for Yavuzlar Vulnlab ({{ vulnlab_directory }})"
@@ -55,7 +55,7 @@
     cmd: docker-compose up --detach
   when:
     - use_yavuzlar_vulnlab
-    - vulnlab_autostart
+    - autostart_enabled_apps
 
 ##### RailsGoat #####
 - name: "Clone RailsGoat repo to {{railsgoat_directory}}"
@@ -90,7 +90,7 @@
     cmd: "docker-compose -f {{railsgoat_compose_file}} up --detach"
   when:
     - use_owasp_railsgoat
-    - railsgoat_autostart
+    - autostart_enabled_apps
 
 ##### DVWA #####
 - name: "Clone DVWA repo to {{dvwa_directory}}"
@@ -125,7 +125,7 @@
     cmd: "docker-compose -f {{dvwa_compose_file}} up --detach"
   when:
     - use_dvwa
-    - dvwa_autostart
+    - autostart_enabled_apps
 
 ##### DVGA #####
 - name: "Create directory for DVGA ({{ dvga_directory }})"
@@ -153,7 +153,7 @@
     cmd: "docker-compose -f {{dvga_compose_file}} up --detach"
   when:
     - use_dvga
-    - dvga_autostart
+    - autostart_enabled_apps
 
 ##### NodeGoat #####
 - name: "Clone NodeGoat repo to {{nodegoat_directory}}"
@@ -187,7 +187,7 @@
     cmd: "docker-compose -f {{nodegoat_compose_file}} up --detach"
   when:
     - use_owasp_nodegoat
-    - nodegoat_autostart
+    - autostart_enabled_apps
 
 ##### WebGoat #####
 - name: "Create directory for WebGoat ({{ webgoat_directory }})"
@@ -215,7 +215,7 @@
     cmd: "docker-compose -f {{webgoat_compose_file}} up --detach"
   when:
     - use_webgoat
-    - webgoat_autostart
+    - autostart_enabled_apps
 
 ##### Mutillidae #####
 - name: "Clone Mutillidae repo to {{mutillidae_directory}}"
@@ -250,7 +250,7 @@
     cmd: "docker-compose -f {{mutillidae_compose_file}} up --detach"
   when:
     - use_mutillidae
-    - mutillidae_autostart
+    - autostart_enabled_apps
 
 ##### crAPI #####
 - name: "Clone crAPI repo to {{crAPI_directory}}"
@@ -273,7 +273,7 @@
     cmd: "docker-compose -f {{crAPI_compose_file}} --compatibility up --detach"
   when:
     - use_crAPI
-    - crAPI_autostart
+    - autostart_enabled_apps
 
 ##### SSRF Lab #####
 - name: "Clone SSRF lab repo to {{ssrf_lab_directory}}"
@@ -302,7 +302,7 @@
     cmd: "docker-compose -f {{ssrf_lab_compose_file}} up --detach"
   when:
     - use_ssrf_lab
-    - ssrf_lab_autostart
+    - autostart_enabled_apps
 
 ##### CI/CD Goat #####
 - name: "Create directory for CI/CD Goat ({{ cicdgoat_directory }})"
@@ -328,7 +328,7 @@
     cmd: "docker-compose -f {{cicdgoat_compose_file}} up --detach"
   when:
     - use_cicdgoat
-    - cicdgoat_autostart
+    - autostart_enabled_apps
 
 ##### VAmPI #####
 - name: "Clone VAmPI repo to {{VAmPI_directory}}"
@@ -363,7 +363,7 @@
     cmd: "docker-compose -f {{VAmPI_compose_file}} up --detach"
   when:
     - use_VAmPI
-    - VAmPI_autostart
+    - autostart_enabled_apps
 
 ##### DVWS-Node #####
 - name: "Clone DVWS repo to {{dvws_directory}}"
@@ -396,4 +396,4 @@
     cmd: "docker-compose -f {{dvws_compose_file}} up --detach"
   when:
     - use_dvws
-    - dvws_autostart
+    - autostart_enabled_apps

@@ -1,4 +1,9 @@
 ---
+##### Auto-Launch #####
+# WARNING: enabling this will automatically launch vulnerable apps/services.
+# Don't get yourself/your org pwned! See the README for tips on doing this safely.
+autostart_enabled_apps: false
+
 ##### Default Ports #####
 #   - Strings (not integers)
 #   - Override when calling the role to use a different port
@@ -39,70 +44,60 @@ dvws_host_port_xmlrpc:    '7090'
 ##### App Configs #####
 # OWASP Juice Shop: https://owasp.org/www-project-juice-shop/
 use_owasp_juiceshop:    false
-juiceshop_autostart:    false   # use_owasp_juiceshop must be true
 juiceshop_image:        bkimminich/juice-shop # on docker hub
 juiceshop_compose_file: "{{juiceshop_directory}}/compose.yaml"
-juiceshop_directory:    "{{ansible_user_dir}}/juiceshop"
+juiceshop_directory:    "{{ansible_user_dir}}/juice-shop"
 
 # VulnLab: https://github.com/Yavuzlar/VulnLab
 use_yavuzlar_vulnlab:   false
-vulnlab_autostart:      false   # use_yavuzlar_vulnlab must be true
 vulnlab_image:          yavuzlar/vulnlab # on docker hub
 vulnlab_directory:      "{{ansible_user_dir}}/vulnlab"
 vulnlab_compose_file:   "{{ vulnlab_directory }}/compose.yaml"
 
 # RailsGoat: https://github.com/OWASP/railsgoat
 use_owasp_railsgoat:    false
-railsgoat_autostart:    false   # use_owasp_railsgoat must be true
 railsgoat_repo:         https://github.com/OWASP/railsgoat.git
 railsgoat_directory:    "{{ansible_user_dir}}/railsgoat"
 railsgoat_compose_file: "{{railsgoat_directory}}/compose.yaml"
 
 # Damn Vulnerable Web Application (DVWA): https://github.com/digininja/DVWA
 use_dvwa:               false
-dvwa_autostart:         false   # use_dvwa must be true
 dvwa_repo:              https://github.com/digininja/DVWA.git
 dvwa_directory:         "{{ansible_user_dir}}/dvwa"
 dvwa_compose_file:      "{{dvwa_directory}}/compose.yaml"
 
 # Damn Vulnerable GraphQL Application (DVGA): https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 use_dvga:               false
-dvga_autostart:         false   # use_dvga must be true
 dvga_image:             dolevf/dvga # on docker hub
 dvga_directory:         "{{ansible_user_dir}}/dvga"
 dvga_compose_file:      "{{dvga_directory}}/compose.yaml"
 
 # NodeGoat (https://github.com/OWASP/NodeGoat)
 use_owasp_nodegoat:     false
-nodegoat_autostart:     false   # use_owasp_nodegoat must be true
 nodegoat_repo:          https://github.com/OWASP/NodeGoat.git
 nodegoat_directory:     "{{ansible_user_dir}}/nodegoat"
 nodegoat_compose_file:  "{{nodegoat_directory}}/compose.yaml"
 
 # SSRF vulnerable Lab (https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
 use_ssrf_lab:           false
-ssrf_lab_autostart:     false   # use_ssrf_lab must be true
 ssrf_lab_repo:          https://github.com/incredibleindishell/SSRF_Vulnerable_Lab.git
 ssrf_lab_directory:     "{{ansible_user_dir}}/ssrf-lab"
 ssrf_lab_compose_file:  "{{ssrf_lab_directory}}/compose.yaml"
 
 # WebGoat (https://github.com/WebGoat/WebGoat)
 use_webgoat:                false
-webgoat_autostart:          false   # use_webgoat must be true
 webgoat_image:              webgoat/webgoat # on docker hub
 webgoat_directory:          "{{ansible_user_dir}}/webgoat"
 webgoat_compose_file:       "{{webgoat_directory}}/compose.yaml"
 
 # Mutillidae (https://github.com/webpwnized/mutillidae)
 use_mutillidae:                   false
-mutillidae_autostart:             false # use_mutillidae must be true
 mutillidae_repo:                  https://github.com/webpwnized/mutillidae-docker.git
 mutillidae_directory:             "{{ansible_user_dir}}/mutillidae"
 mutillidae_compose_file:          "{{mutillidae_directory}}/compose.yaml"
 
 # crAPI (https://github.com/OWASP/crAPI)
 use_crAPI:                false
-crAPI_autostart:          false   # use_crAPI must be true
 crAPI_repo:               https://github.com/OWASP/crAPI.git
 crAPI_directory:          "{{ansible_user_dir}}/crAPI"
 crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
@@ -110,21 +105,18 @@ crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
 # CI/CD Goat (https://github.com/cider-security-research/cicd-goat)
 # Using the default ports/containers, no customization.
 use_cicdgoat:           false
-cicdgoat_autostart:     false # use_cicdgoat must be true
 cicdgoat_compose_url:   https://raw.githubusercontent.com/cider-security-research/cicd-goat/main/docker-compose.yaml
 cicdgoat_directory:     "{{ansible_user_dir}}/cicd-goat"
 cicdgoat_compose_file:  "{{cicdgoat_directory}}/compose.yaml"
 
 # VAmPI (https://github.com/erev0s/VAmPI.git)
 use_VAmPI:              false
-VAmPI_autostart:        false # use_VAmPI must be true
 VAmPI_repo:             https://github.com/erev0s/VAmPI.git
 VAmPI_directory:        "{{ansible_user_dir}}/VAmPI"
 VAmPI_compose_file:     "{{VAmPI_directory}}/compose.yaml"
 
 # DVWS-Node (https://github.com/snoopysecurity/dvws-node)
 use_dvws:               false
-dvws_autostart:         false # use_dvws must be true
 dvws_repo:              https://github.com/snoopysecurity/dvws-node.git
 dvws_directory:         "{{ansible_user_dir}}/dvws-node"
 dvws_compose_file:      "{{dvws_directory}}/compose.yaml"
