@@ -14,7 +14,7 @@ This project takes the following security precautions:
 - Uses a private Virtualbox network without port forwarding as a security layer
 - Vulnerable applications (except CI/CD Goat) listen on `127.0.0.1` rather than `0.0.0.0`
 
-For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed to set up them up initially).
+For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
 
 ## Requirements
 ### Software
@@ -26,7 +26,7 @@ You'll need these free tools that provide the cross-platform base for this repos
 ### Hardware
 Make sure you've got at least 6GB of RAM (8GB or more is better).
 
-By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable, e.g. for 4GB of RAM:
+By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable (in MB). For example, to give the VM 4GB of RAM:
 ```ruby
 config.vm.provider "virtualbox" do |v|
     v.memory = 4096
@@ -34,14 +34,14 @@ config.vm.provider "virtualbox" do |v|
 
 # Usage
 ## VM Setup
-On a machine meeting the prerequisites above:
+On a machine meeting the prerequisites listed above:
 ```sh
 git clone https://gitlab.com/johnroberts/vm-vulnlab.git
 cd vm-vulnlab
 vagrant up
 ```
 
-Automated VM setup uses the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This isn't bundled with Vagrant, so the first time you run `vagrant up` you may be prompted to install it; accept the installation prompt and then continue with:
+VM provisioning uses the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This isn't bundled with Vagrant, so the first time you run `vagrant up` you may be prompted to install it; accept the installation prompt and then continue with:
 ```shell
 vagrant up --provision
 ```
