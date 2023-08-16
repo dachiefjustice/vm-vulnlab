@@ -435,11 +435,10 @@
   when: use_shepherd
 
 - name: Build and pull Security Shepherd
-  shell:
+  command:
     chdir: "{{shepherd_directory}}"
     cmd: |
-      docker-compose -f {{shepherd_compose_file}} build &&
-      docker-compose -f {{shepherd_compose_file}} pull
+      docker-compose -f {{shepherd_compose_file}} build --pull
   when: use_shepherd
 
 - name: Start Security Shepherd
