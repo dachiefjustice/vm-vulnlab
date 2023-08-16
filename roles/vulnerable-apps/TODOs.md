@@ -1,7 +1,6 @@
 # In Progress
-[ ] Add https://github.com/OWASP/SecurityShepherd/
 [ ] Write blog post
-[ ] Add maintenance section
+[ ] Add https://github.com/OWASP/SecurityShepherd/
 [ ] Review docs
 
 # Completed
@@ -14,3 +13,6 @@
 [x] Add https://github.com/erev0s/VAmPI
 [x] Add https://github.com/cider-security-research/cicd-goat
 [x] Add https://github.com/snoopysecurity/dvws-node
+[x] Add maintenance section
+
+# Discarded

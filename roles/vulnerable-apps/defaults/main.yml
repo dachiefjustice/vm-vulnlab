@@ -39,6 +39,12 @@ VAmPI_host_port_vuln:   '6002'
 dvws_host_port_http:      '7080'
 dvws_host_port_graphql:   '7081'
 dvws_host_port_xmlrpc:    '7090'
+
+## Security Shepherd: 9000 port range
+shepherd_host_port_db:    '9306'
+shepherd_host_port_mongo: '9017'
+shepherd_host_port_http:  '9080'
+shepherd_host_port_https: '9443'
 #########################
 
 ##### App Configs #####
@@ -120,3 +126,10 @@ use_dvws:               false
 dvws_repo:              https://github.com/snoopysecurity/dvws-node.git
 dvws_directory:         "{{ansible_user_dir}}/dvws-node"
 dvws_compose_file:      "{{dvws_directory}}/compose.yaml"
+
+# Security Shepherd (https://github.com/OWASP/SecurityShepherd/)
+use_shepherd:           false
+shepherd_repo:          https://github.com/OWASP/SecurityShepherd.git
+shepherd_directory:     "{{ansible_user_dir}}/security-shepherd"
+shepherd_env_file:      "{{shepherd_directory}}/.env"
+shepherd_compose_file:  "{{shepherd_directory}}/docker-compose.yml"

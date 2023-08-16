@@ -398,3 +398,53 @@
   when:
     - use_dvws
     - autostart_enabled_apps
+
+##### Security Shepherd #####
+- name: "Clone Security Shepherd repo to {{shepherd_directory}}"
+  git:
+    repo: "{{ shepherd_repo }}"
+    dest: "{{ shepherd_directory }}"
+    force: true # needed due to using a custom .env file
+  when: use_shepherd
+
+- name: Remove .env file from cloned Security Shepherd repo (to use a custom one)
+  file:
+    path: "{{shepherd_env_file}}"
+    state: absent
+  when: use_shepherd
+
+- name: Template out Security Shepherd lab .env file
+  template:
+    src: templates/shepherd-env.j2
+    dest: "{{ shepherd_env_file }}"
+  when: use_shepherd
+
+- name: Install Security Shepherd prerequisites
+  become: true
+  apt:
+    pkg:
+      - maven
+      - default-jdk
+    state: present
+  when: use_shepherd
+
+- name: Generate Security Shepherd WAR file and HTTPS cert
+  command:
+    cmd: mvn -Pdocker clean install -DskipTests
+    chdir: "{{ shepherd_directory }}"
+  when: use_shepherd
+
+- name: Build and pull Security Shepherd
+  shell:
+    chdir: "{{shepherd_directory}}"
+    cmd: |
+      docker-compose -f {{shepherd_compose_file}} build &&
+      docker-compose -f {{shepherd_compose_file}} pull
+  when: use_shepherd
+
+- name: Start Security Shepherd
+  command:
+    cmd: "docker-compose -f {{shepherd_compose_file}} up --detach"
+  when:
+    - use_shepherd
+    - autostart_enabled_apps

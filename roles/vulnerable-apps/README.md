@@ -1,6 +1,6 @@
 # Summary
 This Ansible role automates setting up intentionally vulnerable web applications and APIs using Docker and Docker Compose on Kali Linux. This is useful for developers and security professionals to:
-- Better understand web vulnerabilities by finding and exploiting them
+- Learn about web security by finding and exploiting vulnerabilities
 - Practice penetration testing in a safe environment
 - Create trainings/workshops
 
@@ -41,6 +41,7 @@ end
 Click through for information and instructions about each vulnerable application:
 - [Juice Shop](https://owasp.org/www-project-juice-shop/)
 - [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project)
+- [Security Shepherd](https://github.com/OWASP/SecurityShepherd/)
 - [Mutillidae II](https://owasp.org/www-project-mutillidae-ii/)
 - [RailsGoat](https://github.com/OWASP/railsgoat)
 - [crAPI](https://github.com/OWASP/crAPI)
