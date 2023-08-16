@@ -36,6 +36,7 @@ This project takes the following security precautions:
 
 For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
 
+# Usage
 ## Requirements
 ### Software
 You'll need these free tools that provide the cross-platform base for this repository:
@@ -52,7 +53,6 @@ config.vm.provider "virtualbox" do |v|
     v.memory = 4096
 ```
 
-# Usage
 ## VM Setup
 On a machine meeting the prerequisites listed above:
 ```sh
