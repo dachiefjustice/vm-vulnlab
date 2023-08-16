@@ -4,7 +4,7 @@
 
 ##### Juice Shop #####
 ## More info: https://owasp.org/www-project-juice-shop/
-# use_owasp_juiceshop:        true
+use_owasp_juiceshop:        true
 # juiceshop_host_port:        '3000'
 
 ##### Yazuzlar Vulnerable Lab #####
@@ -17,12 +17,12 @@
 # use_owasp_railsgoat:    true
 # railsgoat_host_port:    '3002'
 
-##### DVWA #####
+##### Damn Vulnerable Web Application #####
 ## More info: https://github.com/digininja/DVWA
 # use_dvwa:               true
 # dvwa_host_port:         '3003'
 
-##### DVGA #####
+##### Damn Vulnerable GraphVL Application #####
 ## More info: https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 # use_dvga:               true
 # dvga_host_port:         '3004'
@@ -54,14 +54,14 @@
 
 ##### crAPI #####
 ## More info: https://github.com/OWASP/crAPI
-## NOTE:  crAPI ports are not customizeable due to nature of the app.
-##        Refer to the crAPI README for port details.
+## NOTE:  Refer to the crAPI README for port details.
+##        crAPI ports are not customizeable due to nature of the app.
 # use_crAPI:            true
 
 ##### CI/CD Goat #####
 ## More info: https://github.com/cider-security-research/cicd-goat
-## NOTE:  crAPI ports are not customizeable due to nature of the app.
-##        Refer to the CI/CD Goat README for port details.
+## NOTE:  Refer to the CI/CD Goat README for port details.
+##        These ports are not customizeable due to the app's complexity and use of docker-in-docker.
 # use_cicdgoat:                         true
 
 ##### VAmPI #####
@@ -70,7 +70,7 @@
 # VAmPI_host_port_secure: '6001'
 # VAmPI_host_port_vuln:   '6002'
 
-##### DVWS-Node #####
+##### Damn Vulnerable Web Services #####
 ## More info: https://github.com/snoopysecurity/dvws-node
 # use_dvws:               true
 # dvws_host_port_http:      '7080'
@@ -79,7 +79,7 @@
 
 ##### Security Shepherd #####
 ## More info: https://github.com/OWASP/SecurityShepherd/
-use_shepherd:             true
+# use_shepherd:             true
 
 # shepherd_host_port_db:    '9306'
 # shepherd_host_port_mongo: '9017'
