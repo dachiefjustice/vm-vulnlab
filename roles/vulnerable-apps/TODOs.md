@@ -1,6 +1,5 @@
 # In Progress
 [ ] Write blog post
-[ ] Add https://github.com/OWASP/SecurityShepherd/
 [ ] Review docs
 
 # Completed
@@ -14,5 +13,7 @@
 [x] Add https://github.com/cider-security-research/cicd-goat
 [x] Add https://github.com/snoopysecurity/dvws-node
 [x] Add maintenance section
+[x] Add https://github.com/OWASP/SecurityShepherd/
+[x] Add per-app table to vulnlab
 
 # Discarded

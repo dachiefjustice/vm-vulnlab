@@ -115,7 +115,7 @@ cicdgoat_compose_url:                 https://raw.githubusercontent.com/cider-se
 cicdgoat_directory:                   "{{ansible_user_dir}}/cicd-goat"
 cicdgoat_compose_file:                "{{cicdgoat_directory}}/compose.yaml"
 
-# VAmPI (https://github.com/erev0s/VAmPI.git)
+# VAmPI (https://github.com/erev0s/VAmPI)
 use_VAmPI:              false
 VAmPI_repo:             https://github.com/erev0s/VAmPI.git
 VAmPI_directory:        "{{ansible_user_dir}}/VAmPI"
