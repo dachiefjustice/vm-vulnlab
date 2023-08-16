@@ -67,9 +67,7 @@ vagrant up --provision
 ```
 
 ## Vulnerable Application Config
-Each time you run `vagrant provision` or `vagrant up --provision` the VM will apply the settings from [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml).  Use this file to:
-- Enable vulnerable applications and view/change their ports
-- Get links to each vulnerable application's documentation
+Each time you run `vagrant provision` or `vagrant up --provision` the VM will apply the settings from [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml).  Use this file to enable vulnerable applications and view/change their ports.
 
 ## Using Vulnerable Applications
 **Vulnerable applications are NOT automatically launched** for security reasons. To use a vulnerable application:
