@@ -40,9 +40,9 @@ For another layer of protection, disconnect from the network while running vulne
 ## Summary
 1. Clone/fork this repo
 2. Enable the apps you want to use by uncommenting them in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml)
-3. `vagrant up && vagrant ssh`
-4. `cd ~/app-name && docker-compose up -d`
-5. Start hacking using the Kali toolset!
+3. `vagrant plugin install vagrant-reload` (if you don't already have it)
+4. `vagrant up && vagrant ssh`
+5. `cd ~/app-name && docker-compose up -d`
 
 More detailed instructions below.
 
