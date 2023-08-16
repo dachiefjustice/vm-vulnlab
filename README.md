@@ -5,7 +5,9 @@ This repo packages **10+ intentionally vulnerable web apps/APIs** with a [Kali L
 - Create security trainings/workshops
 
 ## Vulnerable Apps & Guides
-The vulnerable applications cover a range of programming languages, vulnerability types (including [OWASP top 10](https://owasp.org/Top10/)), and difficulty levels. **Massive thanks** to the authors and contributors of all these apps for their hard work! Click the links to learn more about each application.
+The vulnerable applications cover a range of programming languages, vulnerability types (including [OWASP top 10](https://owasp.org/Top10/)), and difficulty levels. By default, Juice Shop is enabled (but not automatically started).
+
+**Massive thanks** to the authors and contributors of all these apps for their hard work! Click the links to learn more about each application.
 
 | App + Docs                                                                  | Default Port(s)                                                            |
 |-----------------------------------------------------------------------------|----------------------------------------------------------------------------|
@@ -39,9 +41,9 @@ For another layer of protection, disconnect from the network while running vulne
 # Usage
 ## Summary
 1. Clone/fork this repo
-2. Enable the apps you want to use by uncommenting them in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml)
+2. Edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to enable vulnerable applications. Each time you run `vagrant provision` or `vagrant up --provision` these settings are applied.
 3. `vagrant plugin install vagrant-reload` (if you don't already have it)
-4. `vagrant up && vagrant ssh`
+4. `cd this-repo && vagrant up && vagrant ssh`
 5. `cd ~/app-name && docker-compose up -d`
 
 More detailed instructions below.
@@ -74,9 +76,6 @@ VM provisioning uses the [`vagrant-reload` plugin](https://github.com/aidanns/va
 ```shell
 vagrant up --provision
 ```
-
-## Vulnerable Application Config
-Each time you run `vagrant provision` or `vagrant up --provision` the VM will apply the settings from [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml).  Use this file to enable vulnerable applications and view/change their ports.
 
 ## Using Vulnerable Applications
 **Vulnerable applications are NOT automatically launched** for security reasons. To use a vulnerable application:
