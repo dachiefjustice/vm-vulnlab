@@ -30,4 +30,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbooks/vulnlab-playbook.yml"
   end
+
+  ##### FOLDER SHARING ######
+  # Windows-host specific workaround for ansible_local provisioner to use the project's ansible.cfg
+  config.vm.synced_folder ".", "/vagrant",  mount_options: ["dmode=775,fmode=755"]
 end
