@@ -4,7 +4,27 @@ This repo packages **10+ intentionally vulnerable web apps/APIs** with a [Kali L
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-The vulnerable applications cover a range of programming languages, vulnerability types ([OWASP top ten](https://owasp.org/Top10/) and more), and difficulty levels. Vulnerable applications include [Juice Shop](https://owasp.org/www-project-juice-shop/), [WebGoat](https://github.com/WebGoat/WebGoat), [NodeGoat](https://wiki.owasp.org/index.php/OWASP_Node_js_Goat_Project), and plenty more (see [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps) for details).
+## Included Vulnerable Apps
+The vulnerable applications cover a range of programming languages, vulnerability types (including [OWASP top 10](https://owasp.org/Top10/)), and difficulty levels. **Massive** thanks to the authors and contributors of all these apps for their hard work!
+
+| App + Docs                                                            | Default Port(s)                                           |
+|-----------------------------------------------------------------------|-----------------------------------------------------------|
+| [Juice Shop](https://owasp.org/www-project-juice-shop/)               | 3000 (web)                                                |
+| [Yavuzlar Vulnlab](https://github.com/Yavuzlar/VulnLab)               | 3001 (web)                                                |
+| [RailsGoat](https://github.com/OWASP/railsgoat)                       | 3002 (web)                                                |
+| [DVWA](https://github.com/digininja/DVWA)                             | 3003 (web)                                                |
+| [DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application) | 3004 (web)                                                |
+| [NodeGoat](https://github.com/OWASP/NodeGoat)                         | 3005 (web)                                                |
+| [SSRF Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)| 3006 (web)                                                |
+| [WebGoat](https://github.com/WebGoat/WebGoat)                         | 4080 (WebGoat), 4090 (WebWolf)                            |
+| [Mutillidae](https://github.com/webpwnized/mutillidae)                | 5080 (HTTP), 5443 (HTTPS), 5081 (DB Admin), 5389 (LDAP), 5082 (LDAP admin)              |
+| [VAmPI](https://github.com/erev0s/VAmPI)                              | 6001 (secure), 6002 (vulnerable)                          |
+| [DVWS-Node](https://github.com/snoopysecurity/dvws-node)              | 7080 (web), 7081 (GraphQL), 7090 (xmlrpc)                 |
+| [Security Shepherd](https://github.com/OWASP/SecurityShepherd/)       | 9080 (HTTP), 9443 (HTTPS), 9306 (main DB), 9017 (MongoDB) |
+| [crAPI](https://github.com/OWASP/crAPI)                               | See docs, run without other apps to avoid conflicts       |
+| [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)    | See docs, run without other apps to avoid conflicts       | 
+
+See [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps) for app deployment details.
 
 ## 🛑⚠️Security Warning⚠️🛑
 This VM contains lots of vulnerable software, don't get yourself or your organization pwned! You're responsible for your own security. If you're running this on a machine/network you don't control, get permission from your IT team!
@@ -82,22 +102,6 @@ docker-compose up -d # runs the application in the background
 ```
 4. Launch Firefox or Burp Suite in the VM, point it towards http://localhost:3000, and start hacking!
 
-# Lab Environment Details
-## Ports
-You can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml).
-
-Most vulnerable applications use a single port, some vulnerable applications use multiple ports/services.
-
-The default ports are non-conflicting (except for the applications listed below, which use the ports defined in their repos/documentation):
-- [crAPI](https://github.com/OWASP/crAPI)
-- [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
-
-## Tech Stack
-- Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
-- Ansible (for automated provisioning)
-- Docker and Docker Compose (for running the vulnerable applications)
-- The programming languages, frameworks, and other components of the vulnerable applications
-
 ## Enabling Vulnerable Application Auto-Start
 **🛑⚠️Warning: this is dangerous⚠️🛑** if you don't know what you're doing! Before proceeding make sure that you:
 - **100% understand the security implications**
@@ -109,6 +113,21 @@ autostart_enabled_apps:     true
 ```
 
 Then run a `vagrant up --provision`. Afterwards, the currently-enabled vulnerable apps (defined in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml)) will be automatically started.
+
+# Lab Environment Details
+## Ports
+You can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). Most vulnerable applications use a single port, some vulnerable applications use multiple ports/services.
+
+The default ports are non-conflicting (except for the applications listed below, which use the ports listed in their documentation):
+- [crAPI](https://github.com/OWASP/crAPI)
+- [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
+
+## Tech Stack
+- Vagrant, Virtualbox, and Kali Linux ([`kalilinux/rolling`](https://app.vagrantup.com/kalilinux/boxes/rolling))
+- Ansible (for automated provisioning)
+- Docker and Docker Compose (for running the vulnerable applications)
+- The programming languages, frameworks, and other components of the vulnerable applications
+
 
 # Credits & Inspiration
 Special thanks to all the authors and contributors for these vulnerable applications, and to the authors of the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
