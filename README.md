@@ -4,8 +4,8 @@ This repo packages **10+ intentionally vulnerable web apps/APIs** with a [Kali L
 - Practice web penetration testing safely and easily
 - Create security trainings/workshops
 
-## Included Vulnerable Apps
-The vulnerable applications cover a range of programming languages, vulnerability types (including [OWASP top 10](https://owasp.org/Top10/)), and difficulty levels. **Massive** thanks to the authors and contributors of all these apps for their hard work!
+## Vulnerable Apps & Guides
+The vulnerable applications cover a range of programming languages, vulnerability types (including [OWASP top 10](https://owasp.org/Top10/)), and difficulty levels. **Massive thanks** to the authors and contributors of all these apps for their hard work! Click the links to learn more about each application.
 
 | App + Docs                                                            | Default Port(s)                                           |
 |-----------------------------------------------------------------------|-----------------------------------------------------------|
