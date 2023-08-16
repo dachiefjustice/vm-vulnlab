@@ -7,22 +7,22 @@ This repo packages **10+ intentionally vulnerable web apps/APIs** with a [Kali L
 ## Vulnerable Apps & Guides
 The vulnerable applications cover a range of programming languages, vulnerability types (including [OWASP top 10](https://owasp.org/Top10/)), and difficulty levels. **Massive thanks** to the authors and contributors of all these apps for their hard work! Click the links to learn more about each application.
 
-| App + Docs                                                            | Default Port(s)                                           |
-|-----------------------------------------------------------------------|-----------------------------------------------------------|
-| [Juice Shop](https://owasp.org/www-project-juice-shop/)               | 3000 (web)                                                |
-| [Yavuzlar Vulnlab](https://github.com/Yavuzlar/VulnLab)               | 3001 (web)                                                |
-| [RailsGoat](https://github.com/OWASP/railsgoat)                       | 3002 (web)                                                |
-| [DVWA](https://github.com/digininja/DVWA)                             | 3003 (web)                                                |
-| [DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application) | 3004 (web)                                                |
-| [NodeGoat](https://github.com/OWASP/NodeGoat)                         | 3005 (web)                                                |
-| [SSRF Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)| 3006 (web)                                                |
-| [WebGoat](https://github.com/WebGoat/WebGoat)                         | 4080 (WebGoat), 4090 (WebWolf)                            |
+| App + Docs                                                            | Default Port(s)                                                |
+|-----------------------------------------------------------------------|----------------------------------------------------------------|
+| [Juice Shop](https://owasp.org/www-project-juice-shop/)               | 3000 (web)                                                     |
+| [Yavuzlar Vulnlab](https://github.com/Yavuzlar/VulnLab)               | 3001 (web)                                                     |
+| [RailsGoat](https://github.com/OWASP/railsgoat)                       | 3002 (web)                                                     |
+| [DVWA](https://github.com/digininja/DVWA)                             | 3003 (web)                                                     |
+| [DVGA](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application) | 3004 (web)                                                     |
+| [NodeGoat](https://github.com/OWASP/NodeGoat)                         | 3005 (web)                                                     |
+| [SSRF Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)| 3006 (web)                                                     |
+| [WebGoat](https://github.com/WebGoat/WebGoat)                         | 4080 (WebGoat), 4090 (WebWolf)                                 |
 | [Mutillidae](https://github.com/webpwnized/mutillidae)                | 5080 (HTTP), 5443 (HTTPS), 5081 (DB Admin), 5389 (LDAP), 5082 (LDAP admin)              |
-| [VAmPI](https://github.com/erev0s/VAmPI)                              | 6001 (secure), 6002 (vulnerable)                          |
-| [DVWS-Node](https://github.com/snoopysecurity/dvws-node)              | 7080 (web), 7081 (GraphQL), 7090 (xmlrpc)                 |
-| [Security Shepherd](https://github.com/OWASP/SecurityShepherd/)       | 9080 (HTTP), 9443 (HTTPS), 9306 (main DB), 9017 (MongoDB) |
-| [crAPI](https://github.com/OWASP/crAPI)                               | See docs, run without other apps to avoid conflicts       |
-| [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)    | See docs, run without other apps to avoid conflicts       | 
+| [VAmPI](https://github.com/erev0s/VAmPI)                              | 6001 (secure), 6002 (vulnerable)                               |
+| [DVWS-Node](https://github.com/snoopysecurity/dvws-node)              | 7080 (web), 7081 (GraphQL), 7090 (xmlrpc)                      |
+| [Security Shepherd](https://github.com/OWASP/SecurityShepherd/)       | 9080 (HTTP), 9443 (HTTPS), 9306 (main DB), 9017 (MongoDB)      |
+| [crAPI](https://github.com/OWASP/crAPI)                               | See docs, run without other apps to avoid port conflicts       |
+| [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)    | See docs, run without other apps to avoid port conflicts       | 
 
 See [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps) for app deployment details.
 
