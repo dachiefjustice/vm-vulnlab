@@ -26,7 +26,7 @@ The vulnerable applications cover a range of programming languages, vulnerabilit
 
 See [this Ansible role](https://gitlab.com/johnroberts/ansiblerole-vulnerable-apps) for app deployment details.
 
-## 🛑⚠️Security Warning⚠️🛑
+## <a name="security-warning"></a> 🛑⚠️Security Warning⚠️🛑
 This VM contains lots of vulnerable software, don't get yourself or your organization pwned! You're responsible for your own security. If you're running this on a machine/network you don't control, get permission from your IT team!
 
 This project takes the following security precautions:
@@ -105,7 +105,7 @@ docker-compose up -d # runs the application in the background
 ## Enabling Vulnerable Application Auto-Start
 **🛑⚠️Warning: this is dangerous⚠️🛑** if you don't know what you're doing! Before proceeding make sure that you:
 - **100% understand the security implications**
-- **Have implemented adequate compensating controls** (see the Security Warning above)
+- **Have implemented adequate compensating controls** (see the [Security Warning](#security-warning))
 
 With that warning out of the way, you can enable vulnerable application auto-start by adding the following line to [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml):
 ```yaml
@@ -127,7 +127,6 @@ The default ports are non-conflicting (except for the applications listed below,
 - Ansible (for automated provisioning)
 - Docker and Docker Compose (for running the vulnerable applications)
 - The programming languages, frameworks, and other components of the vulnerable applications
-
 
 # Credits & Inspiration
 Special thanks to all the authors and contributors for these vulnerable applications, and to the authors of the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/).
