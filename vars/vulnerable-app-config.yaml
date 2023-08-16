@@ -1,10 +1,10 @@
 ---
 ##### Project-Wide Settings #####
-# autostart_enabled_apps:     false
+# autostart_enabled_apps:     true
 
 ##### Juice Shop #####
 ## More info: https://owasp.org/www-project-juice-shop/
-use_owasp_juiceshop:        true
+# use_owasp_juiceshop:        true
 # juiceshop_host_port:        '3000'
 
 ##### Yazuzlar Vulnerable Lab #####
@@ -62,8 +62,7 @@ use_owasp_juiceshop:        true
 ## More info: https://github.com/cider-security-research/cicd-goat
 ## NOTE:  crAPI ports are not customizeable due to nature of the app.
 ##        Refer to the CI/CD Goat README for port details.
-# use_cicdgoat:           true
-
+# use_cicdgoat:                         true
 
 ##### VAmPI #####
 ## More info: https://github.com/erev0s/VAmPI
@@ -77,3 +76,12 @@ use_owasp_juiceshop:        true
 # dvws_host_port_http:      '7080'
 # dvws_host_port_graphql:   '7081'
 # dvws_host_port_xmlrpc:    '7090'
+
+##### Security Shepherd #####
+## More info: https://github.com/OWASP/SecurityShepherd/
+use_shepherd:             true
+
+# shepherd_host_port_db:    '9306'
+# shepherd_host_port_mongo: '9017'
+# shepherd_host_port_http:  '9080'
+# shepherd_host_port_https: '9443'
