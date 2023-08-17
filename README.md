@@ -88,7 +88,7 @@ vagrant ssh
 cd app-name
 docker-compose up -d # runs the application in the background
 ```
-4. In the Kali VM, launch Firefox/Burp Suite/whatever tool and point it at `http://localhost:app_port` (using the port from step 2).
+4. **Use the application**: in the Kali VM, launch Firefox/Burp Suite/whatever tool and point it at `http://localhost:app_port` (using the port from step 2).
 
 ### Example: Use OWASP Juice Shop
 1. **Enable Juice Shop**: edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to look like:
@@ -107,7 +107,7 @@ vagrant ssh
 cd juice-shop
 docker-compose up -d # runs the application in the background
 ```
-4. Launch Firefox or Burp Suite in the VM, point it towards http://localhost:3000, and start hacking!
+4. **Use the application**: in the Kali VM, launch Firefox/Burp Suite/whatever tool and point it at http://localhost:3000. Happy hacking!
 
 ## Enabling Vulnerable Application Auto-Start
 **🛑⚠️Warning: this is dangerous⚠️🛑** if you don't know what you're doing! Before proceeding make sure that you:
