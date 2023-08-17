@@ -69,10 +69,11 @@ On a machine meeting the prerequisites listed above:
 ```sh
 git clone https://gitlab.com/johnroberts/vm-vulnlab.git
 cd vm-vulnlab
+vagrant plugin install vagrant-reload # for VM provisioning
 vagrant up
 ```
 
-VM provisioning uses the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This isn't bundled with Vagrant, so the first time you run `vagrant up` you may be prompted to install it; accept the installation prompt and then continue with:
+VM provisioning uses the [`vagrant-reload` plugin](https://github.com/aidanns/vagrant-reload). This isn't bundled with Vagrant, if you don't have it you'll be prompted to install it when running `vagrant up`. Accept the installation prompt, then continue VM provisioning:
 ```shell
 vagrant up --provision
 ```
