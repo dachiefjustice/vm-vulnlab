@@ -14,14 +14,14 @@ The vulnerable applications cover a range of programming languages, vulnerabilit
 | [Juice Shop](https://owasp.org/www-project-juice-shop/)                     | 3000 (web)                                                                 |
 | [Yavuzlar Vulnlab](https://github.com/Yavuzlar/VulnLab)                     | 3001 (web)                                                                 |
 | [RailsGoat](https://github.com/OWASP/railsgoat)                             | 3002 (web)                                                                 |
-| [Damn Vulnerable Web App](https://github.com/digininja/DVWA)                | 3003 (web)                                                                 |
-| [Damn Vulnerable GraphQL App](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application) | 3004                                                      |
+| [Damn Vulnerable Web App (DVWA)](https://github.com/digininja/DVWA)                | 3003 (web)                                                                 |
+| [Damn Vulnerable GraphQL App (DVGA)](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application) | 3004 (web)                                                |
 | [NodeGoat](https://github.com/OWASP/NodeGoat)                               | 3005 (web)                                                                 |
 | [SSRF Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)      | 3006 (web)                                                                 |
 | [WebGoat](https://github.com/WebGoat/WebGoat)                               | 4080 (WebGoat), 4090 (WebWolf)                                             |
 | [Mutillidae](https://github.com/webpwnized/mutillidae)                      | 5080 (HTTP), 5443 (HTTPS), 5081 (DB Admin), 5389 (LDAP), 5082 (LDAP admin) |
 | [VAmPI](https://github.com/erev0s/VAmPI)                                    | 6001 (secure), 6002 (vulnerable)                                           |
-| [Damn Vulnerable Web Services](https://github.com/snoopysecurity/dvws-node) | 7080 (web), 7081 (GraphQL), 7090 (xmlrpc)                                  |
+| [Damn Vulnerable Web Services (DVWS)](https://github.com/snoopysecurity/dvws-node) | 7080 (web), 7081 (GraphQL), 7090 (xmlrpc)                                  |
 | [Security Shepherd](https://github.com/OWASP/SecurityShepherd/)             | 9080 (HTTP), 9443 (HTTPS), 9306 (main DB), 9017 (MongoDB)                  |
 | [crAPI](https://github.com/OWASP/crAPI)                                     | See docs, run without other concurrent apps to avoid port conflicts        |
 | [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)          | See docs, run without other concurrent apps to avoid port conflicts        | 
