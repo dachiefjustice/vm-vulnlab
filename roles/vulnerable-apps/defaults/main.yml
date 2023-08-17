@@ -121,7 +121,7 @@ VAmPI_repo:             https://github.com/erev0s/VAmPI.git
 VAmPI_directory:        "{{ansible_user_dir}}/VAmPI"
 VAmPI_compose_file:     "{{VAmPI_directory}}/compose.yaml"
 
-# DVWS-Node (https://github.com/snoopysecurity/dvws-node)
+# Damn Vulnerable Web Services (https://github.com/snoopysecurity/dvws-node)
 use_dvws:               false
 dvws_repo:              https://github.com/snoopysecurity/dvws-node.git
 dvws_directory:         "{{ansible_user_dir}}/dvws-node"

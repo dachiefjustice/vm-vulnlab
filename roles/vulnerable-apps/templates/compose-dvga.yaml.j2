@@ -2,9 +2,9 @@
 
 services:
   dvga:
-    image: "{{dvga_image}}"
+    image: {{dvga_image}}
+    tty: true
     ports:
-        - "127.0.0.1:{{dvga_host_port}}:5013"
+        - 127.0.0.1:{{dvga_host_port}}:5013
     environment:
-      - WEB_HOST=0.0.0.0
-      - WEB_PORT={{dvga_host_port}}
+      - WEB_HOST=0.0.0.0 # in-container; port bind restricted in ports section
