@@ -17,7 +17,6 @@ railsgoat_host_port:    '3002'
 dvwa_host_port:         '3003'
 dvga_host_port:         '3004'
 nodegoat_host_port:     '3005'
-ssrf_lab_host_port:     '3006'
 
 # Multi-port apps each get 1000 ports
 ## WebGoat: 4000 port range
@@ -83,12 +82,6 @@ use_owasp_nodegoat:     false
 nodegoat_repo:          https://github.com/OWASP/NodeGoat.git
 nodegoat_directory:     "{{ansible_user_dir}}/nodegoat"
 nodegoat_compose_file:  "{{nodegoat_directory}}/compose.yaml"
-
-# SSRF vulnerable Lab (https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
-use_ssrf_lab:           false
-ssrf_lab_repo:          https://github.com/incredibleindishell/SSRF_Vulnerable_Lab.git
-ssrf_lab_directory:     "{{ansible_user_dir}}/ssrf-lab"
-ssrf_lab_compose_file:  "{{ssrf_lab_directory}}/compose.yaml"
 
 # WebGoat (https://github.com/WebGoat/WebGoat)
 use_webgoat:                false

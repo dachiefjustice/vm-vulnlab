@@ -1,6 +1,7 @@
 # In Progress
 [ ] Write blog post
 [ ] Review docs
+[ ] Smoke-test apps
 
 # Completed
 [x] Modify port structure (each app gets a specific thousand ports)

@@ -49,7 +49,6 @@ Click through for information and instructions about each vulnerable application
 - [VulnLab](https://github.com/Yavuzlar/VulnLab)
 - [Damn Vulnerable Web Application (DVWA)](https://github.com/digininja/DVWA)
 - [Damn Vulnerable GraphQL Application (DVGA)](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application)
-- [SSRF Vulnerable Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
 - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 - [VAmPI](https://github.com/erev0s/VAmPI/tree/master)
 - [DVWS-Node](https://github.com/snoopysecurity/dvws-node)
