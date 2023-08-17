@@ -24,7 +24,7 @@ use_owasp_juiceshop:        true
 
 ##### Damn Vulnerable GraphVL Application #####
 ## More info: https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
-use_dvga:               true
+# use_dvga:               true
 # dvga_host_port:         '3004'
 
 ##### NodeGoat #####
