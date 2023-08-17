@@ -1,5 +1,9 @@
 ---
 ##### Project-Wide Settings #####
+## 🛑⚠️ WARNING 🛑⚠️
+## This automatically starts vulnerable apps! Before enabling this, make sure
+## you understand the security implications and
+## have implemented adequate compensating controls.
 # autostart_enabled_apps:     true
 
 ##### Juice Shop #####
