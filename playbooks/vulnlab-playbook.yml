@@ -1,5 +1,14 @@
 # This playbook sets up containerized vulnerable applications
 
+- name: Make project docs accessible in the VM
+  hosts: all
+  tasks:
+    - name: Symlink the README to $HOME
+      file:
+        src: /vagrant/README.md
+        dest: "{{ansible_user_dir}}/README.md"
+        state: link
+
 - name: Add vulnerable apps
   hosts: all
   roles:
