@@ -28,6 +28,23 @@
     - use_owasp_juiceshop
     - autostart_enabled_apps
 
+- name: Add Juice Shop start script
+  template:
+    src: templates/scripts/start-juice-shop.sh.j2
+    dest: "{{ansible_user_dir}}/start-juice-shop.sh"
+    mode: '0744'
+  when:
+    - use_owasp_juiceshop
+
+- name: Add Juice Shop stop script
+  template:
+    src: templates/scripts/stop-juice-shop.sh.j2
+    dest: "{{ansible_user_dir}}/stop-juice-shop.sh"
+    mode: '0744'
+  when:
+    - use_owasp_juiceshop
+    - use_start_stop_scripts
+
 ##### VulnLab #####
 - name: "Create directory for Yavuzlar Vulnlab ({{ vulnlab_directory }})"
   file:

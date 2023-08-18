@@ -4,6 +4,8 @@
 # Don't get yourself/your org pwned! See the README for tips on doing this safely.
 autostart_enabled_apps: false
 
+use_start_stop_scripts: false
+
 ##### Default Ports #####
 #   - Strings (not integers)
 #   - Override when calling the role to use a different port
