@@ -35,6 +35,7 @@
     mode: '0744'
   when:
     - use_owasp_juiceshop
+    - use_start_stop_scripts
 
 - name: Add Juice Shop stop script
   template:
@@ -74,6 +75,24 @@
     - use_yavuzlar_vulnlab
     - autostart_enabled_apps
 
+- name: Add Yavuzlar Vulnlab start script
+  template:
+    src: templates/scripts/start-vulnlab.sh.j2
+    dest: "{{ansible_user_dir}}/start-vulnlab.sh"
+    mode: '0744'
+  when:
+    - use_yavuzlar_vulnlab
+    - use_start_stop_scripts
+
+- name: Add Yavuzlar Vulnlab stop script
+  template:
+    src: templates/scripts/stop-vulnlab.sh.j2
+    dest: "{{ansible_user_dir}}/stop-vulnlab.sh"
+    mode: '0744'
+  when:
+    - use_yavuzlar_vulnlab
+    - use_start_stop_scripts
+
 ##### RailsGoat #####
 - name: "Clone RailsGoat repo to {{railsgoat_directory}}"
   git:
@@ -108,6 +127,24 @@
   when:
     - use_owasp_railsgoat
     - autostart_enabled_apps
+
+- name: Add RailsGoat start script
+  template:
+    src: templates/scripts/start-railsgoat.sh.j2
+    dest: "{{ansible_user_dir}}/start-railsgoat.sh"
+    mode: '0744'
+  when:
+    - use_owasp_railsgoat
+    - use_start_stop_scripts
+
+- name: Add RailsGoat stop script
+  template:
+    src: templates/scripts/stop-railsgoat.sh.j2
+    dest: "{{ansible_user_dir}}/stop-railsgoat.sh"
+    mode: '0744'
+  when:
+    - use_owasp_railsgoat
+    - use_start_stop_scripts
 
 ##### DVWA #####
 - name: "Clone DVWA repo to {{dvwa_directory}}"
@@ -144,6 +181,24 @@
     - use_dvwa
     - autostart_enabled_apps
 
+- name: Add DVWA start script
+  template:
+    src: templates/scripts/start-dvwa.sh.j2
+    dest: "{{ansible_user_dir}}/start-dvwa.sh"
+    mode: '0744'
+  when:
+    - use_dvwa
+    - use_start_stop_scripts
+
+- name: Add DVWA stop script
+  template:
+    src: templates/scripts/stop-dvwa.sh.j2
+    dest: "{{ansible_user_dir}}/stop-dvwa.sh"
+    mode: '0744'
+  when:
+    - use_dvwa
+    - use_start_stop_scripts
+
 ##### DVGA #####
 - name: "Create directory for DVGA ({{ dvga_directory }})"
   file:
@@ -171,6 +226,24 @@
   when:
     - use_dvga
     - autostart_enabled_apps
+
+- name: Add DVGA start script
+  template:
+    src: templates/scripts/start-dvga.sh.j2
+    dest: "{{ansible_user_dir}}/start-dvga.sh"
+    mode: '0744'
+  when:
+    - use_dvga
+    - use_start_stop_scripts
+
+- name: Add DVGA stop script
+  template:
+    src: templates/scripts/stop-dvga.sh.j2
+    dest: "{{ansible_user_dir}}/stop-dvga.sh"
+    mode: '0744'
+  when:
+    - use_dvga
+    - use_start_stop_scripts
 
 ##### NodeGoat #####
 - name: "Clone NodeGoat repo to {{nodegoat_directory}}"
@@ -206,6 +279,24 @@
     - use_owasp_nodegoat
     - autostart_enabled_apps
 
+- name: Add NodeGoat start script
+  template:
+    src: templates/scripts/start-nodegoat.sh.j2
+    dest: "{{ansible_user_dir}}/start-nodegoat.sh"
+    mode: '0744'
+  when:
+    - use_owasp_nodegoat
+    - use_start_stop_scripts
+
+- name: Add NodeGoat stop script
+  template:
+    src: templates/scripts/stop-nodegoat.sh.j2
+    dest: "{{ansible_user_dir}}/stop-nodegoat.sh"
+    mode: '0744'
+  when:
+    - use_owasp_nodegoat
+    - use_start_stop_scripts
+
 ##### WebGoat #####
 - name: "Create directory for WebGoat ({{ webgoat_directory }})"
   file:
@@ -233,6 +324,24 @@
   when:
     - use_webgoat
     - autostart_enabled_apps
+
+- name: Add WebGoat start script
+  template:
+    src: templates/scripts/start-webgoat.sh.j2
+    dest: "{{ansible_user_dir}}/start-webgoat.sh"
+    mode: '0744'
+  when:
+    - use_webgoat
+    - use_start_stop_scripts
+
+- name: Add WebGoat stop script
+  template:
+    src: templates/scripts/stop-webgoat.sh.j2
+    dest: "{{ansible_user_dir}}/stop-webgoat.sh"
+    mode: '0744'
+  when:
+    - use_webgoat
+    - use_start_stop_scripts
 
 ##### Mutillidae #####
 - name: "Clone Mutillidae repo to {{mutillidae_directory}}"
@@ -269,6 +378,24 @@
     - use_mutillidae
     - autostart_enabled_apps
 
+- name: Add Mutillidae start script
+  template:
+    src: templates/scripts/start-mutillidae.sh.j2
+    dest: "{{ansible_user_dir}}/start-mutillidae.sh"
+    mode: '0744'
+  when:
+    - use_mutillidae
+    - use_start_stop_scripts
+
+- name: Add Mutillidae stop script
+  template:
+    src: templates/scripts/stop-mutillidae.sh.j2
+    dest: "{{ansible_user_dir}}/stop-mutillidae.sh"
+    mode: '0744'
+  when:
+    - use_mutillidae
+    - use_start_stop_scripts
+
 ##### crAPI #####
 - name: "Clone crAPI repo to {{crAPI_directory}}"
   git:
@@ -291,6 +418,24 @@
   when:
     - use_crAPI
     - autostart_enabled_apps
+
+- name: Add crAPI start script
+  template:
+    src: templates/scripts/start-crAPI.sh.j2
+    dest: "{{ansible_user_dir}}/start-crAPI.sh"
+    mode: '0744'
+  when:
+    - use_crAPI
+    - use_start_stop_scripts
+
+- name: Add crAPI stop script
+  template:
+    src: templates/scripts/stop-crAPI.sh.j2
+    dest: "{{ansible_user_dir}}/stop-crAPI.sh"
+    mode: '0744'
+  when:
+    - use_crAPI
+    - use_start_stop_scripts
 
 ##### CI/CD Goat #####
 - name: "Create directory for CI/CD Goat ({{ cicdgoat_directory }})"
@@ -318,6 +463,24 @@
   when:
     - use_cicdgoat
     - autostart_enabled_apps
+
+- name: Add CI/CD Goat start script
+  template:
+    src: templates/scripts/start-cicdgoat.sh.j2
+    dest: "{{ansible_user_dir}}/start-cicdgoat.sh"
+    mode: '0744'
+  when:
+    - use_cicdgoat
+    - use_start_stop_scripts
+
+- name: Add CI/CD Goat stop script
+  template:
+    src: templates/scripts/stop-cicdgoat.sh.j2
+    dest: "{{ansible_user_dir}}/stop-cicdgoat.sh"
+    mode: '0744'
+  when:
+    - use_cicdgoat
+    - use_start_stop_scripts
 
 ##### VAmPI #####
 - name: "Clone VAmPI repo to {{VAmPI_directory}}"
@@ -354,6 +517,24 @@
     - use_VAmPI
     - autostart_enabled_apps
 
+- name: Add VAmPI start script
+  template:
+    src: templates/scripts/start-VAmPI.sh.j2
+    dest: "{{ansible_user_dir}}/start-VAmPI.sh"
+    mode: '0744'
+  when:
+    - use_VAmPI
+    - use_start_stop_scripts
+
+- name: Add VAmPI stop script
+  template:
+    src: templates/scripts/stop-VAmPI.sh.j2
+    dest: "{{ansible_user_dir}}/stop-VAmPI.sh"
+    mode: '0744'
+  when:
+    - use_VAmPI
+    - use_start_stop_scripts
+
 ##### DVWS-Node #####
 - name: "Clone DVWS repo to {{dvws_directory}}"
   git:
@@ -386,6 +567,24 @@
   when:
     - use_dvws
     - autostart_enabled_apps
+
+- name: Add DVWS start script
+  template:
+    src: templates/scripts/start-dvws.sh.j2
+    dest: "{{ansible_user_dir}}/start-dvws.sh"
+    mode: '0744'
+  when:
+    - use_dvws
+    - use_start_stop_scripts
+
+- name: Add DVWS stop script
+  template:
+    src: templates/scripts/stop-dvws.sh.j2
+    dest: "{{ansible_user_dir}}/stop-dvws.sh"
+    mode: '0744'
+  when:
+    - use_dvws
+    - use_start_stop_scripts
 
 ##### Security Shepherd #####
 - name: "Clone Security Shepherd repo to {{shepherd_directory}}"
@@ -435,3 +634,21 @@
   when:
     - use_shepherd
     - autostart_enabled_apps
+
+- name: Add Security Shepherd start script
+  template:
+    src: templates/scripts/start-security-shepherd.sh.j2
+    dest: "{{ansible_user_dir}}/start-security-shepherd.sh"
+    mode: '0744'
+  when:
+    - use_shepherd
+    - use_start_stop_scripts
+
+- name: Add Security Shepherd stop script
+  template:
+    src: templates/scripts/stop-security-shepherd.sh.j2
+    dest: "{{ansible_user_dir}}/stop-security-shepherd.sh"
+    mode: '0744'
+  when:
+    - use_shepherd
+    - use_start_stop_scripts

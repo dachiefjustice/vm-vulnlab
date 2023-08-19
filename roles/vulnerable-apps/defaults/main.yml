@@ -2,9 +2,10 @@
 ##### Auto-Launch #####
 # WARNING: enabling this will automatically launch vulnerable apps/services.
 # Don't get yourself/your org pwned! See the README for tips on doing this safely.
-autostart_enabled_apps: false
+autostart_enabled_apps:   false
 
-use_start_stop_scripts: false
+# Place start/stop scripts for enabled apps in $HOME
+use_start_stop_scripts:   true
 
 ##### Default Ports #####
 #   - Strings (not integers)
