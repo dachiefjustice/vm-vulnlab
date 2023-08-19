@@ -1,6 +1,6 @@
 ---
 ##### Project-Wide Settings #####
-use_start_stop_scripts:     true # place per-app start/stop scripts in $HOME
+use_start_stop_scripts:     true # place per-enabled-app start/stop scripts in $HOME
 
 ## 🛑⚠️ WARNING 🛑⚠️
 ## This automatically starts vulnerable apps! Before enabling this, make sure
