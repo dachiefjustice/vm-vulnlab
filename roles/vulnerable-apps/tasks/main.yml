@@ -21,13 +21,6 @@
     chdir: "{{ juiceshop_directory }}"
   when: use_owasp_juiceshop
 
-- name: Start Juice Shop
-  command:
-    cmd: "docker-compose -f {{juiceshop_compose_file}} up --detach"
-  when:
-    - use_owasp_juiceshop
-    - autostart_enabled_apps
-
 - name: Add Juice Shop start script
   template:
     src: templates/scripts/start-juice-shop.sh.j2
@@ -81,14 +74,6 @@
       docker-compose -f {{vulnlab_compose_file}} pull
     chdir: "{{ vulnlab_directory }}"
   when: use_yavuzlar_vulnlab
-
-- name: Start Yavuzlar Vulnlab
-  command:
-    chdir: "{{ vulnlab_directory }}"
-    cmd: docker-compose up --detach
-  when:
-    - use_yavuzlar_vulnlab
-    - autostart_enabled_apps
 
 - name: Add Yavuzlar Vulnlab start script
   template:
@@ -151,13 +136,6 @@
     chdir: "{{ railsgoat_directory }}"
   when: use_owasp_railsgoat
 
-- name: Start RailsGoat
-  command:
-    cmd: "docker-compose -f {{railsgoat_compose_file}} up --detach"
-  when:
-    - use_owasp_railsgoat
-    - autostart_enabled_apps
-
 - name: Add RailsGoat start script
   template:
     src: templates/scripts/start-railsgoat.sh.j2
@@ -219,13 +197,6 @@
     chdir: "{{ dvwa_directory }}"
   when: use_dvwa
 
-- name: Start DVWA
-  command:
-    cmd: "docker-compose -f {{dvwa_compose_file}} up --detach"
-  when:
-    - use_dvwa
-    - autostart_enabled_apps
-
 - name: Add DVWA start script
   template:
     src: templates/scripts/start-dvwa.sh.j2
@@ -279,13 +250,6 @@
       docker-compose -f {{dvga_compose_file}} pull
     chdir: "{{ dvga_directory }}"
   when: use_dvga
-
-- name: Start DVGA
-  command:
-    cmd: "docker-compose -f {{dvga_compose_file}} up --detach"
-  when:
-    - use_dvga
-    - autostart_enabled_apps
 
 - name: Add DVGA start script
   template:
@@ -347,13 +311,6 @@
       docker-compose -f {{nodegoat_compose_file}} pull
   when: use_owasp_nodegoat
 
-- name: Start NodeGoat
-  command:
-    cmd: "docker-compose -f {{nodegoat_compose_file}} up --detach"
-  when:
-    - use_owasp_nodegoat
-    - autostart_enabled_apps
-
 - name: Add NodeGoat start script
   template:
     src: templates/scripts/start-nodegoat.sh.j2
@@ -407,13 +364,6 @@
       docker-compose -f {{webgoat_compose_file}} pull
     chdir: "{{ webgoat_directory }}"
   when: use_webgoat
-
-- name: Start WebGoat
-  command:
-    cmd: "docker-compose -f {{webgoat_compose_file}} up --detach"
-  when:
-    - use_webgoat
-    - autostart_enabled_apps
 
 - name: Add WebGoat start script
   template:
@@ -476,13 +426,6 @@
     chdir: "{{mutillidae_directory}}"
   when: use_mutillidae
 
-- name: Start Mutillidae
-  command:
-    cmd: "docker-compose -f {{mutillidae_compose_file}} up --detach"
-  when:
-    - use_mutillidae
-    - autostart_enabled_apps
-
 - name: Add Mutillidae start script
   template:
     src: templates/scripts/start-mutillidae.sh.j2
@@ -531,13 +474,6 @@
       docker-compose -f {{crAPI_compose_file}} pull
     chdir: "{{ crAPI_directory }}"
   when: use_crAPI
-
-- name: Start crAPI
-  command:
-    cmd: "docker-compose -f {{crAPI_compose_file}} --compatibility up --detach"
-  when:
-    - use_crAPI
-    - autostart_enabled_apps
 
 - name: Add crAPI start script
   template:
@@ -591,13 +527,6 @@
     docker-compose -f {{cicdgoat_compose_file}} build &&
     docker-compose -f {{cicdgoat_compose_file}} pull
   when: use_cicdgoat
-
-- name: Start CI/CD Goat
-  command:
-    cmd: "docker-compose -f {{cicdgoat_compose_file}} up --detach"
-  when:
-    - use_cicdgoat
-    - autostart_enabled_apps
 
 - name: Add CI/CD Goat start script
   template:
@@ -660,13 +589,6 @@
       docker-compose -f {{VAmPI_compose_file}} pull
   when: use_VAmPI
 
-- name: Start VAmPI
-  command:
-    cmd: "docker-compose -f {{VAmPI_compose_file}} up --detach"
-  when:
-    - use_VAmPI
-    - autostart_enabled_apps
-
 - name: Add VAmPI start script
   template:
     src: templates/scripts/start-VAmPI.sh.j2
@@ -725,13 +647,6 @@
     chdir: "{{dvws_directory}}"
     cmd: docker-compose -f {{dvws_compose_file}} build
   when: use_dvws
-
-- name: Start DVWS
-  command:
-    cmd: "docker-compose -f {{dvws_compose_file}} up --detach"
-  when:
-    - use_dvws
-    - autostart_enabled_apps
 
 - name: Add DVWS start script
   template:
@@ -807,13 +722,6 @@
     cmd: |
       docker-compose -f {{shepherd_compose_file}} build --pull
   when: use_shepherd
-
-- name: Start Security Shepherd
-  command:
-    cmd: "docker-compose -f {{shepherd_compose_file}} up --detach"
-  when:
-    - use_shepherd
-    - autostart_enabled_apps
 
 - name: Add Security Shepherd start script
   template:
