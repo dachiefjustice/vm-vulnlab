@@ -80,50 +80,50 @@ dvga_image:             dolevf/dvga # on docker hub
 dvga_directory:         "{{ansible_user_dir}}/dvga"
 dvga_compose_file:      "{{dvga_directory}}/compose.yaml"
 
-# NodeGoat (https://github.com/OWASP/NodeGoat)
+# NodeGoat: https://github.com/OWASP/NodeGoat
 use_owasp_nodegoat:     false
 nodegoat_repo:          https://github.com/OWASP/NodeGoat.git
 nodegoat_directory:     "{{ansible_user_dir}}/nodegoat"
 nodegoat_compose_file:  "{{nodegoat_directory}}/compose.yaml"
 
-# WebGoat (https://github.com/WebGoat/WebGoat)
+# WebGoat: https://github.com/WebGoat/WebGoat
 use_webgoat:                false
 webgoat_image:              webgoat/webgoat # on docker hub
 webgoat_directory:          "{{ansible_user_dir}}/webgoat"
 webgoat_compose_file:       "{{webgoat_directory}}/compose.yaml"
 
-# Mutillidae (https://github.com/webpwnized/mutillidae)
+# Mutillidae: https://github.com/webpwnized/mutillidae
 use_mutillidae:                   false
 mutillidae_repo:                  https://github.com/webpwnized/mutillidae-docker.git
 mutillidae_directory:             "{{ansible_user_dir}}/mutillidae"
 mutillidae_compose_file:          "{{mutillidae_directory}}/compose.yaml"
 
-# crAPI (https://github.com/OWASP/crAPI)
+# crAPI: https://github.com/OWASP/crAPI
 use_crAPI:                false
 crAPI_repo:               https://github.com/OWASP/crAPI.git
 crAPI_directory:          "{{ansible_user_dir}}/crAPI"
 crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
 
-# CI/CD Goat (https://github.com/cider-security-research/cicd-goat)
+# CI/CD Goat: https://github.com/cider-security-research/cicd-goat
 # Using the default ports/containers from upstream, no customization.
 use_cicdgoat:                         false
 cicdgoat_compose_url:                 https://raw.githubusercontent.com/cider-security-research/cicd-goat/main/docker-compose.yaml
 cicdgoat_directory:                   "{{ansible_user_dir}}/cicd-goat"
 cicdgoat_compose_file:                "{{cicdgoat_directory}}/compose.yaml"
 
-# VAmPI (https://github.com/erev0s/VAmPI)
+# VAmPI: https://github.com/erev0s/VAmPI
 use_VAmPI:              false
 VAmPI_repo:             https://github.com/erev0s/VAmPI.git
 VAmPI_directory:        "{{ansible_user_dir}}/VAmPI"
 VAmPI_compose_file:     "{{VAmPI_directory}}/compose.yaml"
 
-# Damn Vulnerable Web Services (https://github.com/snoopysecurity/dvws-node)
+# Damn Vulnerable Web Services: https://github.com/snoopysecurity/dvws-node
 use_dvws:               false
 dvws_repo:              https://github.com/snoopysecurity/dvws-node.git
 dvws_directory:         "{{ansible_user_dir}}/dvws-node"
 dvws_compose_file:      "{{dvws_directory}}/compose.yaml"
 
-# Security Shepherd (https://github.com/OWASP/SecurityShepherd/)
+# Security Shepherd: https://github.com/OWASP/SecurityShepherd/
 use_shepherd:           false
 shepherd_repo:          https://github.com/OWASP/SecurityShepherd.git
 shepherd_directory:     "{{ansible_user_dir}}/security-shepherd"

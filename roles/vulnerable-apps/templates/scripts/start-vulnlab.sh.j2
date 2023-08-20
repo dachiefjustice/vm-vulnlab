@@ -1,3 +1,5 @@
 #!/bin/sh
 
 docker-compose -f {{vulnlab_compose_file}} up -d
+echo "Visit http://localhost:{{vulnlab_host_port}} to get started."
+echo "Visit https://github.com/Yavuzlar/VulnLab for the docs."

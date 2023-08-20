@@ -1,3 +1,5 @@
 #!/bin/sh
 
 docker-compose -f {{dvws_compose_file}} up -d
+echo "Visit http://localhost:{{dvws_host_port_http}} to get started."
+echo "Visit https://github.com/snoopysecurity/dvws-node for the docs."
