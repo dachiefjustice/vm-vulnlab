@@ -1,4 +1,7 @@
 ---
+##### Project-Wide Settings #####
+# use_start_stop_scripts:     true # place per-enabled-app start/stop scripts in $HOME
+
 ##### Juice Shop #####
 use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 # juiceshop_host_port:        '3000'
@@ -62,12 +65,3 @@ use_shepherd:             true # https://github.com/OWASP/SecurityShepherd/
 # shepherd_host_port_mongo: '9017'
 # shepherd_host_port_http:  '9080'
 # shepherd_host_port_https: '9443'
-
-##### Project-Wide Settings #####
-# use_start_stop_scripts:     true # place per-enabled-app start/stop scripts in $HOME
-
-## 🛑⚠️ WARNING 🛑⚠️
-## This automatically starts vulnerable apps! Before enabling this, make sure
-## you understand the security implications and
-## have implemented adequate compensating controls.
-# autostart_enabled_apps:     true
