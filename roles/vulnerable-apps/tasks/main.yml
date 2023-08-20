@@ -31,7 +31,7 @@
 - name: Add Juice Shop start script
   template:
     src: templates/scripts/start-juice-shop.sh.j2
-    dest: "{{ansible_user_dir}}/start-juice-shop.sh"
+    dest: "{{ juiceshop_start_script }}"
     mode: '0744'
   when:
     - use_owasp_juiceshop
@@ -40,11 +40,26 @@
 - name: Add Juice Shop stop script
   template:
     src: templates/scripts/stop-juice-shop.sh.j2
-    dest: "{{ansible_user_dir}}/stop-juice-shop.sh"
+    dest: "{{ juiceshop_stop_script }}"
     mode: '0744'
   when:
     - use_owasp_juiceshop
     - use_start_stop_scripts
+
+- name: Delete Juice Shop containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{juiceshop_compose_file}} down --rmi all --volumes || true"
+  when: not use_owasp_juiceshop
+
+- name: Delete Juice Shop code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ juiceshop_directory }}"
+    - "{{ juiceshop_start_script }}"
+    - "{{ juiceshop_stop_script }}"
+  when: not use_owasp_juiceshop
 
 ##### VulnLab #####
 - name: "Create directory for Yavuzlar Vulnlab ({{ vulnlab_directory }})"
@@ -78,7 +93,7 @@
 - name: Add Yavuzlar Vulnlab start script
   template:
     src: templates/scripts/start-vulnlab.sh.j2
-    dest: "{{ansible_user_dir}}/start-vulnlab.sh"
+    dest: "{{ vulnlab_start_script }}"
     mode: '0744'
   when:
     - use_yavuzlar_vulnlab
@@ -87,11 +102,26 @@
 - name: Add Yavuzlar Vulnlab stop script
   template:
     src: templates/scripts/stop-vulnlab.sh.j2
-    dest: "{{ansible_user_dir}}/stop-vulnlab.sh"
+    dest: "{{ vulnlab_stop_script }}"
     mode: '0744'
   when:
     - use_yavuzlar_vulnlab
     - use_start_stop_scripts
+
+- name: Delete Yavuzlar Vulnlab containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{vulnlab_compose_file}} down --rmi all --volumes || true"
+  when: not use_yavuzlar_vulnlab
+
+- name: Delete Yavuzlar Vulnlab code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ vulnlab_directory }}"
+    - "{{ vulnlab_start_script }}"
+    - "{{ vulnlab_stop_script }}"
+  when: not use_yavuzlar_vulnlab
 
 ##### RailsGoat #####
 - name: "Clone RailsGoat repo to {{railsgoat_directory}}"
@@ -131,7 +161,7 @@
 - name: Add RailsGoat start script
   template:
     src: templates/scripts/start-railsgoat.sh.j2
-    dest: "{{ansible_user_dir}}/start-railsgoat.sh"
+    dest: "{{ railsgoat_start_script }}"
     mode: '0744'
   when:
     - use_owasp_railsgoat
@@ -140,11 +170,26 @@
 - name: Add RailsGoat stop script
   template:
     src: templates/scripts/stop-railsgoat.sh.j2
-    dest: "{{ansible_user_dir}}/stop-railsgoat.sh"
+    dest: "{{ railsgoat_stop_script }}"
     mode: '0744'
   when:
     - use_owasp_railsgoat
     - use_start_stop_scripts
+
+- name: Delete RailsGoat containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{railsgoat_compose_file}} down --rmi all --volumes || true"
+  when: not use_owasp_railsgoat
+
+- name: Delete RailsGoat code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ railsgoat_directory }}"
+    - "{{ railsgoat_start_script }}"
+    - "{{ railsgoat_stop_script }}"
+  when: not use_owasp_railsgoat
 
 ##### DVWA #####
 - name: "Clone DVWA repo to {{dvwa_directory}}"
@@ -184,7 +229,7 @@
 - name: Add DVWA start script
   template:
     src: templates/scripts/start-dvwa.sh.j2
-    dest: "{{ansible_user_dir}}/start-dvwa.sh"
+    dest: "{{ dvwa_start_script }}"
     mode: '0744'
   when:
     - use_dvwa
@@ -193,11 +238,26 @@
 - name: Add DVWA stop script
   template:
     src: templates/scripts/stop-dvwa.sh.j2
-    dest: "{{ansible_user_dir}}/stop-dvwa.sh"
+    dest: "{{ dvwa_stop_script }}"
     mode: '0744'
   when:
     - use_dvwa
     - use_start_stop_scripts
+
+- name: Delete DVWA containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{dvwa_compose_file}} down --rmi all --volumes || true"
+  when: not use_dvwa
+
+- name: Delete DVWA code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ dvwa_directory }}"
+    - "{{ dvwa_start_script }}"
+    - "{{ dvwa_stop_script }}"
+  when: not use_dvwa
 
 ##### DVGA #####
 - name: "Create directory for DVGA ({{ dvga_directory }})"
@@ -230,7 +290,7 @@
 - name: Add DVGA start script
   template:
     src: templates/scripts/start-dvga.sh.j2
-    dest: "{{ansible_user_dir}}/start-dvga.sh"
+    dest: "{{ dvga_start_script }}"
     mode: '0744'
   when:
     - use_dvga
@@ -239,11 +299,26 @@
 - name: Add DVGA stop script
   template:
     src: templates/scripts/stop-dvga.sh.j2
-    dest: "{{ansible_user_dir}}/stop-dvga.sh"
+    dest: "{{ dvga_stop_script }}"
     mode: '0744'
   when:
     - use_dvga
     - use_start_stop_scripts
+
+- name: Delete DVGA containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{dvga_compose_file}} down --rmi all --volumes || true"
+  when: not use_dvga
+
+- name: Delete DVGA code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ dvga_directory }}"
+    - "{{ dvga_start_script }}"
+    - "{{ dvga_stop_script }}"
+  when: not use_dvga
 
 ##### NodeGoat #####
 - name: "Clone NodeGoat repo to {{nodegoat_directory}}"
@@ -282,7 +357,7 @@
 - name: Add NodeGoat start script
   template:
     src: templates/scripts/start-nodegoat.sh.j2
-    dest: "{{ansible_user_dir}}/start-nodegoat.sh"
+    dest: "{{ nodegoat_start_script }}"
     mode: '0744'
   when:
     - use_owasp_nodegoat
@@ -291,11 +366,26 @@
 - name: Add NodeGoat stop script
   template:
     src: templates/scripts/stop-nodegoat.sh.j2
-    dest: "{{ansible_user_dir}}/stop-nodegoat.sh"
+    dest: "{{ nodegoat_stop_script }}"
     mode: '0744'
   when:
     - use_owasp_nodegoat
     - use_start_stop_scripts
+
+- name: Delete NodeGoat containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{nodegoat_compose_file}} down --rmi all --volumes || true"
+  when: not use_owasp_nodegoat
+
+- name: Delete NodeGoat code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ nodegoat_directory }}"
+    - "{{ nodegoat_start_script }}"
+    - "{{ nodegoat_stop_script }}"
+  when: not use_owasp_nodegoat
 
 ##### WebGoat #####
 - name: "Create directory for WebGoat ({{ webgoat_directory }})"
@@ -328,7 +418,7 @@
 - name: Add WebGoat start script
   template:
     src: templates/scripts/start-webgoat.sh.j2
-    dest: "{{ansible_user_dir}}/start-webgoat.sh"
+    dest: "{{ webgoat_start_script }}"
     mode: '0744'
   when:
     - use_webgoat
@@ -337,11 +427,26 @@
 - name: Add WebGoat stop script
   template:
     src: templates/scripts/stop-webgoat.sh.j2
-    dest: "{{ansible_user_dir}}/stop-webgoat.sh"
+    dest: "{{ webgoat_stop_script }}"
     mode: '0744'
   when:
     - use_webgoat
     - use_start_stop_scripts
+
+- name: Delete WebGoat containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{webgoat_compose_file}} down --rmi all --volumes || true"
+  when: not use_webgoat
+
+- name: Delete WebGoat code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ webgoat_directory }}"
+    - "{{ webgoat_start_script }}"
+    - "{{ webgoat_stop_script }}"
+  when: not use_webgoat
 
 ##### Mutillidae #####
 - name: "Clone Mutillidae repo to {{mutillidae_directory}}"
@@ -381,7 +486,7 @@
 - name: Add Mutillidae start script
   template:
     src: templates/scripts/start-mutillidae.sh.j2
-    dest: "{{ansible_user_dir}}/start-mutillidae.sh"
+    dest: "{{ mutillidae_start_script }}"
     mode: '0744'
   when:
     - use_mutillidae
@@ -390,11 +495,26 @@
 - name: Add Mutillidae stop script
   template:
     src: templates/scripts/stop-mutillidae.sh.j2
-    dest: "{{ansible_user_dir}}/stop-mutillidae.sh"
+    dest: "{{ mutillidae_stop_script }}"
     mode: '0744'
   when:
     - use_mutillidae
     - use_start_stop_scripts
+
+- name: Delete Mutillidae containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{mutillidae_compose_file}} down --rmi all --volumes || true"
+  when: not use_mutillidae
+
+- name: Delete Mutillidae code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ mutillidae_directory }}"
+    - "{{ mutillidae_start_script }}"
+    - "{{ mutillidae_stop_script }}"
+  when: not use_mutillidae
 
 ##### crAPI #####
 - name: "Clone crAPI repo to {{crAPI_directory}}"
@@ -422,7 +542,7 @@
 - name: Add crAPI start script
   template:
     src: templates/scripts/start-crAPI.sh.j2
-    dest: "{{ansible_user_dir}}/start-crAPI.sh"
+    dest: "{{ crAPI_start_script }}"
     mode: '0744'
   when:
     - use_crAPI
@@ -431,11 +551,26 @@
 - name: Add crAPI stop script
   template:
     src: templates/scripts/stop-crAPI.sh.j2
-    dest: "{{ansible_user_dir}}/stop-crAPI.sh"
+    dest: "{{ crAPI_stop_script }}"
     mode: '0744'
   when:
     - use_crAPI
     - use_start_stop_scripts
+
+- name: Delete crAPI containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{crAPI_compose_file}} down --rmi all --volumes || true"
+  when: not use_crAPI
+
+- name: Delete crAPI code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ crAPI_directory }}"
+    - "{{ crAPI_start_script }}"
+    - "{{ crAPI_stop_script }}"
+  when: not use_crAPI
 
 ##### CI/CD Goat #####
 - name: "Create directory for CI/CD Goat ({{ cicdgoat_directory }})"
@@ -467,7 +602,7 @@
 - name: Add CI/CD Goat start script
   template:
     src: templates/scripts/start-cicdgoat.sh.j2
-    dest: "{{ansible_user_dir}}/start-cicdgoat.sh"
+    dest: "{{ cicdgoat_start_script }}"
     mode: '0744'
   when:
     - use_cicdgoat
@@ -476,11 +611,26 @@
 - name: Add CI/CD Goat stop script
   template:
     src: templates/scripts/stop-cicdgoat.sh.j2
-    dest: "{{ansible_user_dir}}/stop-cicdgoat.sh"
+    dest: "{{ cicdgoat_stop_script }}"
     mode: '0744'
   when:
     - use_cicdgoat
     - use_start_stop_scripts
+
+- name: Delete CI/CD Goat containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{cicdgoat_compose_file}} down --rmi all --volumes || true"
+  when: not use_cicdgoat
+
+- name: Delete CI/CD Goat code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ cicdgoat_directory }}"
+    - "{{ cicdgoat_start_script }}"
+    - "{{ cicdgoat_stop_script }}"
+  when: not use_cicdgoat
 
 ##### VAmPI #####
 - name: "Clone VAmPI repo to {{VAmPI_directory}}"
@@ -520,7 +670,7 @@
 - name: Add VAmPI start script
   template:
     src: templates/scripts/start-VAmPI.sh.j2
-    dest: "{{ansible_user_dir}}/start-VAmPI.sh"
+    dest: "{{ VAmPI_start_script }}"
     mode: '0744'
   when:
     - use_VAmPI
@@ -529,11 +679,26 @@
 - name: Add VAmPI stop script
   template:
     src: templates/scripts/stop-VAmPI.sh.j2
-    dest: "{{ansible_user_dir}}/stop-VAmPI.sh"
+    dest: "{{ VAmPI_stop_script }}"
     mode: '0744'
   when:
     - use_VAmPI
     - use_start_stop_scripts
+
+- name: Delete VAmPI containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{VAmPI_compose_file}} down --rmi all --volumes || true"
+  when: not use_VAmPI
+
+- name: Delete VAmPI code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ VAmPI_directory }}"
+    - "{{ VAmPI_start_script }}"
+    - "{{ VAmPI_stop_script }}"
+  when: not use_VAmPI
 
 ##### DVWS-Node #####
 - name: "Clone DVWS repo to {{dvws_directory}}"
@@ -571,7 +736,7 @@
 - name: Add DVWS start script
   template:
     src: templates/scripts/start-dvws.sh.j2
-    dest: "{{ansible_user_dir}}/start-dvws.sh"
+    dest: "{{ dvws_start_script }}"
     mode: '0744'
   when:
     - use_dvws
@@ -580,11 +745,26 @@
 - name: Add DVWS stop script
   template:
     src: templates/scripts/stop-dvws.sh.j2
-    dest: "{{ansible_user_dir}}/stop-dvws.sh"
+    dest: "{{ dvws_stop_script }}"
     mode: '0744'
   when:
     - use_dvws
     - use_start_stop_scripts
+
+- name: Delete DVWS containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{dvws_compose_file}} down --rmi all --volumes || true"
+  when: not use_dvws
+
+- name: Delete DVWS code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ dvws_directory }}"
+    - "{{ dvws_start_script }}"
+    - "{{ dvws_stop_script }}"
+  when: not use_dvws
 
 ##### Security Shepherd #####
 - name: "Clone Security Shepherd repo to {{shepherd_directory}}"
@@ -638,7 +818,7 @@
 - name: Add Security Shepherd start script
   template:
     src: templates/scripts/start-security-shepherd.sh.j2
-    dest: "{{ansible_user_dir}}/start-security-shepherd.sh"
+    dest: "{{ shepherd_start_script }}"
     mode: '0744'
   when:
     - use_shepherd
@@ -647,8 +827,23 @@
 - name: Add Security Shepherd stop script
   template:
     src: templates/scripts/stop-security-shepherd.sh.j2
-    dest: "{{ansible_user_dir}}/stop-security-shepherd.sh"
+    dest: "{{ shepherd_stop_script }}"
     mode: '0744'
   when:
     - use_shepherd
     - use_start_stop_scripts
+
+- name: Delete Security Shepherd containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{shepherd_compose_file}} down --rmi all --volumes || true"
+  when: not use_shepherd
+
+- name: Delete Security Shepherd code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ shepherd_directory }}"
+    - "{{ shepherd_start_script }}"
+    - "{{ shepherd_stop_script }}"
+  when: not use_shepherd

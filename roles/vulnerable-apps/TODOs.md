@@ -2,6 +2,7 @@
 [ ] Write blog post
 [ ] Review docs
 [ ] Smoke-test apps
+[ ] Add per-app disable/remove functionality
 
 # Completed
 [x] Modify port structure (each app gets a specific thousand ports)
@@ -16,5 +17,7 @@
 [x] Add maintenance section
 [x] Add https://github.com/OWASP/SecurityShepherd/
 [x] Add per-app table to vulnlab
+[x] Add start/stop scripts swapping docker-compose
+[x] Add getting started and docs links to start/stop scripts 
 
 # Discarded

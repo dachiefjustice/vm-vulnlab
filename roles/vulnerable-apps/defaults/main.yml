@@ -55,54 +55,72 @@ use_owasp_juiceshop:    false
 juiceshop_image:        bkimminich/juice-shop # on docker hub
 juiceshop_compose_file: "{{juiceshop_directory}}/compose.yaml"
 juiceshop_directory:    "{{ansible_user_dir}}/juice-shop"
+juiceshop_start_script: "{{ansible_user_dir}}/start-juice-shop.sh"
+juiceshop_stop_script:  "{{ansible_user_dir}}/stop-juice-shop.sh"
 
 # VulnLab: https://github.com/Yavuzlar/VulnLab
 use_yavuzlar_vulnlab:   false
 vulnlab_image:          yavuzlar/vulnlab # on docker hub
 vulnlab_directory:      "{{ansible_user_dir}}/vulnlab"
 vulnlab_compose_file:   "{{ vulnlab_directory }}/compose.yaml"
+vulnlab_start_script:   "{{ansible_user_dir}}/start-vulnlab.sh"
+vulnlab_stop_script:    "{{ansible_user_dir}}/stop-vulnlab.sh"
 
 # RailsGoat: https://github.com/OWASP/railsgoat
 use_owasp_railsgoat:    false
 railsgoat_repo:         https://github.com/OWASP/railsgoat.git
 railsgoat_directory:    "{{ansible_user_dir}}/railsgoat"
 railsgoat_compose_file: "{{railsgoat_directory}}/compose.yaml"
+railsgoat_start_script: "{{ansible_user_dir}}/start-railsgoat.sh"
+railsgoat_stop_script:  "{{ansible_user_dir}}/stop-railsgoat.sh"
 
 # Damn Vulnerable Web Application (DVWA): https://github.com/digininja/DVWA
 use_dvwa:               false
 dvwa_repo:              https://github.com/digininja/DVWA.git
 dvwa_directory:         "{{ansible_user_dir}}/dvwa"
 dvwa_compose_file:      "{{dvwa_directory}}/compose.yaml"
+dvwa_start_script:      "{{ansible_user_dir}}/start-dvwa.sh"
+dvwa_stop_script:       "{{ansible_user_dir}}/stop-dvwa.sh"
 
 # Damn Vulnerable GraphQL Application (DVGA): https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 use_dvga:               false
 dvga_image:             dolevf/dvga # on docker hub
 dvga_directory:         "{{ansible_user_dir}}/dvga"
 dvga_compose_file:      "{{dvga_directory}}/compose.yaml"
+dvga_start_script:      "{{ansible_user_dir}}/start-dvga.sh"
+dvga_stop_script:       "{{ansible_user_dir}}/stop-dvga.sh"
 
 # NodeGoat: https://github.com/OWASP/NodeGoat
 use_owasp_nodegoat:     false
 nodegoat_repo:          https://github.com/OWASP/NodeGoat.git
 nodegoat_directory:     "{{ansible_user_dir}}/nodegoat"
 nodegoat_compose_file:  "{{nodegoat_directory}}/compose.yaml"
+nodegoat_start_script:  "{{ansible_user_dir}}/start-nodegoat.sh"
+nodegoat_stop_script:   "{{ansible_user_dir}}/stop-nodegoat.sh"
 
 # WebGoat: https://github.com/WebGoat/WebGoat
 use_webgoat:                false
 webgoat_image:              webgoat/webgoat # on docker hub
 webgoat_directory:          "{{ansible_user_dir}}/webgoat"
 webgoat_compose_file:       "{{webgoat_directory}}/compose.yaml"
+webgoat_start_script:       "{{ansible_user_dir}}/start-webgoat.sh"
+webgoat_stop_script:        "{{ansible_user_dir}}/stop-webgoat.sh"
 
 # Mutillidae: https://github.com/webpwnized/mutillidae
 use_mutillidae:                   false
 mutillidae_repo:                  https://github.com/webpwnized/mutillidae-docker.git
 mutillidae_directory:             "{{ansible_user_dir}}/mutillidae"
 mutillidae_compose_file:          "{{mutillidae_directory}}/compose.yaml"
+mutillidae_start_script:          "{{ansible_user_dir}}/start-mutillidae.sh"
+mutillidae_stop_script:           "{{ansible_user_dir}}/stop-mutillidae.sh"
 
 # crAPI: https://github.com/OWASP/crAPI
 use_crAPI:                false
 crAPI_repo:               https://github.com/OWASP/crAPI.git
 crAPI_directory:          "{{ansible_user_dir}}/crAPI"
 crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
+crAPI_start_script:       "{{ansible_user_dir}}/start-crAPI.sh"
+crAPI_stop_script:        "{{ansible_user_dir}}/stop-crAPI.sh"
 
 # CI/CD Goat: https://github.com/cider-security-research/cicd-goat
 # Using the default ports/containers from upstream, no customization.
@@ -110,18 +128,24 @@ use_cicdgoat:                         false
 cicdgoat_compose_url:                 https://raw.githubusercontent.com/cider-security-research/cicd-goat/main/docker-compose.yaml
 cicdgoat_directory:                   "{{ansible_user_dir}}/cicd-goat"
 cicdgoat_compose_file:                "{{cicdgoat_directory}}/compose.yaml"
+cicdgoat_start_script:                "{{ansible_user_dir}}/start-cicdgoat.sh"
+cicdgoat_stop_script:                 "{{ansible_user_dir}}/stop-cicdgoat.sh"
 
 # VAmPI: https://github.com/erev0s/VAmPI
 use_VAmPI:              false
 VAmPI_repo:             https://github.com/erev0s/VAmPI.git
 VAmPI_directory:        "{{ansible_user_dir}}/VAmPI"
 VAmPI_compose_file:     "{{VAmPI_directory}}/compose.yaml"
+VAmPI_start_script:     "{{ansible_user_dir}}/start-VAmPI.sh"
+VAmPI_stop_script:      "{{ansible_user_dir}}/stop-VAmPI.sh"
 
 # Damn Vulnerable Web Services: https://github.com/snoopysecurity/dvws-node
 use_dvws:               false
 dvws_repo:              https://github.com/snoopysecurity/dvws-node.git
 dvws_directory:         "{{ansible_user_dir}}/dvws-node"
 dvws_compose_file:      "{{dvws_directory}}/compose.yaml"
+dvws_start_script:      "{{ansible_user_dir}}/start-dvws.sh"
+dvws_stop_script:       "{{ansible_user_dir}}/stop-dvws.sh"
 
 # Security Shepherd: https://github.com/OWASP/SecurityShepherd/
 use_shepherd:           false
@@ -129,3 +153,5 @@ shepherd_repo:          https://github.com/OWASP/SecurityShepherd.git
 shepherd_directory:     "{{ansible_user_dir}}/security-shepherd"
 shepherd_env_file:      "{{shepherd_directory}}/.env"
 shepherd_compose_file:  "{{shepherd_directory}}/docker-compose.yml"
+shepherd_start_script:  "{{ansible_user_dir}}/start-security-shepherd.sh"
+shepherd_stop_script:   "{{ansible_user_dir}}/stop-security-shepherd.sh"
