@@ -42,6 +42,7 @@ use_mutillidae:         true # https://github.com/webpwnized/mutillidae
 
 ##### CI/CD Goat #####
 # use_cicdgoat:            true # https://github.com/cider-security-research/cicd-goat
+## SECURITY WARNING: unlike the other apps, this app binds to vulnerable services to 0.0.0.0
 ## NOTE:  Refer to the CI/CD Goat README for port details. These ports are not customizeable due to the app's complexity and use of docker-in-docker.
 
 ##### VAmPI #####
