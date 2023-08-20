@@ -66,7 +66,7 @@ config.vm.provider "virtualbox" do |v|
 ## VM Setup
 On a machine meeting the prerequisites listed above:
 ```sh
-git clone https://gitlab.com/johnroberts/vm-vulnlab.git
+git clone https://github.com/dachiefjustice/vm-vulnlab.git # or https://gitlab.com/johnroberts/vm-vulnlab.git
 cd vm-vulnlab
 vagrant plugin install vagrant-reload # for VM provisioning
 vagrant up
