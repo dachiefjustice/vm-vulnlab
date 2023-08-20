@@ -7,32 +7,32 @@ use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 # juiceshop_host_port:        '3000'
 
 ##### Yazuzlar Vulnerable Lab #####
-use_yavuzlar_vulnlab:   true # https://github.com/Yavuzlar/VulnLab
+# use_yavuzlar_vulnlab:   true # https://github.com/Yavuzlar/VulnLab
 # vulnlab_host_port:      '3001'  
 
 ##### RailsGoat #####
-use_owasp_railsgoat:    true  # https://github.com/OWASP/railsgoat
+# use_owasp_railsgoat:    true  # https://github.com/OWASP/railsgoat
 # railsgoat_host_port:    '3002'
 
 ##### Damn Vulnerable Web Application #####
-use_dvwa:               true # https://github.com/digininja/DVWA
+# use_dvwa:               true # https://github.com/digininja/DVWA
 # dvwa_host_port:         '3003'
 
 ##### Damn Vulnerable GraphVL Application #####
-use_dvga:               true  # https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
+# use_dvga:               true  # https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 # dvga_host_port:         '3004'
 
 ##### NodeGoat #####
-use_owasp_nodegoat:     true # https://github.com/OWASP/NodeGoat
+# use_owasp_nodegoat:     true # https://github.com/OWASP/NodeGoat
 # nodegoat_host_port:     '3005'
 
 ##### WebGoat #####
-use_webgoat:            true # https://github.com/WebGoat/WebGoat
+# use_webgoat:            true # https://github.com/WebGoat/WebGoat
 # webgoat_host_webgoat_port:  '4080'
 # webgoat_host_webwolf_port:  '4090'
 
 ##### Mutillidae #####
-use_mutillidae:         true # https://github.com/webpwnized/mutillidae
+# use_mutillidae:         true # https://github.com/webpwnized/mutillidae
 # mutillidae_host_port_dbadmin:     '5081'
 # mutillidae_host_port_http:        '5080'
 # mutillidae_host_port_https:       '5443'
@@ -49,18 +49,18 @@ use_mutillidae:         true # https://github.com/webpwnized/mutillidae
 ## NOTE:  Refer to the CI/CD Goat README for port details. These ports are not customizeable due to the app's complexity and use of docker-in-docker.
 
 ##### VAmPI #####
-use_VAmPI:              true # https://github.com/erev0s/VAmPI
+# use_VAmPI:              true # https://github.com/erev0s/VAmPI
 # VAmPI_host_port_secure: '6001'
 # VAmPI_host_port_vuln:   '6002'
 
 ##### Damn Vulnerable Web Services #####
-use_dvws:               true # https://github.com/snoopysecurity/dvws-node
+# use_dvws:               true # https://github.com/snoopysecurity/dvws-node
 # dvws_host_port_http:      '7080'
 # dvws_host_port_graphql:   '7081'
 # dvws_host_port_xmlrpc:    '7090'
 
 ##### Security Shepherd #####
-use_shepherd:             true # https://github.com/OWASP/SecurityShepherd/
+# use_shepherd:             true # https://github.com/OWASP/SecurityShepherd/
 # shepherd_host_port_db:    '9306'
 # shepherd_host_port_mongo: '9017'
 # shepherd_host_port_http:  '9080'
