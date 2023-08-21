@@ -1,6 +1,7 @@
 #!/bin/sh
 
 docker-compose -f {{dvws_compose_file}} up -d
+sleep 20
 echo "Visit http://localhost:{{dvws_host_port_http}} to get started. Other DVWS ports:"
 echo "\thttp://localhost:{{dvws_host_port_graphql}} (GraphQL)"
 echo "\thttp://localhost:{{dvws_host_port_xmlrpc}} (XML-RPC)"

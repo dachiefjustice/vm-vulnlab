@@ -1,7 +1,10 @@
 #!/bin/sh
 
 docker-compose -f {{mutillidae_compose_file}} up -d
-echo "Visit http://localhost:{{mutillidae_host_port_http}} to get started. Other Mutillidae ports:"
+sleep 15
+echo "Starting database setup: invoking http://localhost:{{mutillidae_host_port_http}}/set-up-database.php"
+curl -S -s -o /dev/null http://localhost:{{mutillidae_host_port_http}}/set-up-database.php
+echo "Visit http://localhost:{{mutillidae_host_port_http}} to get started. At first launch, click the link in step  Other Mutillidae ports:"
 echo "\thttps://localhost:{{mutillidae_host_port_https}} (HTTPS, self-signed certificate)"
 echo "\thttp://localhost:{{mutillidae_host_port_dbadmin}} (DB admin)"
 echo "\thttp://localhost:{{mutillidae_host_port_ldap_admin}} (LDAP admin)"

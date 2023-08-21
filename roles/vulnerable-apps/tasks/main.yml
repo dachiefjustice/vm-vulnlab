@@ -461,18 +461,21 @@
   when: not use_mutillidae
 
 ##### crAPI #####
-- name: "Clone crAPI repo to {{crAPI_directory}}"
-  git:
-    repo: "{{ crAPI_repo }}"
-    dest: "{{ crAPI_directory }}"
-    force: true # running crAPI modifies files within the project directory
+- name: "Create crAPI directory {{crAPI_directory}}"
+  file:
+    path: "{{ crAPI_directory }}"
+    state: directory
   when: use_crAPI
 
-- name: Build and pull crAPI
-  shell:
-    cmd: |
-      docker-compose -f {{crAPI_compose_file}} build &&
-      docker-compose -f {{crAPI_compose_file}} pull
+- name: Download crAPI docker-compose file ({{crAPI_compose_file_url}})
+  get_url:
+    url: "{{ crAPI_compose_file_url }}"
+    dest: "{{ crAPI_compose_file }}"
+  when: use_crAPI
+
+- name: Pull crAPI images
+  command:
+    cmd: docker-compose -f {{crAPI_compose_file}} pull
     chdir: "{{ crAPI_directory }}"
   when: use_crAPI
 

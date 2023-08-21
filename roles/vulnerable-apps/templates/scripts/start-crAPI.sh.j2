@@ -1,5 +1,7 @@
 #!/bin/sh
 
-docker-compose -f {{crAPI_compose_file}} up -d
+echo "crAPI starts slowly, give it 3-5 minutes. If needed, run {{crAPI_stop_script}} and re-run this script."
+docker-compose -f {{crAPI_compose_file}} --compatibility up -d
+sleep 10
 echo "Visit http://localhost:8888 to get started."
 echo "Visit https://github.com/OWASP/crAPI for the docs."

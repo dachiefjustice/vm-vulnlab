@@ -114,7 +114,8 @@ mutillidae_stop_script:           "{{ansible_user_dir}}/stop-mutillidae.sh"
 use_crAPI:                false
 crAPI_repo:               https://github.com/OWASP/crAPI.git
 crAPI_directory:          "{{ansible_user_dir}}/crAPI"
-crAPI_compose_file:       "{{crAPI_directory}}/deploy/docker/docker-compose.yml"
+crAPI_compose_file_url:   https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
+crAPI_compose_file:       "{{crAPI_directory}}/docker-compose.yml"
 crAPI_start_script:       "{{ansible_user_dir}}/start-crAPI.sh"
 crAPI_stop_script:        "{{ansible_user_dir}}/stop-crAPI.sh"
 

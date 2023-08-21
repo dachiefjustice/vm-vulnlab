@@ -1,5 +1,6 @@
 #!/bin/sh
 
 docker-compose -f {{webgoat_compose_file}} up -d
-echo "Visit http://localhost:{{webgoat_host_webgoat_port}} for WebGoat, http://localhost:{{webgoat_host_webwolf_port}} for WebWolf."
+sleep 10
+echo "Visit http://localhost:{{webgoat_host_webgoat_port}}/WebGoat for WebGoat, http://localhost:{{webgoat_host_webwolf_port}}/home for WebWolf."
 echo "Visit https://github.com/WebGoat/WebGoat for the docs."

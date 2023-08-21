@@ -1,5 +1,6 @@
 #!/bin/sh
 
 docker-compose -f {{juiceshop_compose_file}} up -d
+sleep 10
 echo "Visit http://localhost:{{juiceshop_host_port}} to get started."
 echo "Visit https://owasp.org/www-project-juice-shop for the docs."
