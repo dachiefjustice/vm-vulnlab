@@ -17,7 +17,9 @@ This project takes the following security precautions:
 For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
 
 # Usage
-![](docs/vm-vulnlab-demo-edited.mp4)
+<video>
+  <source src="docs/vm-vulnlab-demo-edited.mp4" type="video/mp4">
+</video>
 
 ## Summary
 1. Clone/fork this repo
