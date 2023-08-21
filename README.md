@@ -17,6 +17,7 @@ This project takes the following security precautions:
 For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
 
 # Usage
+Quick demo:
 <video>
   <source src="docs/vm-vulnlab-demo-edited.mp4" type="video/mp4">
 </video>
