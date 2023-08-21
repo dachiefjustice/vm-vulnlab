@@ -4,6 +4,10 @@ This repo provides a **free and open-source web-focused security training enviro
 - Practice penetration testing safely and easily
 - Create security trainings/workshops
 
+
+[![Quick video demo](http://alliedmedtraining.com/wp-content/uploads/Computer-test-keyboard.jpg)](https://github.com/dachiefjustice/vm-vulnlab/raw/main/docs/vm-vulnlab-demo-edited.mp4)
+
+
 https://github.com/dachiefjustice/vm-vulnlab/raw/main/docs/vm-vulnlab-demo-edited.mp4
 
 **Massive thanks** to the authors and contributors of these vulnerable apps! This repo simply packages their work in a convenient way.
