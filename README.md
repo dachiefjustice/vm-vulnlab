@@ -4,6 +4,8 @@ This repo provides a **free and open-source web-focused security training enviro
 - Practice penetration testing safely and easily
 - Create security trainings/workshops
 
+https://github.com/dachiefjustice/vm-vulnlab/raw/main/docs/vm-vulnlab-demo-edited.mp4
+
 **Massive thanks** to the authors and contributors of these vulnerable apps! This repo simply packages their work in a convenient way.
 
 ## <a name="security-warning"></a> 🛑⚠️Security Warning⚠️🛑
@@ -17,11 +19,6 @@ This project takes the following security precautions:
 For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
 
 # Usage
-Quick demo:
-<video>
-  <source src="docs/vm-vulnlab-demo-edited.mp4" type="video/mp4">
-</video>
-
 ## Summary
 1. Clone/fork this repo
 2. `vagrant plugin install vagrant-reload` to enable automatic VM provisioning.
