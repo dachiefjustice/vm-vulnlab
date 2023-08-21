@@ -11,7 +11,7 @@ This VM contains lots of vulnerable software! You're responsible for your own se
 
 This project takes the following security precautions:
 - Vulnerable apps must be manually launched
-- Uses a private Virtualbox network without port forwarding as a security layer
+- Uses a private Virtualbox network without port forwarding
 - Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0` (except CI/CD Goat due to Docker-in-Docker usage and inherent complexity)
 
 For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
