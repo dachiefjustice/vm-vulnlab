@@ -160,6 +160,7 @@
   when: not use_owasp_railsgoat
 
 - name: Delete RailsGoat code and start/stop scripts
+  become: true # needed because railsgoat/tmp is owned by root
   file:
     path: "{{ item }}"
     state: absent
