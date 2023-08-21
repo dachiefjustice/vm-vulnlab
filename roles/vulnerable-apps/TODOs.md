@@ -2,8 +2,6 @@
 [ ] Write blog post
 [ ] Review docs
 [ ] Smoke-test all apps from clean provision
-[ ] Update README with screenshots
-[ ] Update start scripts for multi-port apps
 
 # Completed
 [x] Modify port structure (each app gets a specific thousand ports)
@@ -24,5 +22,7 @@
 [x] Move to GitHub
 [x] Update README for start/stop scripts
 [x] Remove auto-start functionality
+[x] Update README with video
+[x] Update start scripts for multi-port apps
 
 # Discarded
