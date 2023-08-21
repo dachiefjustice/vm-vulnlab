@@ -60,7 +60,7 @@ use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 # dvws_host_port_xmlrpc:    '7090'
 
 ##### Security Shepherd #####
-# use_shepherd:             true # https://github.com/OWASP/SecurityShepherd/
+# use_shepherd:           true # https://github.com/OWASP/SecurityShepherd/
 # shepherd_host_port_db:    '9306'
 # shepherd_host_port_mongo: '9017'
 # shepherd_host_port_http:  '9080'
