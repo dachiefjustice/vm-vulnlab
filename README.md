@@ -17,6 +17,8 @@ This project takes the following security precautions:
 For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
 
 # Usage
+![](docs/vm-vulnlab-demo-edited.mp4)
+
 ## Summary
 1. Clone/fork this repo
 2. `vagrant plugin install vagrant-reload` to enable automatic VM provisioning.
