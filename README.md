@@ -103,6 +103,7 @@ The vulnerable applications cover a range of programming languages, vulnerabilit
 | [Damn Vulnerable Web App (DVWA)](https://github.com/digininja/DVWA)         | 3003 (web)                                                                 |
 | [Damn Vulnerable GraphQL App (DVGA)](https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application) | 3004 (web)                                         |
 | [NodeGoat](https://github.com/OWASP/NodeGoat)                               | 3005 (web)                                                                 |
+| [SSRF Vulnerable Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)  | 3006 (web)                                                          |
 | [WebGoat](https://github.com/WebGoat/WebGoat)                               | 4080 (WebGoat), 4090 (WebWolf)                                             |
 | [Mutillidae](https://github.com/webpwnized/mutillidae)                      | 5080 (HTTP), 5443 (HTTPS), 5081 (DB Admin), 5389 (LDAP), 5082 (LDAP admin) |
 | [VAmPI](https://github.com/erev0s/VAmPI)                                    | 6001 (secure), 6002 (vulnerable)                                           |

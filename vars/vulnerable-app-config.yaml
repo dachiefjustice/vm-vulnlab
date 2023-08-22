@@ -26,6 +26,10 @@ use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 # use_owasp_nodegoat:     true # https://github.com/OWASP/NodeGoat
 # nodegoat_host_port:     '3005'
 
+##### SSRF Lab #####
+# use_ssrf_lab:           true # https://github.com/incredibleindishell/SSRF_Vulnerable_Lab
+# ssrf_lab_host_port:     '3006'
+
 ##### WebGoat #####
 # use_webgoat:            true # https://github.com/WebGoat/WebGoat
 # webgoat_host_webgoat_port:  '4080'
