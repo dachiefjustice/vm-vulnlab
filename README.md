@@ -6,6 +6,9 @@ This repo provides a **free and open-source web-focused security training enviro
 
 **Massive thanks** to the authors and contributors of these vulnerable apps! This repo simply packages their work in a convenient way.
 
+[**Watch this video**](https://github.com/dachiefjustice/vm-vulnlab/raw/main/docs/vm-vulnlab-demo-edited.mp4) to quickly understand how to use this repo.
+
+
 ## <a name="security-warning"></a> 🛑⚠️Security Warning⚠️🛑
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned! Get permission from your IT team if you're running this on a machine or network you don't control.
 
@@ -18,8 +21,6 @@ For another layer of protection, disconnect from the network while running vulne
 
 # Usage
 ## Summary
-[Watch this video](https://github.com/dachiefjustice/vm-vulnlab/raw/main/docs/vm-vulnlab-demo-edited.mp4) to quickly understand how to use this repo.
-
 1. Clone/fork this repo
 2. `vagrant plugin install vagrant-reload` to enable automatic VM provisioning.
 3. Edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to enable individual vulnerable applications. Each time you run `vagrant up --provision` these settings are applied.
