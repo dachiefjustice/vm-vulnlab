@@ -24,5 +24,6 @@
 [x] Update README with video
 [x] Update start scripts for multi-port apps
 [x] Smoke-test all apps from clean provision
+[x] Add SSRF vulnerable lab now that it's MIT-licensed
 
 # Discarded

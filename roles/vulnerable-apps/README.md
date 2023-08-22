@@ -52,6 +52,7 @@ Click through for information and instructions about each vulnerable application
 - [CI/CD Goat](https://github.com/cider-security-research/cicd-goat)
 - [VAmPI](https://github.com/erev0s/VAmPI/tree/master)
 - [DVWS-Node](https://github.com/snoopysecurity/dvws-node)
+- [SSRF Vulnerable Lab](https://github.com/incredibleindishell/SSRF_Vulnerable_Lab)
 
 These apps were chosen based on GitHub stars, and ease of wrapping with `docker-compose`. 
 Inspired by the [OWASP Vulnerable Web Applications Directory](https://owasp.org/www-project-vulnerable-web-applications-directory/) and my own experience.

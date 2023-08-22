@@ -512,6 +512,61 @@
     - "{{ crAPI_stop_script }}"
   when: not use_crAPI
 
+##### SSRF Lab #####
+- name: "Clone SSRF lab repo to {{ssrf_lab_directory}}"
+  git:
+    repo: "{{ ssrf_lab_repo }}"
+    dest: "{{ ssrf_lab_directory }}"
+    force: true # needed due to using a custom docker-compose file
+  when: use_ssrf_lab
+
+- name: Template out SSRF lab docker-compose file
+  template:
+    src: templates/compose-ssrf-lab.yaml.j2
+    dest: "{{ ssrf_lab_compose_file }}"
+  when: use_ssrf_lab
+
+- name: Build and pull SSRF lab
+  shell:
+    chdir: "{{ssrf_lab_directory}}"
+    cmd: |
+      docker-compose -f {{ssrf_lab_compose_file}} build &&
+      docker-compose -f {{ssrf_lab_compose_file}} pull
+  when: use_ssrf_lab
+
+- name: Add SSRF lab start script
+  template:
+    src: templates/scripts/start-ssrf-lab.sh.j2
+    dest: "{{ ssrf_lab_start_script }}"
+    mode: '0744'
+  when:
+    - use_ssrf_lab
+    - use_start_stop_scripts
+
+- name: Add SSRF lab stop script
+  template:
+    src: templates/scripts/stop-ssrf-lab.sh.j2
+    dest: "{{ ssrf_lab_stop_script }}"
+    mode: '0744'
+  when:
+    - use_ssrf_lab
+    - use_start_stop_scripts
+
+- name: Delete SSRF lab containers, images, volumes, and networks
+  shell:
+    cmd: "docker-compose -f {{ssrf_lab_compose_file}} down --rmi all --volumes || true"
+  when: not use_ssrf_lab
+
+- name: Delete SSRF lab code and start/stop scripts
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - "{{ ssrf_lab_directory }}"
+    - "{{ ssrf_lab_start_script }}"
+    - "{{ ssrf_lab_stop_script }}"
+  when: not use_ssrf_lab
+
 ##### CI/CD Goat #####
 - name: "Create directory for CI/CD Goat ({{ cicdgoat_directory }})"
   file:
