@@ -1,0 +1,24 @@
+---
+- name: Install Flatpak (system-wide)
+  become: true
+  ansible.builtin.apt:
+    state: latest
+    pkg: flatpak
+  when: flatpak_systemwide_install
+
+- name: Add Flathub repo (system-wide)
+  become: true
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+  when: flatpak_systemwide_add_flathub
+
+- name: Run flatpak update once per day (cronjob)
+  become: true
+  ansible.builtin.cron:
+    name: "Update installed Flatpaks"
+    special_time: "daily"
+    job: "flatpak update"
+    user: root
+  when: flatpak_systemwide_daily_update

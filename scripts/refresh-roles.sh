@@ -4,6 +4,7 @@
 
 # Remove roles installed from git repos
 rm -rf roles/vulnerable-apps \
+        kali-customizations \
         roles/geerlingguy.docker \
         roles/geerlingguy.git
 

@@ -1,0 +1,4 @@
+---
+flatpak_systemwide_install:         true
+flatpak_systemwide_add_flathub:     true
+flatpak_systemwide_daily_update:    true

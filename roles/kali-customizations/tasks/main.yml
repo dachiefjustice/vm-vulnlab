@@ -1,0 +1,26 @@
+---
+##### Vagrant/Ansible/Virtualbox Prerequisites #####
+- name: Install Python 3 libapt interface (needed for apt module)
+  become: true
+  apt:
+    update_cache: yes
+    state: latest
+    pkg:
+      - python3-apt
+
+- name: Add vagrant user to groups for shared folders and network management
+  become: true
+  user:
+    name: vagrant
+    state: present
+    groups:
+      - vboxsf
+      - netdev
+
+##### Install Tools #####
+- name: Install OWASP ZAP (system-wide Flatpak)
+  become: true
+  community.general.flatpak:
+    name: org.zaproxy.ZAP
+    state: present
+  when: install_owasp_zap

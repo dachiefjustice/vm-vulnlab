@@ -7,3 +7,8 @@
   scm: git
   version: main
   name: vulnerable-apps
+
+- src: https://gitlab.com/johnroberts/ansiblerole-kali-customizations.git
+  scm: git
+  version: main
+  name: kali-customizations
