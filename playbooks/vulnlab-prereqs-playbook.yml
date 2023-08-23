@@ -1,25 +1,14 @@
 # This playbook sets up vulnlab prereqs:
-#   - Prepare Kali
+#   - Prepares Kali for provisioning
+#   - Installs OWASP ZAP
 #   - Install Docker and Docker Compose
 
 - name: Prepare Kali for provisioning
   hosts: all
-  tasks:
-    - name: Install Python 3 libapt interface (needed for apt module)
-      become: true
-      apt:
-        update_cache: yes
-        state: latest
-        pkg:
-          - python3-apt
-    - name: Add vagrant user to groups (enable shared folders, network management)
-      become: true
-      user:
-        name: vagrant
-        state: present
-        groups:
-          - vboxsf
-          - netdev
+  roles:
+    - kali-customizations
+  vars:
+    - install_owasp_zap:    true
 
 - name: Install Docker + Docker Compose
   hosts: all
