@@ -18,9 +18,10 @@
       - netdev
 
 ##### Install Tools #####
-- name: Install OWASP ZAP (system-wide Flatpak)
+- name: Install OWASP ZAP (Kali package)
   become: true
-  community.general.flatpak:
-    name: org.zaproxy.ZAP
+  apt:
+    name: zaproxy
+    update_cache: true
     state: present
   when: install_owasp_zap
