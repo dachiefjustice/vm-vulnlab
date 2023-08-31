@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   ##### VIRTUALBOX CUSTOMIZATION ######
   config.vm.provider "virtualbox" do |v|
     v.gui = true
-    v.memory = 3072
+    v.memory = 4096
 
     # Bidirectional clipboard
     v.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
