@@ -1,9 +1,8 @@
 ---
-- name: Ensure old versions of Docker are not installed.
+- # See https://docs.docker.com/engine/install/debian/#uninstall-old-versions
+  name: Ensure old versions of Docker are not installed.
   package:
-    name:
-      - docker
-      - docker-engine
+    name: "{{ docker_obsolete_packages }}"
     state: absent
 
 - name: Ensure dependencies are installed.
@@ -14,22 +13,16 @@
     state: present
   when: docker_add_repo | bool
 
-- name: Ensure additional dependencies are installed (on Ubuntu < 20.04 and any other systems).
-  apt:
-    name: gnupg2
-    state: present
-  when: ansible_distribution != 'Ubuntu' or ansible_distribution_version is version('20.04', '<')
-
-- name: Ensure additional dependencies are installed (on Ubuntu >= 20.04).
-  apt:
-    name: gnupg
-    state: present
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_version is version('20.04', '>=')
+- name: Ensure directory exists for /etc/apt/keyrings
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
 
 - name: Add Docker apt key.
   ansible.builtin.get_url:
     url: "{{ docker_apt_gpg_key }}"
-    dest: /etc/apt/trusted.gpg.d/docker.asc
+    dest: /etc/apt/keyrings/docker.asc
     mode: '0644'
     force: false
     checksum: "{{ docker_apt_gpg_key_checksum | default(omit) }}"
@@ -50,5 +43,6 @@
   apt_repository:
     repo: "{{ docker_apt_repository }}"
     state: present
+    filename: "{{ docker_apt_filename }}"
     update_cache: true
   when: docker_add_repo | bool
