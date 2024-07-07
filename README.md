@@ -1,10 +1,10 @@
 # Web Vulnlab VM
-This repo provides a **free and open-source web-focused security training environment** for Linux, Windows, and MacOS. It packages **10+ intentionally vulnerable web apps** with a [Kali Linux Vagrant VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/). Use it to:
+This repo provides a **free and open-source security training environment** focused on web security. It packages **10+ intentionally vulnerable web apps** with a [Kali Linux Vagrant VM](https://www.kali.org/docs/virtualization/install-vagrant-guest-vm/). Use it to:
 - Better understand vulnerabilities by analyzing and exploiting them
 - Practice penetration testing safely and easily
 - Create security trainings/workshops
 
-**Massive thanks** to the authors and contributors of these vulnerable apps! This repo simply packages their work in a convenient way.
+**Big thanks** to the authors and contributors of these vulnerable apps! This repo packages their work in a convenient-to-use way.
 
 [**Watch this video**](https://github.com/dachiefjustice/vm-vulnlab/raw/main/docs/vm-vulnlab-demo-edited.mp4) to quickly understand how to use this repo.
 
@@ -13,21 +13,20 @@ This repo provides a **free and open-source web-focused security training enviro
 This VM contains lots of vulnerable software! You're responsible for your own security, don't get yourself or your organization pwned! Get permission from your IT team if you're running this on a machine or network you don't control.
 
 This project takes the following security precautions:
-- Vulnerable apps must be manually launched
-- Uses a private Virtualbox network without port forwarding
-- Vulnerable applications listen on `127.0.0.1` rather than `0.0.0.0` (except CI/CD Goat due to Docker-in-Docker usage and inherent complexity)
+- Uses a private network with no port forwarding. This way, vulnerable services aren't exposed to the VM host or it's network (unless you edit network config in the `Vagrantfile`).
+- Vulnerable applications are configured to listen on `127.0.0.1` rather than `0.0.0.0`. Exception: CI/CD Goat uses Docker-in-Docker, so when you enable it some services will listen on `0.0.0.0` in the VM
 
-For another layer of protection, disconnect from the network while running vulnerable apps (an internet connection is needed for initial setup).
+For another layer of protection, you can disconnect the VM host from its network while running vulnerable apps (an internet connection is needed for initial setup).
 
 # Usage
 ## Summary
 1. Clone/fork this repo
 2. `vagrant plugin install vagrant-reload` to enable automatic VM provisioning.
-3. Edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to enable individual vulnerable applications. Each time you run `vagrant up --provision` these settings are applied.
+3. Edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to enable individual vulnerable applications. Each time you run `vagrant up --provision` these settings are applied. By default, RailsGoat will be provisioned (though not automatically started).
 4. `cd vm-vulnlab && vagrant up`. Provisioning takes a few minutes depending on your internet speed and enabled apps. You'll be prompted to install the `vagrant-reload` plugin if you don't have it already.
 5. Open the VM's Virtualbox window, log in with `vagrant/vagrant`, open a terminal and run `./start-app-name.sh`.
     - The per-app startup scripts print URLs for the running app and and its docs (control-click them to open).
-6. When you're done using the app run `$HOME/stop-app-name.sh` from a shell in the VM. Changes to the app are saved (if the app supports it). Then run `vagrant halt` from a shell in the cloned repo to stop the VM.
+6. When you're done using the app run `$HOME/stop-app-name.sh` from a shell in the VM. Changes to the app are saved (if the app supports it). Then run `vagrant halt` from VM host shell.
 
 More detailed instructions below.
 
@@ -76,7 +75,7 @@ use_owasp_nodegoat:     true # https://github.com/OWASP/NodeGoat
     - Create start/stop scripts (`/home/vagrant/start-nodegoat.sh` and `/home/vagrant/stop-nodegoat.sh` in this case).
 3. **Launch NodeGoat**: log into the VM's Virtualbox window (with `vagrant/vagrant` username/password), open a terminal and run `./start-nodegoat.sh`. This start script displays URLs to the running application and application's documentation, control-click to open them in the browser. Some applications might take a minute or two to finish setup the first time you launch them.
 4. **Use NodeGoat**: in the Kali VM, launch Firefox/Burp Suite/whatever tool and point it at the running application.
-5. **Stop NodeGoat**: when you're done using NodeGoat, open a terminal in the VM and run `$HOME/stop-nodegoat.sh`. Changes to the app are saved (if the app supports it). Then run `vagrant halt` from a shell in the cloned repo to stop the VM.
+5. **Stop NodeGoat**: when you're done using NodeGoat, open a terminal in the VM and run `$HOME/stop-nodegoat.sh`. Changes to the app are saved (if the app supports it). Then run `vagrant halt` from VM host shell.
 
 ## Remove Vulnerable Applications
 You can also disable applications to reclaim VM disk space. Note that this will destroy all changes to the application, such as progress you've made hacking the app so far!
