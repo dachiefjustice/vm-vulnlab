@@ -3,7 +3,7 @@
 # use_start_stop_scripts:     true # place per-enabled-app start/stop scripts in $HOME
 
 ##### Juice Shop #####
-use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
+# use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 # juiceshop_host_port:        '3000'
 
 ##### Yazuzlar Vulnerable Lab #####
@@ -11,7 +11,7 @@ use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 # vulnlab_host_port:      '3001'  
 
 ##### RailsGoat #####
-# use_owasp_railsgoat:    true  # https://github.com/OWASP/railsgoat
+use_owasp_railsgoat:    true  # https://github.com/OWASP/railsgoat
 # railsgoat_host_port:    '3002'
 
 ##### Damn Vulnerable Web Application #####
@@ -48,7 +48,9 @@ use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 ## NOTE: Refer to the crAPI README for port details. Ports are not customizeable due to nature of the app.
 
 ##### CI/CD Goat #####
-## 🛑⚠️SECURITY WARNING🛑⚠️: unlike the other apps, this app binds to vulnerable services to 0.0.0.0
+## 🛑⚠️SECURITY WARNING🛑⚠️: unlike the other apps, this app binds vulnerable services to 0.0.0.0 in the VM
+##                       Only use this with a secure Vagrant-managed network type (e.g. host-only/NAT/private)
+##                       Don't expose these ports to an untrusted network!
 # use_cicdgoat:            true # https://github.com/cider-security-research/cicd-goat
 ## NOTE:  Refer to the CI/CD Goat README for port details. These ports are not customizeable due to the app's complexity and use of docker-in-docker.
 
