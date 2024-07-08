@@ -115,7 +115,7 @@ webgoat_stop_script:        "{{ansible_user_dir}}/stop-webgoat.sh"
 use_mutillidae:                   false
 mutillidae_repo:                  https://github.com/webpwnized/mutillidae-docker.git
 mutillidae_directory:             "{{ansible_user_dir}}/mutillidae"
-mutillidae_compose_file:          "{{mutillidae_directory}}/compose.yaml"
+mutillidae_compose_file:          "{{mutillidae_directory}}/.build/docker-compose.yml"
 mutillidae_start_script:          "{{ansible_user_dir}}/start-mutillidae.sh"
 mutillidae_stop_script:           "{{ansible_user_dir}}/stop-mutillidae.sh"
 

@@ -409,7 +409,7 @@
 
 - name: Remove docker-compose file from cloned Mutillidae repo (to use a custom one)
   file:
-    path: "{{mutillidae_directory}}/docker-compose.yml"
+    path: "{{ mutillidae_compose_file }}"
     state: absent
   when: use_mutillidae
 
