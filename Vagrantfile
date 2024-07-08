@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
   end
 
   # Reboot to add vagrant to docker group
-  config.vm.provision :reload
+  config.vm.provision :reload # this line can be commented-out after VM creation for faster deployments
   
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbooks/vulnlab-playbook.yml"
