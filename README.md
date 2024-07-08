@@ -24,8 +24,7 @@ For another layer of protection, you can disconnect the VM host from its network
 2. `vagrant plugin install vagrant-reload` to enable automatic VM provisioning.
 3. Edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to enable individual vulnerable applications. Each time you run `vagrant up --provision` these settings are applied. By default, RailsGoat will be provisioned (though not automatically started).
 4. `cd vm-vulnlab && vagrant up`. Provisioning takes a few minutes depending on your internet speed and enabled apps. You'll be prompted to install the `vagrant-reload` plugin if you don't have it already.
-5. Open the VM's Virtualbox window, log in with `vagrant/vagrant`, open a terminal and run `./start-app-name.sh`.
-    - The per-app startup scripts print URLs for the running app and and its docs (control-click them to open).
+5. Open the VM's Virtualbox window, log in with `vagrant/vagrant`, open a terminal and run `./start-app-name.sh`. The per-app startup scripts print URLs for the running app and its documentation (control-click them to open from a terminal).
 6. When you're done using the app run `$HOME/stop-app-name.sh` from a shell in the VM. Changes to the app are saved (if the app supports it). Then run `vagrant halt` from VM host shell.
 
 More detailed instructions below.
@@ -38,13 +37,15 @@ You'll need these free tools:
 - [Install Git instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 
 
 ### Hardware
-You'll need at least 6GB of physical RAM (8GB+ is better).
+You'll need at least 4GB of physical RAM on the VM host system (8GB+ is better).
 
-By default the VM uses 3GB of RAM. You can adjust this via the [`Vagrantfile`](Vagrantfile) `v.memory` variable (in MB). For example:
+By default the VM uses 4GB of RAM. You can adjust this via the `v.memory` variable in the [`Vagrantfile`](Vagrantfile) (specified in MB). For example:
 ```ruby
 config.vm.provider "virtualbox" do |v|
-    v.memory = 4096 # VM gets 4GB of RAM
+    v.memory = 6144 # VM gets 6GB of RAM
 ```
+
+RAM requirements change depending which tools and vulnerable applications you use in the Kali VM.
 
 ## Initial VM Setup
 On a machine meeting the prerequisites listed above:
@@ -72,7 +73,7 @@ use_owasp_nodegoat:     true # https://github.com/OWASP/NodeGoat
 2. **Deploy NodeGoat**: run `vagrant up --provision`. This will:
     - Create the application's directory in the VM (`/home/vagrant/nodegoat` in this case)
     - Prepare the application to be launched.
-    - Create start/stop scripts (`/home/vagrant/start-nodegoat.sh` and `/home/vagrant/stop-nodegoat.sh` in this case).
+    - Create application start/stop scripts (`/home/vagrant/start-nodegoat.sh` and `/home/vagrant/stop-nodegoat.sh` in this case).
 3. **Launch NodeGoat**: log into the VM's Virtualbox window (with `vagrant/vagrant` username/password), open a terminal and run `./start-nodegoat.sh`. This start script displays URLs to the running application and application's documentation, control-click to open them in the browser. Some applications might take a minute or two to finish setup the first time you launch them.
 4. **Use NodeGoat**: in the Kali VM, launch Firefox/Burp Suite/whatever tool and point it at the running application.
 5. **Stop NodeGoat**: when you're done using NodeGoat, open a terminal in the VM and run `$HOME/stop-nodegoat.sh`. Changes to the app are saved (if the app supports it). Then run `vagrant halt` from VM host shell.
