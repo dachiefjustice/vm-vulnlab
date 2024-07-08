@@ -6,7 +6,7 @@ echo "Starting database setup: invoking http://localhost:{{mutillidae_host_port_
 curl -S -s -o /dev/null http://localhost:{{mutillidae_host_port_http}}/set-up-database.php
 echo "Visit http://localhost:{{mutillidae_host_port_http}} to get started. At first launch, click the link in step  Other Mutillidae ports:"
 echo "\thttps://localhost:{{mutillidae_host_port_https}} (HTTPS, self-signed certificate)"
-echo "\thttps://localhost:8888 (HTTP, for StackHawk scanning)"
+echo "\thttp://localhost:8888 (HTTP, for StackHawk scanning)"
 echo "\thttp://localhost:{{mutillidae_host_port_dbadmin}} (DB admin)"
 echo "\thttp://localhost:{{mutillidae_host_port_ldap_admin}} (LDAP admin)"
 echo "\tldap://localhost:{{mutillidae_host_port_ldap}} (LDAP)"
