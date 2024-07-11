@@ -1,14 +1,15 @@
 ---
 dependencies:
-  - role: geerlingguy.docker # For Docker + Docker Compose on Kali Vagrant box
-    become: true
-    vars:
-      docker_edition: 'ce'
-      docker_users: ["{{ansible_user_id}}"] # works with vagrant; assumes same user for ansible and normal usage
-      docker_install_compose: true
-      docker_compose_version: '2.28.1'
-      docker_apt_gpg_key: 'https://download.docker.com/linux/debian/gpg'
-      docker_apt_repository: "deb [arch={{ docker_apt_arch }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable"
-
   - role: geerlingguy.git
     become: true
+
+# Note: reboot is needed before using docker (for docker user group)
+  # - role: geerlingguy.docker # For Docker + Docker Compose on Kali Vagrant box
+  #   become: true
+  #   vars:
+  #     docker_edition: 'ce'
+  #     docker_users: ["{{ansible_user_id}}"] # works with vagrant; assumes same user for ansible and normal usage
+  #     docker_install_compose: true
+  #     docker_compose_version: 'v2.28.1'
+  #     docker_apt_gpg_key: 'https://download.docker.com/linux/debian/gpg'
+  #     docker_apt_repository: "deb [arch={{ docker_apt_arch }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable"
