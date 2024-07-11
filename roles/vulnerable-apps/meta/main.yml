@@ -5,11 +5,10 @@ dependencies:
     vars:
       docker_edition: 'ce'
       docker_users: ["{{ansible_user_id}}"] # works with vagrant; assumes same user for ansible and normal usage
-      docker_install_compose_plugin: true
-      docker_compose_package: "docker-compose-plugin"
-      docker_compose_package_state: "present"
+      docker_install_compose: true
+      docker_compose_version: '2.28.1'
       docker_apt_gpg_key: 'https://download.docker.com/linux/debian/gpg'
-      docker_apt_repository: "deb [arch={{ docker_apt_arch }}] https://download.docker.com/linux/debian bookworm {{ docker_apt_release_channel }}"
-  
+      docker_apt_repository: "deb [arch={{ docker_apt_arch }} signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable"
+
   - role: geerlingguy.git
     become: true
