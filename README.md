@@ -134,7 +134,7 @@ vagrant up
     ansible.playbook = "playbooks/vulnlab-playbook.yml"
   end
 ```
-- Run [crAPI](https://github.com/OWASP/crAPI) and [CI/CD Goat](https://github.com/cider-security-research/cicd-goat) without any other apps enabled to avoid port conflicts and running out of disk/RAM.
+- Run [crAPI](https://github.com/OWASP/crAPI) and [CI/CD Goat](https://github.com/cider-security-research/cicd-goat) without any other apps enabled to avoid port conflicts and running out of disk/RAM. CI/CD Goat has a lot of components; if you use it, give the VM additional RAM for solid performance (8GB worked nicely during my testing).
 
 ## Ports
 You can change the ports for each application by uncommenting and editing variables named like `appname_host_port*` in [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml). Most vulnerable applications use a single port, some use multiple ports/services.

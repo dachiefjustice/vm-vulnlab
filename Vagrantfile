@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |v|
     v.gui = true
     v.memory = 4096
+    # v.memory = 8192 # useful for CI/CD Goat, which has many components
 
     # Bidirectional clipboard
     v.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
