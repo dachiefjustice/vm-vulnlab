@@ -1,9 +1,15 @@
 ---
+##### Usage #####
+# - Enable a vulnerable app: uncomment the relevant use_<appname> variable, then run a vagrant up --provision
+# - Disable and remove a vulnerable app: set the relevant use_<appname> variable
+#
+# After uncommmenting/changing variables, apply the changes with vagrant provision or vagrant up --provision
+
 ##### Project-Wide Settings #####
 # use_start_stop_scripts:     true # place per-enabled-app start/stop scripts in $HOME
 
 ##### Juice Shop #####
-# use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
+use_owasp_juiceshop:    true  # https://owasp.org/www-project-juice-shop/
 # juiceshop_host_port:        '3000'
 
 ##### Yazuzlar Vulnerable Lab #####
@@ -11,7 +17,7 @@
 # vulnlab_host_port:      '3001'  
 
 ##### RailsGoat #####
-use_owasp_railsgoat:    true  # https://github.com/OWASP/railsgoat
+# use_owasp_railsgoat:    true  # https://github.com/OWASP/railsgoat
 # railsgoat_host_port:    '3002'
 
 ##### Damn Vulnerable Web Application #####
