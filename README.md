@@ -22,7 +22,7 @@ For another layer of protection, you can disconnect the VM host from its network
 ## Summary
 1. Clone/fork this repo
 2. `vagrant plugin install vagrant-reload` to enable automatic VM provisioning.
-3. Edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to enable individual vulnerable applications. Each time you run `vagrant up --provision` these settings are applied. By default, RailsGoat will be provisioned (though not automatically started).
+3. Edit [vars/vulnerable-app-config.yaml](vars/vulnerable-app-config.yaml) to enable individual vulnerable applications. Each time you run `vagrant up --provision` these settings are applied. By default, Juice Shop will be provisioned (though not automatically started).
 4. `cd vm-vulnlab && vagrant up`. Provisioning takes a few minutes depending on your internet speed and enabled apps. You'll be prompted to install the `vagrant-reload` plugin if you don't have it already.
 5. Open the VM's Virtualbox window, log in with `vagrant/vagrant`, open a terminal and run `./start-app-name.sh`. The per-app startup scripts print URLs for the running app and its documentation (control-click them to open from a terminal).
 6. When you're done using the app run `$HOME/stop-app-name.sh` from a shell in the VM. Changes to the app are saved (if the app supports it). Then run `vagrant halt` from VM host shell.
